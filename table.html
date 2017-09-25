@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>无表格首页</title>
+    <style>
+        /*主体设置开始*/
+        #total{
+            width: 1000px;
+            border:1px solid #ccc;
+            margin: 50px auto;
+        }
+        /*主体设置结束*/
+        /*头部尾部开始*/
+        #header,#footer{
+            height: 40px;
+            width: 1000px;
+            background: #ccc;
+            color: #fff;
+            font-size: 26px;
+            line-height: 40px;
+        }
+        /*头部尾部结束*/
+        /*左侧内容开始*/
+        #sidebar{
+            width: 30%;
+            height: 400px;
+            border-right:1px solid #ccc;
+            float: left;
+        }
+        #sidebar .content{
+            margin: 40px 20px;
+        }
+        /*左侧内容结束*/
+        /*右侧内容开始*/
+        #content{
+            width: 69%;
+            height: 400px;
+            float: left;
+        }
+        /*右侧内容结束*/
+        /*禁止尾部浮动*/
+        #footer{
+            clear: both;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="total">
+        <div id="header">
+            W3School.com.cn
+        </div>
+        <div id="sidebar">
+            <div class="content">
+                "Never increase, beyond what is necessary, the number of entities required to explain anything." William of Ockham (1285-1349)
+            </div>
+        </div>
+        <div id="content">
+            <h1>Free Web Building Tutorials</h1>
+            <p>At W3School.com.cn you will find all the Web-building tutorials you need, from basic HTML and XHTML to advanced XML, XSL, Multimedia and WAP.</p>
+            <p>W3School.com.cn - The Largest Web Developers Site On The Net!</p>
+        </div>
+        <div id="footer">Copyright 2008 by YingKe Investment.</div>
+    </div>
+</body>
+</html>
