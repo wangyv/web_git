@@ -7,10 +7,8 @@ ul,ol{
 }
 a{
     text-decoration: none;
-    display: block;
 }
-img{
+img {
     border: 0;
-    display: block;
 }
 

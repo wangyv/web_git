@@ -11,14 +11,14 @@
     background: #333;
     height:40px;
 }
-#menu .menu1,.menu2,.menu3{
-
+#menu .menu1,.menu2,.menu3 {
     font-size:13px;
     line-height: 40px;
     float:left;
 }
-#menu span{
+#menu .sep{
     color: #444;
+    font-family: sans-serif;
 }
 #menu a{
     text-decoration: none;
@@ -174,24 +174,26 @@
     font-size: 16px;
     text-align: center;
 }
-#xm-plain-box .rp{
+#xm-plain-box .title1{
     margin: 0 20px 3px;
 }
-#xm-plain-box .rp a{
+ .title1 a{
+    display: block;
+    text-align: center;
+     font-size: 16px;
+     color: #212121;
+}
+ .desc,.price{
     display: block;
     text-align: center;
 }
-#xm-plain-box .recommended-products .desc,.price{
-    display: block;
-    text-align: center;
-}
-#xm-plain-box .recommended-products .desc{
+ .desc{
     color:#b0b0b0;
     font-size: 12px;
     margin: 0 20px 12px;
 
 }
-#xm-plain-box .recommended-products .price{
+ .price{
     color: #ff6709;
     font-size: 14px;
 }
@@ -203,12 +205,15 @@
 #mainly-recommended{
     background-color: rgb(245, 245, 245);
     padding-top: 60px;
-    padding-left: 150px;
-    height: 5000px;
-
+    display: block;
 }
-#mainly-recommended .home-appliances,.intelligent,.collocation,.accessories,.periphery,.recommended,.products,.content,.video{
-    width: 1240px;
+ .home-appliances , .intelligent, .collocation ,.accessories,.periphery,.recommended,.products,.content,.video{
+     width: 1240px;
+     height: 628px;
+     display: block;
+     float: left;
+     margin-left: 150px;
+
 }
 #mainly-recommended h2{
     color: rgb(51,51,51);
@@ -217,12 +222,12 @@
     line-height: 58px;
     float: left;
 }
-#mainly-recommended .menu-right{
+ .menu-right .tab-list{
     float:right;
     padding-top: 16px;
     padding-right: 14px;
 }
-#mainly-recommended .menu-right .tab-list li{
+ .menu-right .tab-list li{
     display: inline-block;
     color: rgb(66,66,66);
     font-size: 16px;
@@ -231,21 +236,60 @@
     margin-left: 30px;
 
 }
-#mainly-recommended .menu-right li:hover{
+ .menu-right li:hover{
     color:rgb(255,103,0);
     border-bottom: solid 2px rgb(255,103,0);
 }
-
-#mainly-recommended .home-appliances-products{
-    width: 1240px;
-    height: 686px;
+ .span-first ul{
+    display: block;
+    float: left;
 }
-#mainly-recommended .span-last li{
+ .span-last ul{
+    display: block;
+    float: left;
+    width: 1006px;
+}
+ .span-last li{
     margin: 0 0 14px 14px;
     background-color:rgb(255,255,255);
+    float: left;
+    display: block;
+    width: 234px;
+    height: 246px;
+    padding: 34px 0 20px;
+}
+ .span-last li img{
+    width: 150px;
+    height: 150px;
+}
+ .span-last .figure-img{
+    margin: 0 42px 20px;
+}
+del{
+    color:rgb(176,176,176);
+}
+.flag-saleoff,.flag-new{
+    background-color: #e53935;
+    color: rgb(255,255,255);
+    font-size: 12px;
+    width: 64px;
+    text-align: center;
+    position:relative;
+    top:-276px;
+    left:85px;
+}
+.flag-new{
+    background-color: rgb(131,196,78);
 }
 
+.figure-img-bottom{
 
+}
+
+.intelligent-title{
+    position: relative;
+    top:100px;
+}
 
 
 
