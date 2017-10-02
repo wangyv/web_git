@@ -157,19 +157,17 @@
     height: 160px;
     display: block;
 }
-#xm-plain-box .li1{
-    margin-left: 150px;
-}
 #xm-plain-box li{
 
     width: 234px;
     height: 340px;
     float: left;
     box-sizing: border-box;
-    margin-right: 14px;
+    margin: 0 14px 40px 0;
     border-top: 1px solid orange;
     background-color:#fafafa;
     padding-top: 39px;
+
 }
 #xm-plain-box a{
     color: #212121;
@@ -197,6 +195,57 @@
     color: #ff6709;
     font-size: 14px;
 }
+#xm-plain-box .recommended-products{
+    width: 1240px;
+    height: 380px;
+    margin-left: 150px;
+}
+#mainly-recommended{
+    background-color: rgb(245, 245, 245);
+    padding-top: 60px;
+    padding-left: 150px;
+    height: 5000px;
+
+}
+#mainly-recommended .home-appliances,.intelligent,.collocation,.accessories,.periphery,.recommended,.products,.content,.video{
+    width: 1240px;
+}
+#mainly-recommended h2{
+    color: rgb(51,51,51);
+    font-size: 22px;
+    height: 58px;
+    line-height: 58px;
+    float: left;
+}
+#mainly-recommended .menu-right{
+    float:right;
+    padding-top: 16px;
+    padding-right: 14px;
+}
+#mainly-recommended .menu-right .tab-list li{
+    display: inline-block;
+    color: rgb(66,66,66);
+    font-size: 16px;
+    line-height: 24px;
+    border-bottom:2px rgba(0,0,0,0) solid ;
+    margin-left: 30px;
+
+}
+#mainly-recommended .menu-right li:hover{
+    color:rgb(255,103,0);
+    border-bottom: solid 2px rgb(255,103,0);
+}
+
+#mainly-recommended .home-appliances-products{
+    width: 1240px;
+    height: 686px;
+}
+#mainly-recommended .span-last li{
+    margin: 0 0 14px 14px;
+    background-color:rgb(255,255,255);
+}
+
+
 
 
 
