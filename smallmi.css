@@ -183,19 +183,31 @@
      font-size: 16px;
      color: #212121;
 }
- .desc,.price{
+ .desc,.price,.rank{
     display: block;
     text-align: center;
 }
  .desc{
-    color:#b0b0b0;
-    font-size: 12px;
-    margin: 0 20px 12px;
-
+     color:#b0b0b0;
+     font-size: 12px;
+     margin: 0 20px 12px;
+     width: 214px;
+     height: 18px;
 }
+ .rank,.comment{
+     color:#b0b0b0;
+     font-size: 12px;
+     margin: 0 20px;
+     line-height: 18px;
+     width: 194px;
+     height: 18px;
+ }
  .price{
     color: #ff6709;
     font-size: 14px;
+     margin: 0 10px 10px;
+     width: 214px;
+     height: 21px;
 }
 #xm-plain-box .recommended-products{
     width: 1240px;
@@ -204,23 +216,42 @@
 }
 #mainly-recommended{
     background-color: rgb(245, 245, 245);
-    padding-top: 60px;
     display: block;
+    height: 5480px;
+    width: 100%;
+    position: absolute;
+    padding-top: 60px;
+}
+.intelligent,.collocation,.accessories,.periphery,.recommended,.products,.content,.video{
+    position: relative;
 }
  .home-appliances , .intelligent, .collocation ,.accessories,.periphery,.recommended,.products,.content,.video{
      width: 1240px;
-     height: 628px;
+     height: 680px;
      display: block;
      float: left;
      margin-left: 150px;
-
+     margin-top: 40px;
 }
-#mainly-recommended h2{
+.recommended{
+    height: 375px;
+}
+.products{
+    height: 488px;
+}
+.content{
+    height: 448px;
+}
+.video{
+    height: 410px;
+}
+ .mr-title{
     color: rgb(51,51,51);
     font-size: 22px;
     height: 58px;
     line-height: 58px;
     float: left;
+
 }
  .menu-right .tab-list{
     float:right;
@@ -246,7 +277,7 @@
 }
  .span-last ul{
     display: block;
-    float: left;
+    float: right;
     width: 1006px;
 }
  .span-last li{
@@ -268,28 +299,266 @@
 del{
     color:rgb(176,176,176);
 }
-.flag-saleoff,.flag-new{
+.flag-saleoff,.flag-new,.flag-free{
     background-color: #e53935;
     color: rgb(255,255,255);
     font-size: 12px;
     width: 64px;
     text-align: center;
     position:relative;
-    top:-276px;
+    top:-278px;
     left:85px;
 }
 .flag-new{
     background-color: rgb(131,196,78);
 }
-
-.figure-img-bottom{
-
+.flag-free{
+    background-color: rgb(255,172,19);
 }
-
-.intelligent-title{
+.home-appliances .flag-new,.intelligent .flag-free,.home-appliances .flag-saleoff,.intelligent .flag-new{
     position: relative;
-    top:100px;
+    top:-290px;
 }
+.span-first-double img{
+    width: 234px;
+    height: 300px;
+}
+.span-first-double li{
+    margin-bottom:14px;
+}
+.intelligent .span-last,.collocation .span-last,.accessories .span-last,.periphery .span-last{
+    position: relative;
+    top:-628px;
+}
+.home-appliances .figure-img-bottom,.intelligent .figure-img-bottom,.collocation .figure-img-bottom,.accessories .figure-img-bottom,.periphery .figure-img-bottom{
+    position: relative;
+    left:134px;
+    top:-15px;
+}
+.home-appliances .title2 a,.intelligent .title2 a,.collocation .title2 a,.accessories .title2 a,.periphery .title2 a{
+    position: relative;
+    top:-100px;
+    left:30px;
+    font-size: 16px;
+    color: #212121;
+    width: 90px;
+    height: 21px;
+    display: block;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+}
+.home-appliances .price1,.collocation .price1,.intelligent .price1,.accessories .price1,.periphery .price1{
+    position: relative;
+    top:-100px;
+    left:30px;
+    color: #ff6709;
+    font-size: 14px;
+    margin-top: 5px;
+}
+.figure-more i{
+    color:rgb(255,103,0);
+    position: relative;
+    left:150px;
+    display: block;
+    font-size: 48px;
+}
+.more{
+    margin-left: 30px;
+    color:rgb(51,51,51);
+    font-size: 18px;
+    position: relative;
+    top:-50px;
+}
+small{
+    color: rgb(117,117,117);
+    margin-left: 30px;
+    font-size: 12px;
+}
+.content1 ul,.content2 ul,.content3 ul,.content4{
+    display: block;
+    float: left;
+}
+.content1 li{
+    width: 234px;
+    height: 300px;
+    margin: 0 0 14px 14px;
+    background-color: white;
+    float: left;
+}
+.content1 .first,.content2 .first,.content3 .first{
+    margin-left: 0;
+}
+.content1 .content-img{
+    padding: 40px 0 15px 47px;
+}
+.comment{
+    margin-left: 80px;
+    font-size: 14px;
+    display: block;
+    width: 100px;
+
+}
+.recommended-title{
+    color: rgb(51,51,51);
+    display: block;
+    width: 200px;
+    height: 21px;
+    text-align: center;
+    margin: 0 0 10px 20px;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+}
+.content2 li{
+    width: 296px;
+    height: 415px;
+    margin: 0 0 14px 14px;
+    background-color: white ;
+    float: left;
+}
+.content2 img{
+    width: 296px;
+    height: 220px;
+    margin-bottom: 28px;
+}
+.review {
+    width: 240px;
+    height: 72px;
+    margin: 0 28px 22px;
+    font-size: 14px;
+}
+.review a{
+
+    color: rgb(51,51,51);
+}
+.author{
+    width: 230px;
+    height: 18px;
+    padding-right: 10px;
+    margin: 0 28px 8px;
+    font-size: 12px;
+    color: rgb(176,176,176);
+    float: left;
+}
+.sep1{
+    color: rgb(224,224,224);
+    float: left;
+}
+.info a,.title6{
+    color: rgb(51,51,51);
+    font-size: 14px;
+    display: block;
+    float: left;
+}
+.price2{
+    color: #ff6709;
+    font-size: 14px;
+}
+.info{
+    margin-left: 28px;
+}
+.content3 li{
+    padding-top: 60px;
+    width: 296px;
+    height: 374px;
+    border-top: 1px solid rgb(255,172,19);
+    background-color: white;
+    float: left;
+    margin-left:14px ;
+}
+.title2,.title3,.title4,.title5{
+    text-align: center;
+    margin: 0 10px 18px;
+    color:rgb(255,172,19);
+    font-size: 16px;
+}
+.content3 .desc{
+    width: 200px;
+    height: 40px;
+    margin: 0 48px 10px;
+}
+.content3 img{
+    margin:10px 0 0 40px;
+}
+.content3 .first img{
+    margin: 30px 40px 0;
+}
+.btn-nr{
+    border: 1px solid rgb(255,172,19);
+    display: block;
+    width: 118px;
+    height: 28px;
+    margin-left: 88px;
+    color:rgb(255,172,19);
+    text-align: center;
+    line-height: 28px;
+    font-size: 12px;
+}
+.btn-nr:hover{
+    background-color:rgb(255,172,19);
+    color: white;
+}
+.content3 .second{
+    border-top: 1px solid rgb(131,196,78);
+}
+.title3{
+    color: rgb(131,196,78);
+}
+.name{
+    font-size: 20px;
+    color:rgb(51,51,51);
+    text-align: center;
+}
+.price3{
+    color: rgb(51,51,51);
+    text-align: center;
+    font-size: 14px;
+    margin: 0 10px 15px;
+}
+.content3 .third{
+    border-top: 1px solid rgb(229,57,53);
+}
+.title4{
+    color:rgb(229,57,53);
+}
+.content3 .forth{
+    border-top: 1px solid rgb(33,150,243);
+}
+.title5{
+    color:rgb(33,150,243);
+}
+.content4 li{
+    width: 296px;
+    height: 285px;
+    background-color: white;
+    float: left;
+    display: block;
+    margin-right:14px ;
+}
+.play{
+    position: relative;
+    top:-50px;
+    left: 10px;
+    color: white;
+}
+.play i{
+    font-size: 30px;
+}
+.content4-img{
+    width: 296px;
+    height: 180px;
+    margin-bottom: 28px;
+}
+.title6{
+    width: 296px;
+    text-align: center;
+}
+.content4 .desc{
+    width: 296px;
+    margin: 0;
+}
+
 
 
 
