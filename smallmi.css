@@ -1,4 +1,4 @@
-
+/*头部图开始*/
 #header a{
     display: block;
 }
@@ -7,6 +7,8 @@
     height: 130px;
     width: 100%;
 }
+/*头部图结束*/
+/*导航栏开始*/
 #menu{
     background: #333;
     height:40px;
@@ -21,12 +23,13 @@
     font-family: sans-serif;
 }
 #menu a{
-    text-decoration: none;
     color: #cccccc;
 }
 #menu a:hover{
     color: white;
 }
+/*导航栏结束*/
+/*index开始*/
 #index{
     height:110px;
     /*background-color: #cccccc;*/
@@ -38,7 +41,6 @@
 }
 #index .index1{
     width: 60%;
-
 }
 #index .index1 a{
     text-decoration: none;
@@ -54,6 +56,8 @@
 #index a:hover{
     color:orangered;
 }
+/*index结束*/
+/*轮播图开始*/
 #lunbotu a{
     margin-left: 150px;
     margin-bottom: 20px;
@@ -62,6 +66,8 @@
 #lunbotu .datu{
     display: block;
 }
+/*轮播图结束*/
+/*左导航栏开始*/
 #sidebar{
     background: rgba(0,0,0,0.6);
     height:460px;
@@ -92,6 +98,8 @@
 #sidebar a:hover{
     background-color: orangered;
 }
+/*左导航栏结束*/
+/*推荐开始*/
 #container {
     width: 100%;
 
@@ -134,6 +142,8 @@
     line-height: 24px;
 
 }
+/*推荐结束*/
+/*热门商品推荐开始*/
 #xm1,#xm2,#xm3{
     padding-left: 10px;
     display: block;
@@ -214,10 +224,12 @@
     height: 380px;
     margin-left: 150px;
 }
+/*热门商品推荐结束*/
+/*主要推荐开始*/
 #mainly-recommended{
     background-color: rgb(245, 245, 245);
     display: block;
-    height: 5480px;
+    height: 5490px;
     width: 100%;
     position: absolute;
     padding-top: 60px;
@@ -240,7 +252,7 @@
     height: 488px;
 }
 .content{
-    height: 448px;
+    height: 480px;
 }
 .video{
     height: 410px;
@@ -545,6 +557,9 @@ small{
 .play i{
     font-size: 30px;
 }
+.play i:hover{
+    color:#ff6709;
+}
 .content4-img{
     width: 296px;
     height: 180px;
@@ -558,8 +573,176 @@ small{
     width: 296px;
     margin: 0;
 }
+/*主要推荐结束*/
+/*脚部开始*/
+.site-footer{
+    display: block;
+    width: 1226px;
+    height: 80px;
+    padding: 27px 0;
+    position: absolute;
+    box-sizing: border-box;
+    top:6960px;
+    text-align: center;
+    margin-left: 150px;
+    border-bottom: 1px solid rgb(224,224,224);
+}
+.footer-service ul{
+    display: block;
+    float: left;
 
+}
+.footer-service li{
+    display: block;
+    float: left;
+    width: 244px;
+    border-right: 1px solid rgb(224,224,224);
+    font-size: 16px;
 
+}
+.footer-service a{
+    color: rgb(97,97,97);
+}
+.footer-service i{
+    font-size: 24px;
+}
+.site-footer .service-last{
+    border-right-color: #ffffff;
+}
+.footer-service a:hover{
+    color:#ff6709;
+}
+.footer-links{
+    display: block;
+    width: 1226px;
+    height: 112px;
+    padding: 40px 0;
+    position: absolute;
+    top:80px;
+}
+.footer-links dl{
+    width: 160px;
+    height: 112px;
+    float: left;
+}
+.footer-links dt{
+    margin-bottom: 26px;
+    color: rgb(66,66,66);
+    font-size: 14px;
+    height: 17px;
+    text-align: left;
+}
+.footer-links dd{
+    height: 18px;
+    margin-top: 10px;
+    text-align: left;
+}
+.footer-links dd a{
+    font-size: 12px;
+    color: rgb(117,117,117);
+}
+.footer-links dd a:hover{
+    color:#ff6709;
+}
+.footer-right{
+    display: block;
+    width: 251px;
+    height: 112px;
+    border-left:1px solid rgb(224,224,224) ;
+    float: right;
+}
+.footer-right p{
+    font-size: 12px;
+    color: rgb(97,97,97);
+    margin-bottom: 16px;
+}
+.footer-right .phone{
+    color:#ff6709;
+    font-size: 22px;
+    height: 22px;
+    margin-bottom: 5px;
+}
+.footer-right a{
+    border: 1px solid #ff6709 ;
+    color:#ff6709 ;
+    display: block;
+    width: 118px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    margin-left: 65px;
+}
+.footer-right a:hover{
+    color: white;
+    background-color: #ff6709;
+}
+.site-info{
+    width: 100%;
+    height: 106px;
+    padding:30px 0;
+    position: absolute;
+    top:7240px;
+    background-color:rgb(245, 245, 245) ;
+}
+.container{
+    width: 1226px;
+    height: 57px;
+    margin-left: 150px;
+}
+.site-info .footer-logo{
+    width: 57px;
+    height: 57px;
+    margin-right: 10px;
+    float: left;
+}
+.site-info .sites{
+    float: left;
+    width: 718px;
+    height: 19px;
+}
+.site-info .sites a{
+    font-size:11px;
+    color: rgb(117,117,117);
+}
+.site-info .sites a:hover{
+    color: #ff6709;
+}
+.site-info .sites .sep2{
+    color: rgb(176,176,176);
+    font-size: 12px;
+}
+.footer-container{
+    display: block;
+    float: left;
+    font-size: 12px;
+    color:rgb(176,176,176)
+}
+.footer-container a{
+    font-size: 12px;
+    color:rgb(176,176,176)
+}
+.footer-container a:hover{
+    color: #ff6709 ;
+}
+.info-links{
+    width: 376px;
+    height: 28px;
+    float: right;
+    position: relative;
+    top:-6px;
+}
+.info-links img{
+    width: 83px;
+    height: 28px;
+    margin-left: 7px;
+}
+.slogan{
+    width: 267px;
+    height: 19px;
+    margin: 30px 0 0 626px;
+    color: rgb(91,91,91);
+}
+/*脚部结束*/
 
 
 
