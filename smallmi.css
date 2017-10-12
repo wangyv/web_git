@@ -1,3 +1,7 @@
+.vessel{
+    width: 1226px;
+    margin: 0 auto;
+}
 /*头部图开始*/
 #header a{
     display: block;
@@ -13,11 +17,23 @@
     background: #333;
     height:40px;
 }
-#menu .menu1,.menu2,.menu3 {
+ .menu1,.menu2,.menu3 {
     font-size:13px;
     line-height: 40px;
     float:left;
 }
+ .menu1{
+     width: 78%;
+ }
+ .menu2{
+     width: 12%;
+ }
+ .menu3{
+     width: 10%;
+     background-color: #444444 ;
+     text-align: center;
+     height:40px
+ }
 #menu .sep{
     color: #444;
     font-family: sans-serif;
@@ -36,7 +52,6 @@
 }
 #index .img1{
     margin-top: 23px;
-    padding-left: 150px;
     float: left;
 }
 #index .index1{
@@ -59,7 +74,6 @@
 /*index结束*/
 /*轮播图开始*/
 #lunbotu a{
-    margin-left: 150px;
     margin-bottom: 20px;
     display: block;
 }
@@ -74,7 +88,6 @@
     width: 236px;
     position: absolute;
     top:280px;
-    left: 150px;
 }
 #sidebar .index2{
     margin: 0;
@@ -102,11 +115,9 @@
 /*推荐开始*/
 #container {
     width: 100%;
-
 }
 #container .span4{
     display: block;
-    margin-left:150px;
     width: 234px;
     height: 170px;
     background-color: #444444;
@@ -114,9 +125,10 @@
     box-sizing: border-box;
     float: left;
     margin-bottom: 26px;
+    margin-right:2px;
 }
-#container .exposure{
-    display: list-item;
+ #container .exposure{
+    /*display: list-item;*/
     float:left;
     box-sizing: border-box;
     padding-left: 10px;
@@ -150,14 +162,13 @@
     float: left;
 }
 #xm1 img,#xm2 img,#xm3 img{
-    width: 316px;
+    width: 314px;
     height: 170px;
 }
 #xm-plain-box{
     clear: both;
 }
 #xm-plain-box h2{
-    text-indent: 150px;
     height: 58px;
     line-height: 58px;
 }
@@ -222,7 +233,6 @@
 #xm-plain-box .recommended-products{
     width: 1240px;
     height: 380px;
-    margin-left: 150px;
 }
 /*热门商品推荐结束*/
 /*主要推荐开始*/
@@ -242,7 +252,6 @@
      height: 680px;
      display: block;
      float: left;
-     margin-left: 150px;
      margin-top: 40px;
 }
 .recommended{
@@ -577,20 +586,21 @@ small{
 /*脚部开始*/
 .site-footer{
     display: block;
-    width: 1226px;
-    height: 80px;
+    /*height: 272px;*/
     padding: 27px 0;
     position: absolute;
     box-sizing: border-box;
     top:6960px;
     text-align: center;
-    margin-left: 150px;
-    border-bottom: 1px solid rgb(224,224,224);
+}
+.footer-service,.footer-links{
+    display: block;
 }
 .footer-service ul{
     display: block;
     float: left;
-
+    height: 50px;
+    border-bottom: 1px solid rgb(224,224,224);
 }
 .footer-service li{
     display: block;
@@ -687,7 +697,6 @@ small{
 .container{
     width: 1226px;
     height: 57px;
-    margin-left: 150px;
 }
 .site-info .footer-logo{
     width: 57px;
@@ -737,10 +746,10 @@ small{
     margin-left: 7px;
 }
 .slogan{
-    width: 267px;
     height: 19px;
-    margin: 30px 0 0 626px;
+    margin-top: 30px;
     color: rgb(91,91,91);
+    text-align: center;
 }
 /*脚部结束*/
 
