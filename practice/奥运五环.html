@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>奥运五环</title>
+    <style>
+        .circle,.circle:after{
+            width: 200px;
+            height: 200px;
+            border: 10px solid;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .circle:after{
+            content: '';
+            left:-10px;
+            top:-10px;
+        }
+        .blue{
+            border-color: blue;
+         }
+        .blue:after{
+            border-color: blue;
+            z-index: 1;
+            border-bottom-color: transparent;
+        }
+        .black{
+            border-color: black;
+            left:240px;
+        }
+        .black:after{
+            border-color: black;
+            z-index: 1;
+            border-left-color:transparent ;
+        }
+        .red{
+            border-color: red;
+            left:470px;
+        }
+        .red:after {
+            border-color: red;
+            z-index: 2;
+            border-left-color: transparent;
+        }
+        .yellow{
+            border-color: yellow;
+            left:125px;
+            top:125px;
+        }
+        .yellow:after{
+            border-color: yellow;
+        }
+        .green{
+            border-color: green;
+            top:125px;
+            left:355px;
+        }
+        .green:after{
+            border-color: green;
+            z-index: 1;
+            border-top-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle blue"></div>
+    <div class="circle black"></div>
+    <div class="circle red"></div>
+    <div class="circle yellow"></div>
+    <div class="circle green" ></div>
+
+</body>
+</html>
