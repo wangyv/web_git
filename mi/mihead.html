@@ -8,9 +8,9 @@
     <title>mi</title>
     <link rel="stylesheet" href="smallmi.css">
     <link rel="stylesheet" href="sytle.css" >
-    <link rel="stylesheet" href=" iconfont/iconfont.css">
-    <link rel="stylesheet" href=" iconfont1/iconfont.css">
-    <link rel="stylesheet" href=" iconfont2/iconfont.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <link rel="stylesheet" href="iconfont/iconfont1.css">
+    <link rel="stylesheet" href="iconfont/iconfont2.css">
 </head>
 <body>
         <!头部图开始>
@@ -22,7 +22,6 @@
         <div id="menu">
             <div class="vessel">
                 <div class="menu1" >
-
                     <a href=""> 小米商城 </a><span class="sep">|</span>
                     <a href=""> MIUI </a><span class="sep">|</span>
                     <a href=""> 米聊 </a><span class="sep">|</span>
@@ -34,7 +33,6 @@
                     <a href=""> 小米商城手机版 </a><span class="sep">|</span>
                     <a href=""> 问题反馈 </a><span class="sep">|</span>
                     <a href=""> Select Region </a>
-
                 </div>
                 <div class="menu2" >
                     <a href=""> 登录 </a><span class="sep">|</span>
@@ -43,6 +41,9 @@
                 </div>
                 <div class="menu3">
                     <a href=""><i class="iconfont icon-gouwuche"></i> 购物车(0) </a>
+                    <div class="cart">
+                        购物车中还没有商品，赶紧选购吧！
+                    </div>
                 </div>
             </div>
         </div>
@@ -51,22 +52,489 @@
             <!index开始>
             <div id="index">
             <!图标开始>
-            <a href="mihead.html" class="img1"> <img src="img/xiaomitubiao.png"></a>
+            <a href="mihead.html" class="logo"> <img src="img/xiaomitubiao.png"></a>
             <!图标结束>
             <div class="index1">
-                <a href="" style="margin-left: 80px;"> 小米手机&nbsp; &nbsp;</a>
-                <a href=""> 红米&nbsp;&nbsp; </a>
-                <a href=""> 平板·笔记本 &nbsp;&nbsp;</a>
-                <a href=""> 电视&nbsp;&nbsp; </a>
-                <a href=""> 盒子·影音 &nbsp;&nbsp;</a>
-                <a href=""> 路由器 &nbsp;&nbsp;</a>
-                <a href=""> 智能硬件 &nbsp;&nbsp;</a>
-                <a href=""> 服务 &nbsp;&nbsp;</a>
-                <a href=""> 社区&nbsp;&nbsp; </a>
-            </div>
-            <div  id="search" style="margin-left: 60px;">
-                <label><input type="search"></label>
+                <ul class="nav-list">
+                    <li class="xm sub-item">
+                        <a href="" style="margin-left: 130px;" class="nav-title"> 小米手机&nbsp; &nbsp;</a>
+                        <div class="sub-menu">
+                            <div class="inner xm">
+                                <ul class="vessel">
+                                    <li class="nav-item">
+                                        <div class="flags">
+                                            <div class="flag">新品</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/xmsj1.png" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米MIX 2</a>
+                                        </div>
+                                        <p class="price">3299起</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="flags">
+                                            <div class="flag">新品</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/xmsj2.png" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米Note 3</a>
+                                        </div>
+                                        <p class="price">2499起</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="item-img">
+                                            <a href=""><img src="img/xmsj3.png" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米6</a>
+                                        </div>
+                                        <p class="price">2499起</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="flags discount">
+                                            <div class="flag">享多重优惠</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/xmsj4.png" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米Max 2</a>
+                                        </div>
+                                        <p class="price">1399起</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="flags">
+                                            <div class="flag">新品</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/xmsj5.jpg" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米5X</a>
+                                        </div>
+                                        <p class="price">1299起</p>
+                                    </li>
+                                    <li class="nav-item" style="border-right: 0">
+                                        <div class="item-img">
+                                            <a href=""><img src="img/xmsj6.jpg" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米Note 2</a>
+                                        </div>
+                                        <p class="price">2799起</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="hm sub-item">
+                        <a href="" class="nav-title"> 红米&nbsp;&nbsp; </a>
+                        <div class="sub-menu">
+                            <div class="inner hm">
+                                <ul class="vessel">
+                                    <li class="nav-item">
+                                        <div class="flags">
+                                            <div class="flag">新品</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/hm1.png" alt=""></a>
+                                        </div>
+                                        <div class="desc"><a href="">红米Note 5A 标准版</a></div>
+                                        <p class="price">699元</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="flags">
+                                            <div class="flag">新品</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/hm2.jpg" alt=""></a>
+                                        </div>
+                                        <div class="desc"><a href="">红米Note 5A 高配版</a></div>
+                                        <p class="price">899元起</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="flags three-words">
+                                            <div class="flag">享免息</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/hm3.jpg" alt=""></a>
+                                        </div>
+                                        <div class="desc"><a href="">红米Note 4X</a></div>
+                                        <p class="price">999元起</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="flags three-words">
+                                            <div class="flag ">享免息</div>
+                                        </div>
+                                        <div  class="item-img">
+                                            <a href=""><img src="img/hm4.jpg" alt=""></a>
+                                        </div>
+                                        <div class="desc"><a href="">红米4X</a></div>
+                                        <p class="price">699起</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
 
+                    </li>
+                    <li class="pb sub-item">
+                        <a href="" class="nav-title"> 平板·笔记本 &nbsp;&nbsp;</a>
+                        <div class="sub-menu">
+                            <div class="inner pb">
+                                <ul class="vessel">
+                                    <li class="nav-item">
+                                        <div class="item-img">
+                                            <a href=""><img src="img/pb1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米笔记本Air 12.5"</a>
+                                        </div>
+                                        <p class="price">3599元</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="item-img">
+                                            <a href=""><img src="img/pb1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米笔记本Air 13.3" 独显</a>
+                                        </div>
+                                        <p class="price">4999元</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="item-img">
+                                            <a href=""><img src="img/pb1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米笔记本Air 13.3" 集显</a>
+                                        </div>
+                                        <p class="price">4999元</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="flags">
+                                            <div class="flag">新品</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/pb2.png" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米笔记本Pro 15.6"</a>
+                                        </div>
+                                        <p class="price">5599元起</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li class="ds sub-item">
+                        <a href="" class="nav-title"> 电视&nbsp;&nbsp; </a>
+                        <div class="sub-menu">
+                            <div class="inner ds">
+                                <ul class="vessel">
+                                    <li class="nav-item">
+                                        <div class="flags four-words">
+                                            <div class="flag">超薄旗舰</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/ds1.png" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米电视4 55英寸</a>
+                                        </div>
+                                        <p class="price">3999元</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="flags four-words">
+                                            <div class="flag">超薄旗舰</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/ds2.png" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米电视4 65英寸</a>
+                                        </div>
+                                        <p class="price">9999元起</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="flags">
+                                            <div class="flag">新品</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/ds3.png" alt=""></a>
+                                        </div>
+                                        <div class="desc">小米电视4A 32英寸</div>
+                                        <p class="price">5599元</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="flags">
+                                            <div class="flag">新品</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/ds4.png" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米电视4A 43英寸</a>
+                                        </div>
+                                        <p class="price">1099元</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="flags">
+                                            <div class="flag">新品</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/ds5.png" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米电视4A 49英寸</a>
+                                        </div>
+                                        <p class="price">2199元</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="item-img">
+                                            <a href=""><img src="img/ds6.png" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">查看全部</a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米电视</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class=" yy sub-item">
+                        <a href="" class="nav-title"> 盒子·影音 &nbsp;&nbsp;</a>
+                        <div class="sub-menu">
+                            <div class="inner yy">
+                            <ul class="vessel">
+                                <li class="nav-item">
+                                    <div class="item-img">
+                                        <a href=""><img src="img/yy1.png" alt=""></a>
+                                    </div>
+                                    <div class="desc">
+                                        <a href="">小米盒子3s</a>
+                                    </div>
+                                    <p class="price">329元</p>
+                                </li>
+                                <li class="nav-item">
+                                    <div class="item-img">
+                                        <a href=""><img src="img/yy2.png" alt=""></a>
+                                    </div>
+                                    <div class="desc">
+                                        <a href="">小米盒子3c</a>
+                                    </div>
+                                    <p class="price">229元</p>
+                                </li>
+                                <li class="nav-item">
+                                    <div class="item-img">
+                                        <a href=""><img src="img/yy3.jpg" alt=""></a>
+                                    </div>
+                                    <div class="desc">
+                                        <a href="">小米盒子3 增强版</a>
+                                    </div>
+                                    <p class="price">399元</p>
+                                </li>
+                                <li class="nav-item">
+                                    <div class="item-img">
+                                        <a href=""><img src="img/yy4.png" alt=""></a>
+                                    </div>
+                                    <div class="desc">
+                                        <a href="">小米家庭影院</a>
+                                    </div>
+                                    <p class="price">1999元</p>
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
+                    </li>
+                    <li class="lyq sub-item">
+                        <a href="" class="nav-title"> 路由器 &nbsp;&nbsp;</a>
+                        <div class="sub-menu">
+                            <div class="inner lyq">
+                                <ul class="vessel">
+                                    <li class="nav-item">
+                                        <div class="flags">
+                                            <div class="flag">新品</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/lyq1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米路由器 3A</a>
+                                        </div>
+                                        <p class="price">139元</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="flags three-words">
+                                            <div class="flag">大容量</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/lyq2.png" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米路由器 HD/Pro</a>
+                                        </div>
+                                        <p class="price">499元起</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="flags three-words">
+                                            <div class="flag">双千兆</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/lyq3.png" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米路由器 3G</a>
+                                        </div>
+                                        <p class="price">249元</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="flags">
+                                            <div class="flag">双频</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/lyq4.png" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米路由器 3</a>
+                                        </div>
+                                        <p class="price">149元</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="flags">
+                                            <div class="flag">包邮</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/lyq5.png" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米路由器 3c</a>
+                                        </div>
+                                        <p class="price">99元</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="flags">
+                                            <div class="flag">新品</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/lyq6.png" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米WiFi电力猫</a>
+                                        </div>
+                                        <p class="price">249元</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="znyj sub-item">
+                        <a href="" class="nav-title"> 智能硬件 &nbsp;&nbsp;</a>
+                        <div class="sub-menu">
+                            <div class="inner znyj">
+                                <ul class="vessel">
+                                    <li class="nav-item">
+                                        <div class="flags four-words">
+                                            <div class="flag">航拍利器</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/znyj1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米无人机</a>
+                                        </div>
+                                        <p class="price">2999元</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="flags">
+                                            <div class="flag">包邮</div>
+                                        </div>
+                                        <div class="item-img">
+                                            <a href=""><img src="img/znyj2.png" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米手环2</a>
+                                        </div>
+                                        <p class="price">149元</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="item-img">
+                                            <a href=""><img src="img/znyj3.png" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">小米净水器</a>
+                                        </div>
+                                        <p class="price">1499元起</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="item-img">
+                                            <a href=""><img src="img/znyj4.jpg" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">米家扫地机器人</a>
+                                        </div>
+                                        <p class="price">1699元</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="item-img">
+                                            <a href=""><img src="img/znyj5.jpg" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">米家压力IH电饭煲</a>
+                                        </div>
+                                        <p class="price">999元</p>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="item-img">
+                                            <a href=""><img src="img/znyj6.jpg" alt=""></a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">查看全部</a>
+                                        </div>
+                                        <div class="desc">
+                                            <a href="">智能硬件</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="fw">
+                        <a href="" class="nav-title"> 服务 &nbsp;&nbsp;</a>
+                    </li>
+                    <li class="sq">
+                        <a href="" class="nav-title"> 社区&nbsp;&nbsp; </a>
+                    </li>
+                </ul>
+            </div>
+            <div  id="search" >
+                <button type="submit" class="button"><i class="icon-sousuo iconfont"></i></button>
+                <label><input type="search" class="searched"></label>
+                <div class="keyword-list">
+                    <ul>
+                        <li class="keyword-item"><a href="#" ><span>小米</span><span class="desc1">约有7件</span></a></li>
+                        <li class="keyword-item"><a href="#" ><span>红米Note 4X</span><span class="desc1">约有8件</span></a></li>
+                        <li class="keyword-item"><a href="#" ><span>小米MIX</span><span class="desc1">约有1件</span></a></li>
+                        <li class="keyword-item"><a href="#" ><span>小米Max2</span><span class="desc1">约有3件</span></a></li>
+                        <li class="keyword-item"><a href="#" ><span>小米5X</span><span class="desc1">约有3件</span></a></li>
+                        <li class="keyword-item"><a href="#" ><span>手环</span><span class="desc1">约有6件</span></a></li>
+                        <li class="keyword-item"><a href="#" ><span>耳机</span><span class="desc1">约有19件</span></a></li>
+                        <li class="keyword-item"><a href="#" ><span>充电宝</span><span class="desc1">约有19件</span></a></li>
+                        <li class="keyword-item"><a href="#" ><span>运动鞋</span><span class="desc1">约有2件</span></a></li>
+                        <li class="keyword-item"><a href="#" ><span>路由器</span><span class="desc1">约有17件</span></a></li>
+                        <li class="keyword-item"><a href="#" ><span>小米盒子</span><span class="desc1">约有8件</span></a></li>
+                    </ul>
+                </div>
+                <div class="hot-words">
+                    <a href="" class="hot-words-item">小米Max 2</a>
+                    <a href="" class="hot-words-item">小米Note 3现货</a>
+                </div>
             </div>
         </div>
             <!index结束>
@@ -1235,8 +1703,6 @@
             </div>
         </div>
         <!脚部结束>
-
-
 </body>
 </html>
 
