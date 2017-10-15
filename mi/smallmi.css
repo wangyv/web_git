@@ -298,21 +298,62 @@
     height: 420px;
     width: 236px;
 }
+#sidebar .index2 i{
+    float: right;
+}
 #sidebar li{
     height:42px;
     line-height: 42px;
     text-indent: 15px;
 
 }
-#sidebar a{
+#sidebar .index2-title{
     display: block;
     width: 100%;
     height: 100%;
     color: white;
 
 }
-#sidebar a:hover{
+#sidebar .index2-title:hover{
     background-color: orangered;
+}
+.sub-index{
+    height: 458px;
+    border: 1px solid rgb(224,224,224);
+    background: white;
+    position: absolute;
+    top:0;
+    left:236px;
+    overflow: hidden;
+}
+.col1{
+    width: 795px;
+}
+.sub-index-list{
+    width: 265px;
+    height: 458px;
+    padding: 2px 0;
+    float: left;
+    overflow: hidden;
+}
+#sidebar .sub-index-list .sub-index-item{
+    height: 77px;
+    width: 100%;
+}
+.sub-index-list .commodity{
+    width: 170px;
+    height: 41px;
+    padding:18px 0 18px 20px;
+    display: block;
+}
+.sub-index-list .commodity img{
+    margin-right: 10px;
+}
+#sidebar .sub-index-list .commodity  span{
+    font-size: 14px;
+    color: #333;
+    position: relative;
+    top:-15px;
 }
 /*左导航栏结束*/
 /*推荐开始*/
