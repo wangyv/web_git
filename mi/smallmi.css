@@ -68,6 +68,7 @@
     line-height: 100px;
     display: none;
     color: #666666;
+    z-index: 1;
 }
 #menu .menu3:hover .cart{
     display: block;
@@ -300,34 +301,50 @@
 }
 #sidebar .index2 i{
     float: right;
+    padding-right: 35px;
+    color: rgba(255,255,255,0.5);
 }
 #sidebar li{
     height:42px;
     line-height: 42px;
     text-indent: 15px;
-
 }
 #sidebar .index2-title{
     display: block;
     width: 100%;
     height: 100%;
     color: white;
+    font-size: 14px;
+    padding-left: 15px;
 
 }
 #sidebar .index2-title:hover{
     background-color: orangered;
 }
+#sidebar .index2 li:hover .sub-index{
+    display: block;
+}
 .sub-index{
-    height: 458px;
     border: 1px solid rgb(224,224,224);
     background: white;
     position: absolute;
     top:0;
     left:236px;
     overflow: hidden;
+    height: 458px;
+    display: none;
 }
-.col1{
+.one{
+    width: 265px;
+}
+.two{
+    width: 530px;
+}
+.three{
     width: 795px;
+}
+.four{
+    width: 993px;
 }
 .sub-index-list{
     width: 265px;
@@ -339,8 +356,15 @@
 #sidebar .sub-index-list .sub-index-item{
     height: 77px;
     width: 100%;
+    position: relative;
 }
 .sub-index-list .commodity{
+    width: 225px;
+    height: 41px;
+    padding:20px 18px;
+    display: block;
+}
+.first-sub-index .sub-index-list .commodity{
     width: 170px;
     height: 41px;
     padding:18px 0 18px 20px;
@@ -348,13 +372,37 @@
 }
 .sub-index-list .commodity img{
     margin-right: 10px;
+    float: left;
 }
 #sidebar .sub-index-list .commodity  span{
     font-size: 14px;
     color: #333;
-    position: relative;
-    top:-15px;
+    float: left;
+    line-height: 41px;
+    /*font-weight: bold;*/
+    /*position: relative;*/
+    /*top:-15px;*/
 }
+#sidebar .sub-index-list .commodity  span:hover{
+    color: #ff6700;
+}
+#sidebar .select-shopping{
+    display: block;
+    width: 58px;
+    height: 22px;
+    border: 1px solid #ff6700;
+    color: #ff6700;
+    line-height: 22px;
+    /*float: right;*/
+    font-size: 12px;
+    position: absolute;
+    right: 10px;
+    top:26px;
+}
+.four .sub-index-list{
+    width: 248px;
+}
+
 /*左导航栏结束*/
 /*推荐开始*/
 #container {
@@ -429,17 +477,24 @@
     line-height: 24px;
 
 }
-/*推荐结束*/
-/*热门商品推荐开始*/
+#xm1 a:hover img,#xm2 a:hover img ,#xm3 a:hover img{
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
+}
 #xm1,#xm2,#xm3{
     padding-left: 10px;
     display: block;
     float: left;
 }
+#xm1 a,#xm2 a,#xm3 a{
+    display: inline-block;
+}
 #xm1 img,#xm2 img,#xm3 img{
     width: 314px;
     height: 170px;
+    transition: all 0.2s ease;
 }
+/*推荐结束*/
+/*热门商品推荐开始*/
 #xm-plain-box{
     clear: both;
 }
