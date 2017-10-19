@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    var a=10;
+    function factorial(a){
+        var sum=1;
+        for(var i=1;i<=a;i++){
+            sum*=i;
+        }
+        return sum;
+    }
+    var factorial10=factorial(a);
+    console.log(factorial10);
+    var sum_all=0;
+    for(var j=1;j<=10;j++){
+        sum_all+=factorial(j);
+    }
+    console.log(sum_all);
+//    3.编写程序，计算10!(即 1*2*3＊·…10）的结果(10的阶乘)。
+//    4.编写程序，计算 1!+2!+3!+…..＋10！的结果。
+</script>
+</body>
+</html>
