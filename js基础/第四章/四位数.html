@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>四位数</title>
+</head>
+<body>
+
+<script>
+    var num=999;
+    do{
+        ++num;
+        var num_second=Math.floor((num%100)/10);
+        var num_third=Math.floor((num%1000)/100);
+        var num_forth=Math.floor(num/1000);
+        if(num%13==0&&((num_second+num_third)==num_forth))
+        {document.write('<div>'+num+'</div>');}
+    }while(num<10000);
+//    document.write('<div>'+num+'</div>');
+//    求所有满足条件的四位数ABCD，它是13的倍数，且第3位数加上第2位数等于第4位数（即：A=B+C）。
+</script>
+</body>
+</html>
