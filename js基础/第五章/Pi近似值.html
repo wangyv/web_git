@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    function Pi(n){
+        var Pi_sum=0;
+        for(var i=1;i<=n;i++){
+            Pi_sum+=(Math.pow(-1,(i-1)))*(1/(2*i-1))*4;
+        }
+        return Pi_sum;
+    }
+    document.write('<h2>Pi的近似值是'+Pi(100)+'</h2>');
+    document.write('<h2>Pi的近似值是'+Pi(500)+'</h2>');
+    document.write('<h2>Pi的近似值是'+Pi(1000)+'</h2>');
+    document.write('<h2>Pi的近似值是'+Pi(10000)+'</h2>');
+
+//    8.编写函数，用下面的公式计算π的近似值。
+//
+//    在页面上输出当n=100，500，1000，10000时π的近似值。
+</script>
+</body>
+</html>
