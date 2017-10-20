@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    function divisible(x){
+        if(x%3==0&&x%5==0&&x%7==0)
+        {return x;}
+        else
+       {return null;}
+    }
+    var num=0;
+    var count=0;
+    while(num<1000){
+        ++num;
+        if(divisible(num)){
+            count++;
+            document.write(divisible(num)+'&nbsp');
+            if(count%6==0){
+                document.write('<br>');
+            }
+        }
+    }
+//    编写一个判断某个非负整数是否能够同时
+    //    被3,5,7整除的函数，然后在页面上输出1~1000之间所有能同时被3,5,7整除的整数，
+    //    并要求每行显示6个这样的数。
+</script>
+</body>
+</html>
