@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script>
+    function factorial(n){
+        var sum=1;
+        for(var i=1;i<=n;i++){
+            sum*=i;
+        }
+        return sum;
+    }
+    var result=factorial(12)-factorial(10);
+    document.write('<h2>'+result+'</h2>');
+//    5.编写一个非递归函数factorial(n)，计算12!-10!的结果。
+
+</script>
+</body>
+</html>
