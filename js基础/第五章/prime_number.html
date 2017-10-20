@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var num=99;
+    var counter=0;
+    function prime_number(x){
+        for(var i=2;i<x;i++){
+            if(x%i==0){
+                return null;
+//                break;
+            }
+            if(i=x-1){
+                return x;
+            }
+        }
+    }
+    while(num<1000){
+        num++;
+        if(prime_number(num)){
+            document.write(prime_number(num)+'&nbsp');
+            counter++;
+            if(counter%6==0){
+                document.write('<br>');
+            }
+        }
+    }
+//    在页面上编程输出100~1000之间的所有素数，并要求每行显示6个素数。
+</script>
+</body>
+</html>
