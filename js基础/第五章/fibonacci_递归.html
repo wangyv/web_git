@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script>
+    function fibonacci(n){
+        if(n==1){
+            return 1;
+        }
+        else if(n==2){
+            return 1;
+        }
+        else
+        {
+            return fibonacci(n-1)+fibonacci(n-2);
+        }
+    }
+    document.write('<h2>'+fibonacci(prompt('请输入项数'))+'</h2>');
+
+//    7.斐波纳契（Fibonacci）数列的第一项是1，第二项是1，以后各项都是前两项的和。
+//    试用递归函数和非递归函数各编写一个程序，求斐波纳契数列第N项的值。
+</script>
+</body>
+</html>
