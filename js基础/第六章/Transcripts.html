@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var Transcripts=[];
+    var sum=0;
+    for(var i=0;i<7;i++){
+        Transcripts[i]=prompt('请输入一课科成绩');
+        sum+=parseInt(Transcripts[i]);
+        if(Transcripts[i]<=60){
+            document.write(Transcripts[i]+'<br>');
+        }
+    }
+    document.write('总分：'+sum+'<br>平均分'+sum/7);
+
+//    6.设计一个程序，它（使用一个数组）接收用户输入的7门课程的成绩，
+//    然后在页面上显示其总成绩和平均分，并列出小于60的成绩。
+</script>
+</body>
+</html>
