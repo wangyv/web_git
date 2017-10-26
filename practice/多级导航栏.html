@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        ul{
+            list-style: none;
+        }
+        #menu {
+            height: 30px;
+            position: relative;
+        }
+        #menu li{
+            margin-right: 4px;
+            float: left;
+            width: 70px;
+            height: 30px;
+        }
+        #menu .main-menu{
+            width: 70px;
+            height: 30px;
+            background-color: purple;
+            display: block;
+            line-height: 30px;
+            text-align: center;
+        }
+        #menu .sub-menu{
+            overflow: hidden;
+            border:1px solid #999;
+            box-sizing: border-box;
+            display: none;
+        }
+        #menu .sub-menu li{
+            text-align: center;
+            clear: both;
+            line-height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <li>
+            <a href="" class="main-menu">link 1</a>
+            <ul class="sub-menu">
+                <li>11</li>
+                <li>22</li>
+                <li>33</li>
+            </ul>
+        </li>
+        <li>
+            <a href="" class="main-menu">link 2</a>
+            <ul class="sub-menu">
+                <li>44</li>
+                <li>55</li>
+                <li>66</li>
+            </ul>
+        </li>
+        <li>
+            <a href="" class="main-menu">link 3</a>
+            <ul class="sub-menu">
+                <li>77</li>
+                <li>88</li>
+                <li>99</li>
+            </ul>
+        </li>
+    </ul>
+
+
+    <script>
+        var oMenu=document.getElementById('menu');
+        var aMainMenu=oMenu.getElementsByTagName('a');
+        var aSubMenu=oMenu.getElementsByTagName('ul');
+        for(var i=0;i<aMainMenu.length;i++){
+                aMainMenu[i].index=i;
+                aMainMenu[i].onmouseover=function(){
+                    aSubMenu[this.index].style.display='block';
+                };
+                aMainMenu[i].onmouseout=function(){
+                    aSubMenu[this.index].style.display='none';
+                };
+        }
+    </script>
+</body>
+</html>
