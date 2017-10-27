@@ -3,279 +3,17 @@
     margin: 0 auto;
 }
 /*头部图开始*/
-#header a{
+#header{
     display: block;
-}
-#header .img{
-    display: block;
+    background:url("../img/header.jpg") 50% 50%;
     height: 120px;
-    width: 100%;
 }
-/*头部图结束*/
-/*导航栏开始*/
-#menu{
-    background: #333;
-    height:40px;
-}
-.menu1,.menu2,.menu3 {
-    font-size:13px;
-    line-height: 40px;
-    float:left;
-}
-.menu1{
-    width: 78%;
-}
-.menu2{
-    width: 12%;
-}
-.menu3{
-    width: 10%;
-    background-color: #444444 ;
-    text-align: center;
-    height:40px
-}
-#menu .sep{
-    color: #444;
-    font-family: sans-serif;
-}
-#menu a{
-    color: #cccccc;
-    width: 100%;
-    height: 40px;
-
-}
-.menu3 a{
-    display: block;
-    width: 100%;
-    height: 40px;
-}
-#menu a:hover{
-    color: white;
-}
-#menu .menu3 a:hover{
-    background-color: #fff;
-    color: #ff6700;
-}
-.cart{
-    width: 316px;
-    height: 100px;
-    box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
-    border: 1px solid #ccc;
-    border-top: 0;
-    position: relative;
-    left:-195px;
-    background-color:#fff;
-    line-height: 100px;
-    display: none;
-    color: #666666;
-    z-index: 1;
-}
-#menu .menu3:hover .cart{
-    display: block;
-}
-/*导航栏结束*/
-/*index开始*/
-#index{
-    height:100px;
-    width: 1226px;
-    /*background-color: #cccccc;*/
-    /*overflow: hidden;*/
-}
-.index1{
-    width: 850px;
-    float: left;
-}
-#index .logo{
-    margin-top: 24px;
-    float: left;
-}
-#index .logo img{
-    height: 55px;
-    width: 55px;
-}
-.nav-list{
-    height: 100px;
-    width: 850px;
-}
-.nav-list li{
-    float: left;
-}
-#index .index1 .nav-title{
-    color: black;
-    line-height: 100px;
-    /*float:left;*/
-    display: block;
-}
-#index .nav-title:hover{
-    color:orangered;
-}
-.sub-menu{
-    height: 0;
-    width: 100%;
-    background-color: #fff;
-    position: absolute;
-    left: 0;
-    z-index: 1;
-    overflow: hidden;
-    transition: all ,1s,ease,0.5s;
-    box-shadow:0 2px 2px rgba(0,0,0,0.3);
-}
-.inner{
-    border-top: 1px solid #ccc;
-    /*box-shadow:0 2px 2px rgba(0,0,0,0.3);*/
-    /*height: 230px;*/
+/*#header .img{*/
+    /*display: block;*/
+    /*height: 120px;*/
     /*width: 100%;*/
-    width: 100%;
-    height: 100%;
-    /*display: none;*/
-}
-.inner li{
-    position: relative;
-    float: left;
-    width: 179px;
-    padding: 35px 12px 0;
-    text-align: center;
-}
-.inner li:before{
-    content: '';
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    top:35px;
-    width: 1px;
-    height: 100px;
-    background-color: #e0e0e0;
-}
-.inner li:first-child:before{
-    content: '';
-    width: 0;
-}
-.item-img img{
-    width: 160px;
-    height: 110px;
-}
-.flags{
-    width: 64px;
-    height: 18px;
-    border: 1px solid rgb(255,103,0);
-    position: absolute;
-    top:-1px;
-    left:50%;
-    margin-left: -32px;
-    color: rgb(255,103,0);
-    font-size: 12px;
-}
-.flag{
-    height: 18px;
-    line-height: 18px;
-}
-.discount{
-    width: 100px;
-    margin-left: -50px;
-}
-.three-words{
-    width: 76px;
-    margin-left: -38px;
-}
-.four-words{
-    width: 88px;
-    margin-left:-44px;
-}
-.sub-item:hover .sub-menu{
-    height: 231px;
-}
-/*.xm:hover .sub-menu,.hm:hover .sub-menu,.pb:hover sub-menu,.ds:hover sub-menu,.yy:hover sub-menu,.znyj:hover sub-menu,.lyq:hover sub-menu{*/
-/*!*display: block;*!*/
-/*!*height: 230px;*!*/
-/*height: 231px;*/
 /*}*/
-#search{
-    position: relative;
-    float: right;
-    /*width: 290px;*/
-}
-.searched{
-    width: 245px;
-    height: 50px;
-    font-size: 18px;
-    margin-top: 23px;
-    border: 1px solid #e0e0e0;
-    float: right;
-    text-indent: 10px;
-}
-.button{
-    margin-top: 23px;
-    width: 50px;
-    height: 50px;
-    float: right;
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
-    border-left: 0;
-    transition: background .5s ease;
-}
-.button i{
-    font-weight: bold;
-    font-size: 20px;
-    color: #666666;
-}
-.button:hover{
-    background: #ff6700;
-    cursor: pointer;
-}
-.button:hover i{
-    color:white;
-}
-#search .keyword-list{
-    width: 243px;
-    height: 330px;
-    background: white;
-    border: #ff6700 1px solid;
-    position: absolute;
-    z-index: 1;
-    top:72px;
-    display: none;
-}
-#search .keyword-item{
-    height: 30px;
-}
-.keyword-item a{
-    color: rgba(0,0,0,0.8);
-    font-size: 12px;
-    padding-left:10px ;
-    width: 100%;
-    display: block;
-    box-sizing: border-box;
-    line-height: 30px;
-    float: left;
-}
-.keyword-item a:hover{
-    background-color: #fbfbfb;
-}
-#search .keyword-item .desc1{
-    float: right;
-    color:#ccc;
-    font-size: 12px;
-    margin-right:10px ;
-}
-#search .hot-words{
-    height: 30px;
-    float: left;
-    position: absolute;
-    right: 60px;
-    top:33px;
-}
-#search .hot-words a{
-    font-size: 12px;
-    line-height: 30px;
-    color:#666;
-    background-color: #e0e0e0;
-    padding: 0 3px;
-}
-#search .hot-words a:hover{
-    background-color: #fa6700;
-    color: white;
-}
-/*index结束*/
+/*头部图结束*/
 /*轮播图开始*/
 #lunbotu a{
     margin-bottom: 20px;
@@ -402,7 +140,6 @@
 .four .sub-index-list{
     width: 248px;
 }
-
 /*左导航栏结束*/
 /*推荐开始*/
 #container {
@@ -574,13 +311,21 @@
 }
 /*热门商品推荐结束*/
 /*主要推荐开始*/
+.span-last li:hover,.content1 li:hover,.content2 li:hover,.content3 li:hover,
+.content4 li:hover,.span-first-double li img:hover,.span-first li img:hover
+{
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.05);
+    top:-2px;
+}
+.content1 li,.content2 li,.content3 li,.content4 li,.span-first-double li img,.span-first li img{
+    position: relative;
+    transition: all 0.5s ease;
+}
 #mainly-recommended{
     background-color: rgb(245, 245, 245);
     display: block;
-    height: 5490px;
     width: 100%;
     position: absolute;
-    padding-top: 60px;
 }
 .intelligent,.collocation,.accessories,.periphery,.recommended,.products,.content,.video{
     position: relative;
@@ -647,6 +392,8 @@
     width: 234px;
     height: 246px;
     padding: 34px 0 20px;
+    position: relative;
+    transition: all 0.5s ease;
 }
 .span-last li img{
     width: 150px;
@@ -715,12 +462,21 @@ del{
     font-size: 14px;
     margin-top: 5px;
 }
+.span-last .span-last-bottom{
+    height: 93px;
+    padding-top: 50px;
+    padding-bottom: 0;
+}
+.figure-more,.figure-img-bottom{
+    width: 50px;
+}
 .figure-more i{
     color:rgb(255,103,0);
     position: relative;
     left:150px;
     display: block;
     font-size: 48px;
+
 }
 .more{
     margin-left: 30px;
@@ -897,12 +653,15 @@ small{
 }
 .play{
     position: relative;
-    top:-50px;
-    left: 10px;
+    top:-40px;
+    left: 15px;
     color: white;
+    /*border :2px solid white;*/
+    /*border-radius: 40%;*/
+    /*padding: 3px 7px;*/
 }
 .play i{
-    font-size: 30px;
+    font-size: 13px;
 }
 .play i:hover{
     color:#ff6709;
@@ -919,6 +678,38 @@ small{
 .content4 .desc{
     width: 296px;
     margin: 0;
+}
+.span-last li:hover .review-wrapper{
+    height: 76px;
+}
+.review-wrapper{
+    width: 234px;
+    height: 0;
+    background-color: #ff6700;
+    position: absolute;
+    bottom: 0;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+.review-wrapper a{
+    display: block;
+    width: 174px;
+    height: 58px;
+    padding:8px 30px;
+}
+.hot-review{
+    font-size: 12px;
+    color: rgb(255,255,255);
+    width: 174px;
+    height: 35px;
+    margin-bottom: 5px;
+    display: block;
+}
+.review-author{
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    display: block;
+    width: 174px;
 }
 /*主要推荐结束*/
 /*脚部开始*/
