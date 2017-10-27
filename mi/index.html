@@ -6,8 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>mi</title>
-    <link rel="stylesheet" href="smallmi.css">
-    <link rel="stylesheet" href="sytle.css" >
+    <link rel="stylesheet" href="css/mi.css">
+    <link rel="stylesheet" href="css/sytle.css" >
     <link rel="stylesheet" href="iconfont/iconfont.css">
     <link rel="stylesheet" href="iconfont/iconfont1.css">
     <link rel="stylesheet" href="iconfont/iconfont2.css">
@@ -44,9 +44,12 @@
                 </div>
                 <div class="menu3">
                     <a href=""><i class="iconfont icon-gouwuche"></i> 购物车(0) </a>
-                    <div class="cart">
-                        购物车中还没有商品，赶紧选购吧！
+                    <div class="cart-box">
+                        <div class="cart">
+                            购物车中还没有商品，赶紧选购吧！
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -515,8 +518,10 @@
                 </ul>
             </div>
             <div  id="search" >
-                <button type="submit" class="button"><i class="icon-sousuo iconfont"></i></button>
-                <label><input type="search" id="searched"></label>
+                <form action="" id="form">
+                    <button type="submit" class="button"><i class="icon-sousuo iconfont"></i></button>
+                    <label><input type="search" class="searched"></label>
+                </form>
                 <div id="keyword-list">
                     <ul>
                         <li class="keyword-item"><a href="#" ><span>小米</span><span class="desc1">约有7件</span></a></li>
@@ -1409,7 +1414,6 @@
                         <h3  class="title1"><a href="">小米note 2</a></h3>
                         <p class="desc">下单立减300元</p>
                         <p class="price">2499起</p>
-
                     </li>
                     <li>
                         <a href=""> <img src="img/红米note.png"></a>
@@ -1625,7 +1629,7 @@
                                     </a>
                                 </div>
                             </li>
-                            <li style="height: 93px;padding-top: 50px;padding-bottom: 0">
+                            <li class="span-last-bottom" >
                                 <div class="figure-img-bottom">
                                     <a href=""><img src="img/jd9.jpg" style="height: 80px;width: 80px;"></a>
                                 </div>
@@ -1636,7 +1640,7 @@
                                     <span class="num">399</span>元
                                 </p>
                             </li>
-                            <li style="height: 93px;padding-top: 50px;padding-bottom: 0">
+                            <li class="span-last-bottom" >
                                 <div class="figure-more">
                                     <a href="">
                                         <i class="iconfont icon-ic-tiaozhuan"></i>
@@ -1833,7 +1837,7 @@
                                     </a>
                                 </div>
                             </li>
-                            <li style="height: 93px;padding-top: 50px;padding-bottom: 0">
+                            <li class="span-last-bottom">
                                 <div class="figure-img-bottom">
                                     <a href="" ><img src="img/zn10.jpg" style="height: 80px;width: 80px;"></a>
                                 </div>
@@ -1844,7 +1848,7 @@
                                     <span class="num">299</span>元
                                 </p>
                             </li>
-                            <li style="height: 93px;padding-top: 50px;padding-bottom: 0">
+                            <li class="span-last-bottom">
                                 <div class="figure-more">
                                     <a href="">
                                         <i class="iconfont icon-ic-tiaozhuan"></i>
@@ -2036,7 +2040,7 @@
                                     </a>
                                 </div>
                             </li>
-                            <li style="height: 93px;padding-top: 50px;padding-bottom: 0">
+                            <li class="span-last-bottom">
                                 <div class="figure-img-bottom">
                                     <a href="" ><img src="img/dp10.jpg" style="height: 80px;width: 80px;"></a>
                                 </div>
@@ -2047,7 +2051,7 @@
                                     <span class="num">129</span>元
                                 </p>
                             </li>
-                            <li style="height: 93px;padding-top: 50px;padding-bottom: 0">
+                            <li class="span-last-bottom">
                                 <div class="figure-more">
                                     <a href="">
                                         <i class="iconfont icon-ic-tiaozhuan"></i>
@@ -2239,7 +2243,7 @@
                                     </a>
                                 </div>
                             </li>
-                            <li style="height: 93px;padding-top: 50px;padding-bottom: 0">
+                            <li class="span-last-bottom">
                                 <div class="figure-img-bottom">
                                     <a href="" ><img src="img/pj10.jpg" style="height: 80px;width: 80px;"></a>
                                 </div>
@@ -2250,7 +2254,7 @@
                                     <span class="num">69</span>元
                                 </p>
                             </li>
-                            <li style="height: 93px;padding-top: 50px;padding-bottom: 0">
+                            <li class="span-last-bottom">
                                 <div class="figure-more">
                                     <a href="">
                                         <i class="iconfont icon-ic-tiaozhuan"></i>
@@ -2445,7 +2449,7 @@
                                     </a>
                                 </div>
                             </li>
-                            <li style="height: 93px;padding-top: 50px;padding-bottom: 0">
+                            <li class="span-last-bottom">
                                 <div class="figure-img-bottom">
                                     <a href=""><img src="img/zb10.jpg" style="height: 80px;width: 80px;"></a>
                                 </div>
@@ -2456,7 +2460,7 @@
                                     <span class="num">499</span>元
                                 </p>
                             </li>
-                            <li style="height: 93px;padding-top: 50px;padding-bottom: 0">
+                            <li class="span-last-bottom">
                                 <div class="figure-more">
                                     <a href="">
                                         <i class="iconfont icon-ic-tiaozhuan"></i>
@@ -2858,15 +2862,8 @@
         <!--脚部结束-->
 
 
-        <!--<script>-->
-            <!--var search=document.getElementById('search');-->
-            <!--search.onclick=function(){-->
-                <!--var keyword_list=document.getElementById('keyword_list');-->
-                <!--keyword_list.style.display='block';-->
-                <!--var searched=document.getElementById('searched');-->
-                <!--searched.style.borderColor='#fa6700'-->
-            <!--};-->
-        <!--</script>-->
+        <script src="js/common.js"></script>
+        <script src="js/mi.js"></script>
 </body>
 </html>
 
