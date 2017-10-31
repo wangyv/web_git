@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>折叠菜单</title>
+    <style>
+        ul{
+            list-style: none;
+            padding: 0;
+        }
+        #container{
+            width: 120px;
+            border: 1px solid;
+            text-align: center;
+            margin: 100px auto;
+        }
+        #container h3{
+            background: #000;
+            color: white;
+            cursor: pointer;
+            margin: 0;
+        }
+        #container .sub-menu li:hover{
+            background-color: #ccc;
+        }
+        #container .sub-menu ul{
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<ul id="container">
+    <li class="sub-menu">
+        <h3>管理qu</h3>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </li>
+    <li class="sub-menu">
+        <h3>交流区</h3>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </li>
+</ul>
+
+<script>
+    var oContainer=document.getElementById('container');
+    var aH3=oContainer.getElementsByTagName('h3');
+    var aUl=oContainer.getElementsByTagName('ul');
+    for(var i=0;i<aH3.length;i++){
+        aH3[i].index=i;
+        aH3[i].bFlag=false;
+        aH3[i].onclick=function () {
+//            if(aUl[this.index].style.display=='block'){
+//                aUl[this.index].style.display='none';
+//            }else{
+//                aUl[this.index].style.display='block';
+//            }
+            if(this.bFlag){
+                aUl[this.index].style.display='none';
+                this.bFlag=false;
+            }else{
+                aUl[this.index].style.display='block';
+                this.bFlag=true;
+            }
+        };
+    }
+    for(var i=0;i<aH3.length;i++){
+        aH3[i].onselectstart=function () {
+            return false;
+        };
+    }
+</script>
+</body>
+</html>
