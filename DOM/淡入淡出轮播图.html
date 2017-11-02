@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container,img{
+            width: 500px;
+            height: 310px;
+        }
+        #container{
+            position: relative;
+            margin: 100px auto;
+        }
+        img{
+            position: absolute;
+            top:0;
+            left: 0;
+            opacity: 0;
+            transition: all ease 1s;
+        }
+        #tab li,#switch span{
+            float: left;
+            width: 20px;
+            height: 20px;
+            background-color: #000;
+            color: #fff;
+            margin-right:5px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        #tab ,#switch{
+            position: absolute;
+            right: 10px;
+            bottom:10px;
+            z-index: 2;
+        }
+        #switch{
+            position: absolute;
+            width: 300px;
+            left:10px;
+            bottom:10px;
+            z-index: 1;
+        }
+        #imgs .selected{
+            z-index: 1;
+            opacity: 1;
+        }
+        #tab .selected{
+            background-color: #ff6700;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="container">
+        <div id="imgs">
+            <img src="轮播图/1.jpg" alt="" class="selected">
+            <img src="轮播图/2.jpg" alt="">
+            <img src="轮播图/3.jpg" alt="">
+            <img src="轮播图/4.jpg" alt="">
+        </div>
+        <div id="tab">
+            <ul>
+                <li class="selected">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
+        <div id="switch">
+            <span id="left">&lt;</span>
+            <span id="right">&gt;</span>
+        </div>
+    </div>
+
+    <script src="wichung-1.0.js"></script>
+    <script>
+        var oContainer=id('container');
+        var oTab=document.getElementById('tab');
+        var aLi=oTab.getElementsByTagName('li');
+        var oImgs=document.getElementById('imgs');
+        var aImg=document.getElementsByTagName('img');
+        var oLeft=document.getElementById('left');
+        var oRight=document.getElementById('right');
+        var iNowIndex=0;
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].index=i;
+            aLi[i].onmouseover=function () {
+                iNowIndex=this.index;
+                changeImg();
+            }
+        }
+        function changeImg() {
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].className='';
+                aImg[i].className='';
+            }
+            aLi[iNowIndex].className='selected';
+            aImg[iNowIndex].className='selected';
+        }
+        oLeft.onclick=oRight.onclick=function () {
+            if(this===oLeft){
+                iNowIndex--;
+                if(iNowIndex==-1){
+                    iNowIndex=aLi.length-1;
+                }
+            }else{
+                iNowIndex++;
+                if(iNowIndex==aLi.length){
+                    iNowIndex=0;
+                }
+            }
+            changeImg();
+        };
+        oLeft.onselectstart=oRight.onselectstart=oTab.onselectstart=function () {
+            return false;
+        }
+    </script>
+</body>
+</html>
