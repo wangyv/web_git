@@ -94,4 +94,31 @@ var aDivPe=oPeriphery.getElementsByTagName('div');
     };
 
 })();
-
+//热门推荐选项卡
+(function () {
+        var oMoreLeft=document.getElementById('more-left');
+        var oMoreRight=document.getElementById('more-right');
+        var oXmPlainBox=id('xm-plain-box');
+        var oUlWidth=oXmPlainBox.getElementsByTagName('ul')[0].offsetWidth;
+        var oUl=oXmPlainBox.getElementsByTagName('ul')[0];
+        var lFlag=false,rFlag=true;
+        oMoreRight.onclick=oMoreLeft.onclick=function () {
+            if(this===oMoreRight){
+                if(rFlag){
+                    oUl.style.left=-oUlWidth/2+10+'px';
+                    oMoreRight.className='';
+                    oMoreLeft.className='selected';
+                    rFlag=false;
+                    lFlag=true;
+                }
+            }else{
+                if(lFlag){
+                    oUl.style.left=0;
+                    oMoreRight.className='selected';
+                    oMoreLeft.className='';
+                    rFlag=true;
+                    lFlag=false;
+                }
+            }
+        };
+})();
