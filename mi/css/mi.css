@@ -7,14 +7,93 @@ body{
     background:url("../img/header.jpg") 50% 50%;
     height: 120px;
 }
+#header a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
 /*头部图结束*/
 /*轮播图开始*/
-#lunbotu a{
+#lunbotu-container{
+    position: relative;
+    overflow: hidden;
+    height: 460px;
+    margin-bottom: 14px;
+}
+#lunbotu-container a{
     margin-bottom: 20px;
     display: block;
 }
-#lunbotu .datu{
+#lunbotu-container #lunbotu img{
     display: block;
+    position: absolute;
+    top:0;
+    left: 0;
+    opacity: 0;
+    transition: all ease 1s;
+}
+#lunbotu-container #lunbotu .selected{
+    z-index: 1;
+    opacity: 1;
+}
+#lunbotu-tab{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2;
+}
+#lunbotu-tab ul{
+    overflow: hidden;
+}
+#lunbotu-container #lunbotu-tab li{
+    width: 5px;
+    height: 5px;
+    margin: 0 5px;
+    float: left;
+    background-color:rgba(0,0,0,0.6);
+    border: 2px solid rgba(0,0,0,0.3);
+    border-radius: 10px;
+    transition: all .2s;
+    cursor: pointer;
+}
+#lunbotu-container #lunbotu-tab .selected{
+    background-color: rgba(255,255,255,0.4);
+    border-color: rgba(0,0,0,0.4);
+}
+#lunbotu-container #switch{
+    position: relative;
+    z-index: 2;
+}
+#lunbotu-container #lbt-left,#lunbotu-container #lbt-right{
+    position: absolute;
+    top:230px;
+    margin-top: -35px;
+}
+#lunbotu-container #lbt-left{
+    left: 236px;
+}
+#lunbotu-container #lbt-right{
+    right:0;
+}
+#lunbotu-container #switch span{
+    display: block;
+    width: 40px;
+    height: 70px;
+}
+#switch i{
+    font-size: 40px;
+    color: rgb(117, 117, 117);
+    height: 70px;
+    line-height:70px;
+}
+#switch span:hover{
+    background-color: rgba(0,0,0,0.6);
+    color: #eee;
+    /*font-weight: bold;*/
+}
+#lunbotu-container #lunbotu-tab li:hover{
+    background-color: rgba(255,255,255,0.4);
+    border-color: rgba(0,0,0,0.4);
 }
 /*轮播图结束*/
 /*左导航栏开始*/
@@ -23,7 +102,9 @@ body{
     height:460px;
     width: 236px;
     position: absolute;
-    top:260px;
+    top:0;
+    left: 0;
+    z-index: 2;
 }
 #sidebar .index2{
     margin: 0;
@@ -217,9 +298,6 @@ body{
     display: block;
     float: left;
 }
-#xm1 a,#xm2 a,#xm3 a{
-    display: inline-block;
-}
 #xm1 img,#xm2 img,#xm3 img{
     width: 314px;
     height: 170px;
@@ -239,12 +317,12 @@ body{
     line-height: 58px;
     float: left;
 }
-#xm-plain-box .box-hd .more{
+#xm-plain-box .box-hd #more{
     position: absolute;
     right: 0;
     top:24px;
 }
-#xm-plain-box .more a{
+#xm-plain-box #more div{
     border: 1px solid rgb(224,224,224);
     width: 24px;
     height: 16px;
@@ -253,14 +331,26 @@ body{
     float: left;
 
 }
-#xm-plain-box .more a i{
+#xm-plain-box #more i{
     font-size: 16px;
     color: rgb(224,224,224);
     float: left;
     margin: 0 4px;
+    font-weight: bold;
 }
-#xm-plain-box .more-control a:first-child{
+#xm-plain-box #more-left{
     margin-right: -1px;
+}
+#xm-plain-box .recommended-products{
+    width: 1226px;
+    overflow: hidden;
+    position: relative;
+}
+#xm-plain-box .recommended-products ul{
+    width: 2500px;
+    position:absolute;
+    left: 0;
+    transition: all 0.5s ease;
 }
 #xm-plain-box .recommended-products img{
     margin: 0 37px 22px;
@@ -344,16 +434,19 @@ body{
     width: 1240px;
     height: 380px;
 }
+#xm-plain-box #more .selected i{
+    color:rgb(176,176,176);
+}
 /*热门商品推荐结束*/
 /*主要推荐开始*/
-.span-last li:hover,.content1 li:hover,.content2 li:hover,.content3 li:hover,
-.content4 li:hover,.span-first-double li img:hover,.span-first li img:hover {
+.span-last li:hover,.content1 li:hover,.content2 li:hover,.content3 .first:hover,.content3 .second:hover,
+.content3 .third:hover,.content3 .forth:hover,.content4 li:hover,.span-first-double li img:hover,.span-first li img:hover {
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.05);
     top:-2px;
 }
 .content1 li,.content2 li,.content3 li,.content4 li,.span-first-double li img,.span-first li img{
     position: relative;
-    transition: all 0.5s ease;
+    transition: all 1s ease-out;
 }
 #mainly-recommended{
     background-color: rgb(245, 245, 245);
@@ -385,7 +478,6 @@ body{
 }
 #mainly-recommended .container .span-last-selected{
     display: block;
-
 }
 #mainly-recommended .selected{
     color:rgb(255,103,0);
@@ -397,7 +489,6 @@ body{
     height: 58px;
     line-height: 58px;
     float: left;
-
 }
 .menu-right .tab-list{
     float:right;
@@ -412,6 +503,7 @@ body{
     border-bottom:2px rgba(0,0,0,0) solid ;
     margin-left: 30px;
     transition: all 0.5s ease;
+    cursor: pointer;
 }
 .span-first ul{
     display: block;
@@ -612,6 +704,7 @@ small{
     background-color: white;
     float: left;
     margin-left:14px ;
+    overflow: hidden;
 }
 .title2,.title3,.title4,.title5{
     text-align: center;
@@ -694,7 +787,7 @@ small{
 .play i{
     font-size: 13px;
 }
-.play i:hover{
+.content4 a:hover i{
     color:#ff6709;
 }
 .content4-img{
@@ -741,6 +834,62 @@ small{
     color: rgba(255,255,255,0.6);
     display: block;
     width: 174px;
+}
+#content3-ul ul{
+    width: 1184px;
+    height: 340px;
+    position: absolute;
+    bottom: 0;
+}
+#content3-ul .first ul{
+    width: 888px;
+}
+.substance li{
+    float: left;
+    width: 296px;
+    height: 340px;
+    margin-left: 0;
+    border-top:0;
+    padding: 0;
+}
+#content3-ul #first-sub ul{
+    width: 296px;
+    height: 31px;
+    position: absolute;
+    bottom: 5px;
+    z-index: 1;
+}
+#content3-ul #first-sub li ,#content3-ul #second-sub li,#content3-ul #third-sub li,#content3-ul #forth-sub li{
+    width: 10px;
+    height: 10px;
+    padding: 10px;
+    margin: 0 2px;
+    border-top: 0;
+}
+.content3 .first:hover span,.content3 .second:hover span, .content3 .third:hover span,
+.content3 .forth:hover span{
+    opacity: 1;
+}
+.content-switch span{
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    padding: 12px 0;
+    position: absolute;
+    top:50%;
+    margin-top: -24px;
+    background-color:rgba(66, 66, 66, 0.2);
+    line-height: 20px;
+    opacity: 0;
+    text-align: center;
+    transition: all 0.5s ease-out;
+}
+.content-switch span i{
+    font-weight: bold;
+    color:rgb(250, 250, 250);
+}
+.content-switch .right{
+    right: 0;
 }
 /*主要推荐结束*/
 /*脚部开始*/
