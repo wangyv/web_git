@@ -30,11 +30,13 @@ body{
     top:0;
     left: 0;
     opacity: 0;
+    filter:alpha(opacity:0);
     transition: all ease 1s;
 }
 #lunbotu-container #lunbotu .selected{
     z-index: 1;
     opacity: 1;
+    filter:alpha(opacity:100);
 }
 #lunbotu-tab{
     position: absolute;
@@ -775,14 +777,20 @@ small{
     display: block;
     margin-right:14px ;
 }
-.play{
-    position: relative;
-    top:-40px;
-    left: 15px;
+#video .play{
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
     color: white;
-    /*border :2px solid white;*/
-    /*border-radius: 40%;*/
-    /*padding: 3px 7px;*/
+    display: block;
+    /*background-color: rgba(0,0,0,0.6);*/
+    /*width: 32px;*/
+    /*height: 20px;*/
+    /*border: 2px solid #fff;*/
+    /*border-radius: 12px;*/
+    /*transition: all .2s;*/
+    /*overflow: hidden;*/
+
 }
 .play i{
     font-size: 13px;
@@ -835,13 +843,16 @@ small{
     display: block;
     width: 174px;
 }
-#content3-ul ul{
+#content3-ul .substance{
     width: 1184px;
     height: 340px;
     position: absolute;
     bottom: 0;
 }
-#content3-ul .first ul{
+#content3-ul .substance li{
+    position: relative;
+}
+#content3-ul .first .substance{
     width: 888px;
 }
 .substance li{
@@ -852,23 +863,32 @@ small{
     border-top:0;
     padding: 0;
 }
-#content3-ul #first-sub ul{
+#content3-ul .content-tab{
     width: 296px;
     height: 31px;
     position: absolute;
-    bottom: 5px;
+    bottom: 10px;
+    left: 0;
+    text-align: center;
     z-index: 1;
 }
-#content3-ul #first-sub li ,#content3-ul #second-sub li,#content3-ul #third-sub li,#content3-ul #forth-sub li{
+#content3-ul .content-tab ul{
+    float: none;
+}
+#content3-ul .content-tab li{
+    display: inline-block;
     width: 10px;
     height: 10px;
     padding: 10px;
     margin: 0 2px;
     border-top: 0;
+    position: static;
+    float: none;
 }
 .content3 .first:hover span,.content3 .second:hover span, .content3 .third:hover span,
 .content3 .forth:hover span{
     opacity: 1;
+    filter: alpha(opacity:100);
 }
 .content-switch span{
     z-index: 1;
@@ -881,6 +901,7 @@ small{
     background-color:rgba(66, 66, 66, 0.2);
     line-height: 20px;
     opacity: 0;
+    filter:alpha(opacity:0);
     text-align: center;
     transition: all 0.5s ease-out;
 }
@@ -890,6 +911,18 @@ small{
 }
 .content-switch .right{
     right: 0;
+}
+#content .content-tab li span{
+    height: 6px;
+    width: 6px;
+    border: 2px solid white;
+    background-color: rgb(176,176,176);
+    border-radius:50% ;
+    display: block;
+}
+#content #content3-ul .content-selected span{
+    background-color: #fff;
+    border-color: rgb(255,103,0);
 }
 /*主要推荐结束*/
 /*脚部开始*/
