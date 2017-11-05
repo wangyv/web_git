@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>放大镜</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        img{
+            border: 0;
+        }
+        #small,#big{
+            width: 400px;
+            height: 400px;
+            float: left;
+            position: relative;
+        }
+        #big{
+            overflow: hidden;
+            display: none;
+        }
+        #drag{
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            opacity: 0.6;
+            filter: alpha(opacity: 60);
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        #mask{
+            width: 400px;
+            height: 400px;
+            background-color: #f00;
+            opacity: 0;
+            filter:alpha(opacity:0);
+        }
+        #big-pic{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="small">
+        <div>
+            <img src="1.jpg" alt="" style="width: 400px;height: 400px;">
+        </div>
+        <div id="drag"></div>
+        <div id="mask"></div>
+    </div>
+    <div id="big">
+        <img src="2.jpg" alt="" id="big-pic">
+    </div>
+
+    <script>
+        var oSmall=document.getElementById('small');
+        var oBig=document.getElementById('big');
+        var oDrag=document.getElementById('drag');
+        var oBigPic=document.getElementById('big-pic');
+        oSmall.onmouseover=function () {
+            oDrag.style.display='block';
+            oBig.style.display='block';
+        };
+        oSmall.onmouseout=function () {
+            oDrag.style.display='none';
+            oBig.style.display='none';
+        };
+        oSmall.onmousemove=function (e) {
+            e=e||window.event;
+            var left=e.clientX-oDrag.offsetWidth/2;
+            var top=e.clientY-oDrag.offsetHeight/2;
+            if(left<0){
+                left=0;
+            }
+            if(top<0){
+                top=0;
+            }
+            var maxX=oSmall.offsetWidth-oDrag.offsetWidth;
+            var maxY=oSmall.offsetHeight-oDrag.offsetHeight;
+            if(left>maxX){
+                left=maxX;
+            }
+            if(top>maxY){
+                top=maxY;
+            }
+            oDrag.style.left=left+'px';
+            oDrag.style.top=top+'px';
+            var ratioX=left/maxX;
+            var ratioY=top/maxY;
+            oBigPic.style.left=-ratioX*(oBigPic.offsetWidth-oBig.offsetWidth)+'px';
+            oBigPic.style.top=-ratioY*(oBigPic.offsetHeight-oBig.offsetHeight)+'px';
+        }
+    </script>
+</body>
+</html>
