@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=vice-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>square</title>
+    <style>
+        #square{
+            padding-top:100% ;
+            background-color: orangered;
+        }
+        #square1::after{
+            content: '';
+            padding-top: 100%;
+            background-color: #fa0;
+            display: block;
+        }
+        #square2{
+            background-color: #ccc;
+            height: 100vw;
+            /*有兼容性问题*/
+        }
+    </style>
+</head>
+<body>
+<div id="square"></div>
+<div id="square1"></div>
+<div id="square2"></div>
+</body>
+</html>
