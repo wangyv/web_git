@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>两列布局</title>
+    <style>
+        #main{
+            display: table;
+            width: 100%;
+        }
+        #left{
+            width: 300px;
+            height: 300px;
+            background-color: orangered;
+            display:table-cell;
+            /*float: left;*/
+            /*position: absolute;*/
+        }
+        #right{
+            height: 300px;
+            /*margin-left:300px ;*/
+            background-color: #ccc;
+            /*margin-left: 300px;*/
+            /*margin-top: -300px;*/
+            display:table-cell;
+        }
+    </style>
+</head>
+<body>
+<!--左侧固定，右侧自适应-->
+<div id="main">
+    <div id="left"></div>
+    <div id="right"></div>
+</div>
+<!--(1) #left{float:left}-->
+   <!--#right{margin-left:300px;}-->
+<!--(2)定位-->
+<!--(3)margin-left:300px margin-top:-300px;-->
+<!--(4)设置一个父元素：main display：table；一定要有宽度；-->
+  <!--子元素：display：table-cell；-->
+</body>
+</html>
