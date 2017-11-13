@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #checkall,div{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div>请选择你的爱好</div>
+<form action="">
+    <input type="checkbox" name="checkall" id="checkall">全选/全不选
+    <br>
+    <input type="checkbox" name="hobby" value="篮球">篮球
+    <input type="checkbox" name="hobby" value="足球">足球
+    <input type="checkbox" name="hobby" value="排球">排球
+    <input type="checkbox" name="hobby" value="羽毛球">羽毛球
+    <br>
+    <button type="button" id="submit">提交</button>
+</form>
+<script src="jquery-3.2.1.js"></script>
+<script>
+    $(function () {
+        var $hobbys=$('input[name=hobby]');
+        $('#checkall').on('click',function () {
+            console.log(this);
+            console.log($('#checkall').get(0).checked);
+            if($('#checkall').get(0).checked){
+                $hobbys.prop('checked',true);
+            }
+            else{
+                $hobbys.prop('checked',false);
+            }
+        });
+        $('#submit').on('click',function () {
+            var selected="你选中的是：\r\n";
+            $('[name=hobby]:checked').each(function () {
+                selected+=$(this).val()+"\r\n";
+            });
+            alert(selected);
+        })
+
+    });
+</script>
+</body>
+</html>
