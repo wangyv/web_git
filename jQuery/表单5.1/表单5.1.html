@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        div{
+            margin: 5px 0;
+        }
+        label{
+            width: 100px;
+            display: block;
+            float: left;
+            text-align: right;
+            color: rgb(102, 102, 102);
+            font-size: 12px;
+            line-height: 24px;
+        }
+        .sub{
+            padding-left: 100px;
+        }
+        .sub button{
+            width: 42px;
+            height: 25px;
+        }
+        strong{
+            font-size: 8px;
+            color: #f00;
+        }
+        .note{
+            background: url(img/reg3.gif) rgb(255, 224, 233) no-repeat;
+            padding: 2px 2px 2px 25px;
+            margin: 2px;
+            font-size: 12px;
+        }
+        .cor-note{
+            background: url(img/reg4.gif) rgb(233, 251, 235) no-repeat;
+        }
+    </style>
+
+    <!--表单验证练习，功能：-->
+    <!--1.文本框旁边自动加星号标识：在所有class属性为required的文本框旁边自动加入红色星号标识-->
+    <!--2.文本框失去焦点验证：验证要求：-->
+    <!--2.1用户名：不能为空且至少6位，如果验证失败，在用户名文本框右边显示警告，警告信息的样式为formtips onError，如果验证成功，显示正确提示，样式为：formtips onSuccess-->
+    <!--2.2邮箱：不能为空且要求格式符合常见邮箱格式要求，验证成功或失败与用户名要求一致-->
+    <!--3.提交验证：验证要求与文本框失去焦点验证一致，如果验证失败禁止提交，否则提示信息：注册成功,密码已发到你的邮箱,请查收.-->
+    <!--4.重置：清除所有信息，恢复默认初始状态-->
+    <!--5.*****特别要求*****：当文本框获得焦点以及键盘弹起时也要进行与失去焦点一样的验证-->
+</head>
+<body>
+    <form action="">
+        <div class="user">
+            <label for="username">用户名:</label>
+            <input type="text" class="required" id="username">
+            <strong class="high">*</strong>
+        </div>
+        <div class="em">
+            <label for="email">邮箱:</label>
+            <input type="text" class="required" id="email">
+            <strong class="high">*</strong>
+        </div>
+        <div class="int">
+            <label for="personinfo">个人资料:</label>
+            <input type="text" id="personinfo">
+        </div>
+        <div class="sub">
+            <button type="submit" id="send" value="提交" formtarget="_self">提交</button>
+            <button type="button" id="reset" value="reset">重置</button>
+        </div>
+    </form>
+
+
+    <script src="../jquery-3.2.1.js"></script>
+    <script>
+        $(function(){
+            //用户名事件
+            $('#username').on('focus',function () {
+                $(this).nextAll(".note").remove();
+                if($(this).val().length<6&&!$('.user span').get(0)){
+                    $('.user').append('<span class="note error-note" >请输入至少6位的用户名.</span>');
+                }else{
+                    $('.user').append('<span class="note cor-note" >输入正确.</span>');
+                }
+            }).on('keyup',function () {
+                $(this).triggerHandler("focus");
+            }).on('blur',function () {
+                $(this).triggerHandler("focus");
+            });
+            //email事件
+            $('#email').on('focus',function () {
+                $(this).nextAll(".note").remove();
+                if( !/.+@.+\.[a-zA-Z]{2,4}$/.test(this.value) &&!$('.em span').get(0)){
+                    $('.em').append('<span class="note error-note" >请输入正确的E-Mail地址.</span>');
+                }else{
+                    $('.em').append('<span class="note cor-note" >输入正确.</span>');
+                }
+            }).on('keyup',function () {
+                $(this).triggerHandler("focus");
+            }).on('blur',function () {
+                $(this).triggerHandler("focus");
+            });
+            //提交事件
+            $('#send').on('click',function () {
+                $('#username').triggerHandler("focus");
+                $('#email').triggerHandler("focus");
+                var errors=$('.error-note').length;
+                if(errors){
+                    return false;
+                }
+                alert("注册成功,密码已发到你的邮箱,请查收.");
+            });
+            //重置事件
+            $('#reset').on('click',function () {
+                $('#username').val('').nextAll(".note").remove();
+                $('#email').val('').nextAll(".note").remove();
+                $('#personinfo').val('');
+            })
+
+        });
+
+    </script>
+</body>
+</html>
