@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse:collapse;
+        }
+        th{
+            width: 96px;
+            height: 17px;
+            padding: 4px;
+            font:bold 12px/17px Arial;
+            text-align:left;
+            border-bottom:1px solid #333
+        }
+        td{
+            font-size: 12px;
+            height: 16px;
+            padding: 2px;
+        }
+
+        #table .even{
+            background:rgb(255, 243, 143);
+        }
+        #table .odd{
+            background:rgb(255, 255, 238);
+        }
+        #table #tbody .selected{
+            background:#FF6500;
+        }
+    </style>
+</head>
+<body>
+    <table id="table">
+        <thead>
+        <tr>
+            <th></th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>暂住地</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        <tr>
+            <td>
+                <input type="radio" name="choice">
+            </td>
+            <td>张山</td>
+            <td>男</td>
+            <td>浙江宁波</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="radio" name="choice">
+            </td>
+            <td>李四</td>
+            <td>女</td>
+            <td>浙江杭州</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="radio" name="choice">
+            </td>
+            <td>王五</td>
+            <td>男</td>
+            <td>湖南长沙</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="radio" name="choice">
+            </td>
+            <td>找六</td>
+            <td>男</td>
+            <td>浙江温州</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="radio" name="choice">
+            </td>
+            <td>Rain</td>
+            <td>男</td>
+            <td>浙江杭州</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="radio" name="choice">
+            </td>
+            <td>MAXMAN</td>
+            <td>女</td>
+            <td>浙江杭州</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            $('tbody tr:even') .addClass('even');
+            $('tbody tr:odd') .addClass('odd');
+            $('tbody tr').on('click',function () {
+                $(this).addClass('selected').siblings().removeClass('selected');
+                $('input[name=choice]').eq($(this).index()).prop('checked',true).siblings().removeProp();
+            });
+        });
+    </script>
+</body>
+</html>
