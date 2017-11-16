@@ -72,6 +72,7 @@
                    $('#selected2 option').appendTo('#selected1');
                }
            });
+           //不能给子元素绑定事件，因为交换后子元素未绑定事件，可以利用事件委托，给父元素绑定事件
            $('#selected1').on('dblclick',function () {
                $("option:selected",this).appendTo('#selected2');
                //加this使其按序插入，否则后插入的会插入在先插入的前面
@@ -79,6 +80,12 @@
            $('#selected2').on('dblclick',function () {
                 $("option:selected",this).appendTo('#selected1');
             });
+//            $('#selected1').on('dblclick','option',function () {
+//                $(this).appendTo('#selected2');
+//            });
+//            $('#selected2').on('dblclick','option',function () {
+//                $(this).appendTo('#selected1');
+//            });
         });
     </script>
 </body>
