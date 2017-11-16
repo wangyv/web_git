@@ -59,14 +59,14 @@
     <script>
         $(function () {
            $('#add,#remove').on('click',function () {
-               if(this==add){
+               if(this===add){
                    $('#selected1 option:selected').appendTo('#selected2');
                }else{
                    $('#selected2 option:selected').appendTo('#selected1');
                }
            });
            $('#add_all,#remove_all').on('click',function () {
-               if(this==add_all){
+               if(this===add_all){
                    $('#selected1 option').appendTo('#selected2');
                }else{
                    $('#selected2 option').appendTo('#selected1');
@@ -74,6 +74,7 @@
            });
            $('#selected1').on('dblclick',function () {
                $("option:selected",this).appendTo('#selected2');
+               //加this使其按序插入，否则后插入的会插入在先插入的前面
            });
            $('#selected2').on('dblclick',function () {
                 $("option:selected",this).appendTo('#selected1');
