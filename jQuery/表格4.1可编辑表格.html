@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            /*border:1px solid black;*/
+            border-collapse:collapse;
+            /*width: 396px;*/
+        }
+        th,td{
+            border:1px solid black;
+            height: 29px;
+            padding: 1px;
+        }
+        td{
+            width:198px;
+        }
+        tbody tr:first-child{
+            background-color:rgb(170, 187, 204);
+        }
+        input{
+            width: 197px;
+            height: 18px;
+            border: 0;
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+        <tr>
+            <th colspan="2"> 鼠标点击表格就可以编辑</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td class="editable">张三</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td class="editable">李四</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td class="editable">王五</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td class="editable">赵六</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+           $('tbody tr:nth-child(2n+3)').css('background','rgb(238, 221, 255)');
+           $('tr td[class=editable]').on('click',function () {
+               if(!$(this).children().get(0)){
+                   var $text=this.innerHTML;
+                   $(this).html('<input type="text" value="'+$text+'" name="in">').children().select();
+               }
+           });
+        });
+    </script>
+</body>
+</html> 
