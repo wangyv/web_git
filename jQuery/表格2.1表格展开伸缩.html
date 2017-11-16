@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            border:0;
+            border-collapse:collapse;
+        }
+        td{
+            font:normal 12px/17px Arial;
+            padding:2px;
+            width:100px;
+        }
+        th
+        {
+            font:bold 12px/17px Arial;
+            text-align:left;
+            padding:4px;
+            border-bottom:1px solid #333;
+            width:100px;}
+        .parent{
+            background: #FFF38F
+        }
+        .selected{
+            background:#FF6500;
+        }
+        .child-selected{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+        <tr><th>姓名</th><th>性别</th><th>暂住地</th></tr>
+        </thead>
+        <tbody>
+        <tr class="parent" id="row_01"><td colspan="3">前台设计组</td></tr>
+        <tr class="child_row_01"><td>张山</td><td>男</td><td>浙江宁波</td></tr>
+        <tr class="child_row_01"><td>李四</td><td>女</td><td>浙江杭州</td></tr>
+
+        <tr class="parent" id="row_02"><td colspan="3">前台开发组</td></tr>
+        <tr class="child_row_02"><td>王五</td><td>男</td><td>湖南长沙</td></tr>
+        <tr class="child_row_02"><td>找六</td><td>男</td><td>浙江温州</td></tr>
+
+        <tr class="parent" id="row_03"><td colspan="3">后台开发组</td></tr>
+        <tr class="child_row_03"><td>Rain</td><td>男</td><td>浙江杭州</td></tr>
+        <tr class="child_row_03"><td>MAXMAN</td><td>女</td><td>浙江杭州</td></tr>
+        </tbody>
+    </table>
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+           $('tr[class=parent]').on('click',function () {
+               console.log($(this).next());
+               console.log($(this).next().next());
+               if(this.className!='parent selected'){
+                   console.log($(this).nextUntil('[class=parent]'))
+                   $(this).addClass('selected');
+                   $(this).next().add($(this).next().next()).addClass('child-selected');
+               }else{
+                   $(this).removeClass('selected');
+                   $(this).next().add($(this).next().next()).removeClass('child-selected');
+               }
+
+           });
+
+//            $(function(){
+//                $('tr.parent').click(function(){   // 获取所谓的父行
+//                    $(this)
+//                        .toggleClass("selected")   // 添加/删除高亮
+//                        .siblings('.child_'+this.id).toggle();  // 隐藏/显示所谓的子行
+//                });
+//            })
+        });
+    </script>
+</body>
+</html>
