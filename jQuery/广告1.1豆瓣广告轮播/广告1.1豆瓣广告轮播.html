@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        ul{
+            width: 600px;
+            height: 25px;
+        }
+        li{
+            list-style:none;
+            float: left;
+            font-size: 12px;
+            height: 22px;
+            padding-left: 4px;
+            margin-top: 3px;
+            line-height: 22px;
+        }
+        a{
+            text-decoration: none;
+        }
+        li a{
+            color:rgb(102,102,153);
+            padding: 0 9px 0 5px;
+        }
+        .list{
+            width: 600px;
+            height: 25px;
+            padding-left: 10px;
+            background: rgb(246,245,245);
+            line-height: 25px;
+        }
+        .sub-item{
+            width: 283px;
+            height: 72px;
+            border-bottom: dotted 1px #aaa;
+            float: left;
+        }
+        .content{
+            position: relative;
+        }
+        .content a{
+            color: rgb(51,102,153);
+        }
+        .content a:hover{
+            background: blue;
+            color: white;
+        }
+        .content>div{
+            display: none;
+            position: absolute;
+            left:20px;
+            top:20px;
+            width: 580px;
+            height: 264px;
+        }
+        .pic{
+            width: 48px;
+            height: 47px;
+            padding-right: 12px;
+            float: left;
+        }
+        #db-groups-cate .info{
+            width: 222px;
+            height: 47px;
+            font-size: 12px;
+            margin: 0;
+            float: right;
+        }
+        .content .selected{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<div id="db-groups-cate" class="cate-mod">
+    <div class="bd">
+        <div class="list">
+            <ul>
+                <li class="on"><a href="#">生活</a></li>
+                <li><a href="#">兴趣</a></li>
+                <li><a href="#">文化艺术</a></li>
+                <li><a href="#">音乐电影</a></li>
+                <li><a href="#">本地</a></li>
+                <li><a href="#">其他</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="item item_0 selected">
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="法兰西情结: 美酒，美食，美好人生" src="images/g131612-4.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <A href="#">法兰西情结:
+                        美酒，美食，...</A> (177)
+                        <P>前两年在上海巧遇巴黎高商的一台湾同学，现顶着美国某大学教...</P>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <A href="#">
+                            <IMG alt="我们一起写日记" src="images/g166185-3.jpg">
+                        </A>
+                    </div>
+                    <div class="info">
+                        <a href="#">我们一起写日记</a>(5000)<p>每人发起一个发言， 定时或不定时的给自己回复一下，给自己...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="那一年 我们不懂爱情" src="images/g205089-1.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">那一年 我们不懂爱情</a>(4924)<P>如果时光可以倒流,我们还愿意回到那一年吗?弥补过去的遗憾吗...</P>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <IMG alt="让我们一起做晨型人吧！" src="images/g225599-3.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">让我们一起做晨型人吧！</a> (5000)
+                        <p>在日本，有一种叫做“晨型人”的新型族群正在迅速掀起风潮。...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="爱狗俱乐部" src="images/g12238-2.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">爱狗俱乐部</a> (1124)
+                        <P>狗狗~~~爱狗俱乐部． 欢迎大家加入　讨论一些养狗心得．...</P>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="看起来就是比你们年轻" src="images/g361153-1.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">看起来就是比你们年轻</a> (1765)
+                        <p>我们好年轻～  我们好娇嫩～  我们都是无敌青春美少女～～...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item item_1">
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="推理翻译" src="images/g147604-45.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">推理翻译</a> (2395)
+                        <p>推理翻译专门组；纯民间组织，非推理圣坛 小组图标：来自...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="不喝点酒就浑身抽抽" src="images/g58422-9.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">不喝点酒就浑身抽抽</a> (2146)
+                        <p>小组的我们都偏爱杯中之物，没事儿喝点小酒才是正经事。...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="我们一起创造给力画面 !" src="images/g320386-4.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">我们一起创造给力画面 !</a> (1685)
+                        <p>快使用双截棍┗(｀o′)┓哼┏(｀○′)┛哼┏(｀o′)┓哈┗...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="人生的意义在于电视剧" src="images/g201001-7.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">人生的意义在于电视剧</a> (1469)
+                        <p>祝每位组员天天开心，有好剧看 空虚的时候 看看电视剧 ...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="夜晚跑步爱好者乐园" src="images/g61581-1.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">夜晚跑步爱好者乐园</a> (2780)
+                        <p>欢迎来到夜晚跑步爱好者乐园～～ 让那些夜晚跑步...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="动画同学会" src="images/g99630-1.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">动画同学会</a> (1361)
+                        <p>我们热爱动画，我们学习动画，我们在做动画···我们一起...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item item_2">
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="關於舞蹈的一切" src="images/g205665-1.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">關於舞蹈的一切</a> (563)
+                        <p>關於舞蹈的一切 只是一個初步的構想，可以有對choreographe...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="符号学研究">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">符号学研究</a> (994)
+                        <p>不是《达芬奇密码》，也不是“玫瑰之名”。 这个小组从涂...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="http://www.douban.com/group/71879/">
+                            <img alt="狂爱英音" src="images/g71879-1.jpg"></a></div>
+                    <div class="info"><A href="#">狂爱英音</A> (3631)
+                        <p>我承认我的英语很破， 美音不行，英音更学不会。。。 最拿...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="心理学书籍和电影评论分享" src="images/g199108-3.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">心理学书籍和电影评论分享</a> (4121)
+                        <p>每当看完一本心理学方面的书，总是深有体会，想要跟更多的朋...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="耶鲁大学开放课程 YALE open course" src="images/g256167-5.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">耶鲁大学开放课程 YALEop...</a> (5000)
+                        <p>耶鲁大学推出了一系列开放课程,在这里创建一个小组供大家讨...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="米兰昆德拉" src="images/g12247-1.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">米兰昆德拉</a> (5968)
+                        <p>轻与重</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item item_3">
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="自学钢琴" src="images/g111124-3.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">自学钢琴</a> (2891)
+                        <p>没有想过可以在众人面前演奏， 只是喜欢一个人畅游在...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="Joanna Wang | 王若琳" src="images/g77374-2.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">Joanna Wang王若琳</a> (9499)
+                        <p>西洋的诺拉琼斯 日本的小野丽莎 台湾的Joanna Wang ...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="每天一歌" src="images/g198988-9.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">每天一歌</a> (1206)
+                        <p>把每天听到的最喜欢的一首歌发上试听大家共享 记录心情 ...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="土电统治世界" src="images/g200545-1.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">土电统治世界</a> (286)
+                        <p>公告： 组长绝对做不到每周更新，因为众所周知的原因。...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="电影饭店" src="images/g69947-4.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">电影饭店</a> (339)
+                        <p>電影〓飯店 强奸思想 捏造生活 虚构热情 封尘空虚...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="Scarlett Johansson" src="images/g20324-5.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">ScarlettJohansson</a> (8729)
+                        <p>【她很美。。。】 　     姓名：Scarlett I. Johansson ...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item item_4">
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="湖南商学院" src="images/g44725-1.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">湖南商学院</a> (629)
+                        <p>欢迎任何与商学院有关的人员加入！----------------------...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="迷恋希腊"src="images/g85862-1.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">迷恋希腊</a> (1274)
+                        <p> 25岁前一定要去希腊。。。。。那是一个对自己的承诺。。...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="上海马路 上海弄堂" src="images/g14153-10.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">上海马路上海弄堂</a> (8247)
+                        <p> ●让我们拾起散落在上海城市角落里的文化● ...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="University of Bedfordshire 贝德福德郡大学" src="images/g270078-1.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">University of Bedfordshi...</a> (239)
+                        <p>英国贝德福德郡大学（或译贝德福特大学）原名卢顿大学（Univ...</p>
+                    </div>
+                </div>
+                <div class="sub-item last">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="Nap Cafe"  src="images/g35813-1.jpg"></a></div>
+                    <div class="info">
+                        <a href="#">Nap Cafe</a> (7913)
+                        <p>欢迎来Nap Cafe！ 原产地咖啡豆、原产地巧克力、红茶，世...</p>
+                    </div>
+                </div>
+                <div class="sub-item last">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="乌镇_____似水年华。" src="images/g118474-1.jpg">
+                    </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">乌镇_____似水年华。</a> (1815)
+                        <p>赤脚走在乌镇的青石板路上，从脚底慢慢浸透整个身躯...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item item_5">
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="外星语言交流" src="images/g209998-4.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">外星语言交流</a> (534)
+                        <p>火星语，土星语，冥王星语，代表月亮消灭你； 波斯文，土蕃...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="150cm Beauty   小个子爱美丽" src="images/g324211-1.jpg"></a></div>
+                    <div class="info">
+                        <a href="#">150cm Beauty小个子爱...</a> (474)
+                        <p>讨厌别人问我们有多高，讨厌任何需要填身高的表格，讨厌体检...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="没目标邪会——国庆照样没目标！！" src="images/g111124-3.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">没目标邪会——国庆照样没...</a> (1172)
+                        <p>你会迷茫？无所措？ 不知道自己的将来在哪里？ 推荐http...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="一只单眼皮 一只双眼皮" src="images/g71386-5.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">一只单眼皮 一只双眼皮</a> (1007)
+                        <p>貌似这样的人很少 但我便是一个 曾经我为此自卑过...也一...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="我们爱游学" src="images/g344822-6.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">我们爱游学</a> (1496)
+                        <p>微博：http://weibo.com/efekta/免费海外游学生活手册大派...</p>
+                    </div>
+                </div>
+                <div class="sub-item">
+                    <div class="pic">
+                        <a href="#">
+                            <img alt="我又不是富二代！!" src="images/g232039-6.jpg">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="#">我又不是富二代！!</a> (2181)
+                        <p>`当他还年轻时，也总幻想自己就是世界的中心 拥有秒杀一...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
