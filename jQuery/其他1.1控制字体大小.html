@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .vessel{
+            width: 300px;
+            margin: 100px auto;
+        }
+        span{
+            display: inline-block;
+            width: 24px;
+            height: 16px;
+            padding: 6px 10px;
+            background: rgb(137,137,137);
+            font-size: 12px;
+            color: white;
+        }
+        p{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="vessel">
+        <div class="title">
+            <span class="bigger">放大</span>
+            <span class="smaller">缩小</span>
+        </div>
+        <div class="content">
+            <p id="para">This is some text. This is some text. This is some text. This is some text. This
+                is some text. This is some text. This is some text. This is some text. This is some
+                text. This is some text. This is some text. This is some text. This is some text.
+                This is some text. This is some text. This is some text. This is some text. This
+                is some text. This is some text.
+            </p>
+        </div>
+    </div>
+
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            $('.title span').on('click',function () {
+                console.log(this.className==='bigger')
+                if(this.className==='bigger'){
+                    $('#para').css({
+                        fontSize:'+=2'
+                    })
+                }else{
+                    $('#para').css({
+                        fontSize:'-=2'
+                    })
+                }
+            }).on('selectstart',function(){
+                return false;
+            });
+
+        });
+    </script>
+</body>
+</html>
