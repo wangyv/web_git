@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        a{
+            text-decoration: none;
+            font-size: 13px;
+            color: black;
+        }
+        ul {
+            list-style: none;
+        }
+        .head{
+            border-bottom: solid 2px #54a900;
+            width: 165px;
+        }
+        .first>li{
+            width: 163px;
+            height: 32px;
+            line-height: 32px;
+            background: url('img/cate-li.png') no-repeat right;
+            position: relative;
+        }
+        .first>li>a{
+            width: 163px;
+            height: 32px;
+            display: block;
+            border: 1px solid white;
+            border-bottom: solid 1px #ededed;
+
+        }
+        .num{
+            color: #999;
+        }
+        .first ul{
+            position: absolute;
+            left: 164px;
+            top:0;
+            width: 232px;
+            display: none;
+        }
+        .first .first-ul{
+            display: block;
+            border: 1px solid #40aa53;
+            z-index: 1;
+        }
+        #content .first>li .selected{
+            border-color:#40aa53;
+            border-right-color: #fff;
+            position: absolute;
+            z-index:10;
+        }
+        .first .li-first{
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="cate-div">
+        <div class="head"><h4>代码分享&gt;&gt;</h4></div>
+        <div id="content">
+            <ul class="first">
+                <li>
+                    <a href="#">HTML<span class="num">(382)</span></a>
+                    <ul>
+                        <li>
+                        <a href="#">基础标签实例</a><span class="num"> (96)</span>
+                    </li>
+                        <li>
+                            <a href="#">链接实例</a><span class="num"> (96)</span>
+                        </li>
+                        <li>
+                            <a href="#">表格实例</a><span class="num"> (96)</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">CSS<span class="num">(521)</span></a>
+                    <ul>
+                        <li>
+                            <a href="#">背景(background)实例</a><span class="num"> (29)</span>
+                        </li>
+                        <li>
+                            <a href="#">字体(font)实例</a><span class="num"> (42)</span>
+                        </li>
+                        <li>
+                            <a href="#">边框(border)实例</a><span class="num"> (4)</span>
+                        </li>
+                        <li>
+                            <a href="#">外边距 (margin) 实例</a><span class="num"> (28)</span>
+                        </li>
+                        <li>
+                            <a href="#">内边距 (padding) 实例</a><span class="num"> (66)</span>
+                        </li>
+                        <li>
+                            <a href="#">列表实例</a><span class="num"> (38)</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">JavaScript<span class="num">(654)</span></a>
+                    <ul>
+                        <li>
+                            <a href="#">String（字符串）对象实例</a><span class="num"> (11)</span>
+                        </li>
+                        <li>
+                            <a href="#">Date（日期）对象实例</a><span class="num"> (16)</span>
+                        </li>
+                        <li>
+                            <a href="#">Boolean（布尔）对象实例</a><span class="num"> (87)</span>
+                        </li>
+                        <li>
+                            <a href="#">Array（数组）实例</a><span class="num"> (5)</span>
+                        </li>
+                        <li>
+                            <a href="#">Math（算数）对象实例</a><span class="num"> (23)</span>
+                        </li>
+                        <li>
+                            <a href="#">HTML DOM 实例</a><span class="num"> (56)</span>
+                        </li>
+                        <li>
+                            <a href="#">BOM 实例</a><span class="num"> (18)</span>
+                        </li>
+                        <li>
+                            <a href="#">XML DOM 实例</a><span class="num"> (30)</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">jQuery<span class="num">(92)</span></a>
+                    <ul>
+                        <li>
+                            <a href="#">HTML 操作 实例</a><span class="num"> (29)</span>
+                        </li>
+                        <li>
+                            <a href="#">CSS 操作 实例</a><span class="num"> (33)</span>
+                        </li>
+                        <li>
+                            <a href="#">动画 操作 实例</a><span class="num"> (16)</span>
+                        </li>
+                        <li>
+                            <a href="#">Ajax 操作 实例</a><span class="num"> (14)</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">XML<span class="num">(151)</span></a>
+                    <ul>
+                        <li>
+                            <a href="#">......</a><span class="num"> (37)</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Java<span class="num">(89)</span></a>
+                    <ul>
+                        <li>
+                        <a href="#">......</a><span class="num"> (37)</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">JSP&Servlet<span class="num">(137)</span></a>
+                    <ul>
+                        <li>
+                            <a href="#">......</a><span class="num"> (37)</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">JDBC<span class="num">(306)</span></a>
+                    <ul>
+                        <li>
+                            <a href="#">......</a><span class="num"> (37)</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Struts<span class="num">(44)</span></a>
+                    <ul>
+                        <li>
+                            <a href="#">......</a><span class="num"> (37)</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Spring<span class="num">(128)</span></a>
+                    <ul>
+                        <li>
+                            <a href="#">......</a><span class="num"> (37)</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Hibernate<span class="num">(40)</span></a>
+                    <ul>
+                        <li>
+                            <a href="#">......</a><span class="num"> (37)</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">其他<span class="num">(535)</span></a>
+                    <ul>
+                        <li>
+                            <a href="#">......</a><span class="num"> (37)</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="../jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            $('.first>li').children('a').hover(function () {
+                $(this).next().addClass('first-ul');
+                $(this).addClass('selected').parents('li').addClass('li-first');
+            },function () {
+                $(this).next().removeClass('first-ul');
+                $(this).removeClass('selected').parents('li').removeClass('li-first');
+            });
+        });
+    </script>
+</body>
+</html>
