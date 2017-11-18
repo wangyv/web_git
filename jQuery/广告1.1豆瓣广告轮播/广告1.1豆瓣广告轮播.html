@@ -15,7 +15,7 @@
             width: 600px;
             height: 25px;
         }
-        li{
+        .list li{
             list-style:none;
             float: left;
             font-size: 12px;
@@ -27,7 +27,10 @@
         a{
             text-decoration: none;
         }
-        li a{
+        #db-groups-cate{
+            margin-top: 50px;
+        }
+        .list li a{
             color:rgb(102,102,153);
             padding: 0 9px 0 5px;
         }
@@ -39,18 +42,20 @@
             line-height: 25px;
         }
         .sub-item{
-            width: 283px;
-            height: 72px;
-            border-bottom: dotted 1px #aaa;
+            padding:20px 0 25px 0;
+            border-bottom: dashed 1px #aaa;
             float: left;
         }
         .content{
             position: relative;
         }
+        .content .info{
+            color: rgb(102,102,102);
+        }
         .content a{
             color: rgb(51,102,153);
         }
-        .content a:hover{
+        .content .info a:hover{
             background: blue;
             color: white;
         }
@@ -58,7 +63,6 @@
             display: none;
             position: absolute;
             left:20px;
-            top:20px;
             width: 580px;
             height: 264px;
         }
@@ -78,11 +82,16 @@
         .content .selected{
             display: block;
         }
-
+        .list .on{
+            background: #fff;
+        }
+        #db-groups-cate .list li:hover{
+            color:rgb(102,102,153);
+        }
     </style>
 </head>
 <body>
-<div id="db-groups-cate" class="cate-mod">
+    <div id="db-groups-cate" class="cate-mod">
     <div class="bd">
         <div class="list">
             <ul>
@@ -103,16 +112,16 @@
                         </a>
                     </div>
                     <div class="info">
-                        <A href="#">法兰西情结:
-                        美酒，美食，...</A> (177)
-                        <P>前两年在上海巧遇巴黎高商的一台湾同学，现顶着美国某大学教...</P>
+                        <a href="#">法兰西情结:
+                        美酒，美食，...</a> (177)
+                        <p>前两年在上海巧遇巴黎高商的一台湾同学，现顶着美国某大学教...</p>
                     </div>
                 </div>
                 <div class="sub-item">
                     <div class="pic">
-                        <A href="#">
-                            <IMG alt="我们一起写日记" src="images/g166185-3.jpg">
-                        </A>
+                        <a href="#">
+                            <img alt="我们一起写日记" src="images/g166185-3.jpg">
+                        </a>
                     </div>
                     <div class="info">
                         <a href="#">我们一起写日记</a>(5000)<p>每人发起一个发言， 定时或不定时的给自己回复一下，给自己...</p>
@@ -499,5 +508,37 @@
     </div>
 </div>
 
+    <script src="../jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            $('li').on('click',function () {//点击菜单栏进行换页
+
+                var $index=$(this);
+                setTimeout(function () {
+                    $index.addClass('on').siblings().removeClass('on');
+                    $('.item').eq($index.index()).addClass('selected').siblings().removeClass('selected');
+                },600);
+            });
+            var timer;
+            var idx=0;
+            function play() {
+                timer=setInterval(function () {
+                    if(idx==$('li').length){
+                        idx=-1;
+                    }
+                    $('li').eq(++idx).trigger('click');
+                },2000);
+            }
+            function pause() {
+                clearInterval(timer);
+            }
+            play();//轮播效果
+            $('ul').add('.content .item').hover(function () {
+                pause();
+            },function () {
+                play();
+            })
+        });
+    </script>
 </body>
 </html>
