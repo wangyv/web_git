@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        li{
+            list-style:none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #bd{
+            width: 628px;
+            border: solid 1px #cccccc;
+            margin: 20px auto;
+        }
+        .content{
+            width: 621px;
+            height: 211px;
+            border: 1px solid #fff;
+            padding: 6px 0 5px 5px;
+            background: #eee;
+        }
+        .img{
+            width: 380px;
+            height: 210px;
+            float: left;
+        }
+        .content .img li{
+            display: none;
+        }
+        .list{
+            width: 231px;
+            height: 210px;
+            float: left;
+        }
+        .list ul{
+            border: 1px #999 solid;
+            border-bottom: 0;
+        }
+        .list li{
+            border-bottom: 1px #999 solid;
+            width: 231px;
+            height: 41px;
+            text-align: center;
+            line-height:43px;
+            font-size: 13px;
+        }
+        .list a{
+            color: #333;
+            width: 233px;
+            height: 41px;
+            display: block;
+        }
+        #bd .img .selected{
+            display: block;
+        }
+        #bd .list .on a{
+            height: 43px;
+            background: url('images/on.png') no-repeat 0 0;
+            padding-left: 20px;
+            overflow: hidden;
+            color: white;
+            font-weight: bold;
+            margin: -1px -1px -1px -23px;
+        }
+    </style>
+</head>
+<body>
+    <div id="bd">
+        <div class="content">
+            <div class="img">
+                <ul>
+                    <li class="selected"><a href="#"><img src="images/a.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="images/b.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="images/c.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="images/d.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="images/e.jpg" alt=""></a></li>
+                </ul>
+            </div>
+            <div class="list">
+                <ul>
+                    <li class="on"><a href="#">教教你怎么对付小三</a></li>
+                    <li><a href="#">从手可以看出哪些身体疾病？</a></li>
+                    <li><a href="#">人必须戒掉的17个坏习惯</a></li>
+                    <li><a href="#">世界末日理论十大真相</a></li>
+                    <li><a href="#">生活中须注意的邪门事</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="../jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            var timer;
+            var idx=0;
+            $('.list li').on('mouseenter',function () {
+                $(this).addClass('on').siblings().removeClass('on');
+                $('.img li').eq($(this).index()).addClass('selected').siblings().removeClass('selected');
+            });
+            function play() {
+                timer=setInterval(function () {
+                    if(idx==$('.list li').length-1){
+                        idx=-1;
+                    }
+                    $('.list li').eq(++idx).addClass('on').siblings().removeClass('on');
+                    $('.img li').eq(idx).addClass('selected').siblings().removeClass('selected');
+                },2000);
+            }
+            function pause() {
+                clearInterval(timer);//清除定时器
+            }
+            play();//轮播效果
+            $('li').hover(function () {
+                pause();
+            },function () {
+                play();
+            })
+        })
+    </script>
+</body>
+</html>
