@@ -523,7 +523,7 @@
             var idx=0;
             function play() {
                 timer=setInterval(function () {
-                    if(idx==$('li').length){
+                    if(idx==$('li').length-1){
                         idx=-1;
                     }
                     $('li').eq(++idx).trigger('click');
