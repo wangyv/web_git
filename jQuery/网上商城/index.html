@@ -20,12 +20,12 @@
                 <input type="text" id="inputsearch" value="请输入商品名称">
             </div>
             <ul id="skin">
-                <li class="skin0"></li>
-                <li class="skin1"></li>
-                <li class="skin2"></li>
-                <li class="skin3"></li>
-                <li class="skin4"></li>
-                <li class="skin5"></li>
+                <li class="skin0 selected" data-color="#4a4a4a" data-sort="#6e6e6e"></li>
+                <li class="skin1" data-color="#be46d8" data-sort="#d49ae1"></li>
+                <li class="skin2" data-color="#e44072" data-sort="#f296e2"></li>
+                <li class="skin3" data-color="#37c7d4" data-sort="#98e0e6"></li>
+                <li class="skin4" data-color="#f9af2a" data-sort="#ffcf78"></li>
+                <li class="skin5" data-color="#b1d410" data-sort="#cde074"></li>
             </ul>
             <div id="nav">
                 <ul>
@@ -225,7 +225,7 @@
                 <img src="images/ads/5.jpg" alt="春季新品发布"/>
             </a>
             <div class="img-nav">
-                <a href="#"><em>相约情人节</em><em>全场119元起</em></a>
+                <a href="#" class="selected"><em>相约情人节</em><em>全场119元起</em></a>
                 <a href="#"><em>新款上线</em><em>全场357元起</em></a>
                 <a href="#"><em>愤怒小鸟特卖</em><em>全场89元</em></a>
                 <a href="#"><em>男鞋促销第一波</em><em>全场3.1折起</em></a>
@@ -250,12 +250,12 @@
             </div>
         </div>
         <!--右侧导航栏结束-->
-
+        <!--品牌活动开始-->
         <div id="brand">
             <div id="brandtab">
                 <h2 title="品牌活动">品牌活动</h2>
                 <ul>
-                    <li><a title="运动" href="#">运动</a></li>
+                    <li class="selected"><a title="运动" href="#">运动</a></li>
                     <li><a title="女鞋" href="#">女鞋</a></li>
                     <li><a title="男鞋" href="#">男鞋</a></li>
                     <li><a title="Applife" href="#">童鞋</a></li>
@@ -332,8 +332,16 @@
                 </div>
             </div>
         </div>
+        <!--品牌活动结束-->
     </div>
 </div>
 <!--主体结束-->
+<!--脚步开始-->
+<div id="footer">Copyright &copy; 2009 - 2012 JaneShop Inc. </div>
+<!--脚步结束-->
+
+<script src="../jquery-3.2.1.js"></script>
+<script src="js/jane.js"></script>
+<script src="js/style.js"></script>
 </body>
 </html>
