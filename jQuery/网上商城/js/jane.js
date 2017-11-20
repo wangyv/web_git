@@ -26,6 +26,15 @@ $(function () {
         lbtPlay();
     });
 
-    
+    //热门商品选项卡
+    $('#brandtab li').on('click',function () {
+        console.log($('#brandcontent').outerWidth(true)*$(this).index());
+        $(this).addClass('selected').siblings().removeClass('selected');
+        $('#brandlist').css({
+            left:-($('#brandcontent').width()*$(this).index())
+        })
+    });
+
+    //划入提示框
 
 });
