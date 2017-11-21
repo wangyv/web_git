@@ -105,11 +105,11 @@
             });
             $('.second .hmain').hover(function () {
                 $(this).children('a').addClass('selected');
-                $(this).find('ul').slideDown();
+                $(this).find('ul').stop(true,true).slideDown();
             },function () {
                 $(this).children('a').removeClass('selected');
-                $(this).find('ul').slideUp();
-            })
+                $(this).find('ul').stop(true,true).slideUp();
+            });
 
         })
     </script>
