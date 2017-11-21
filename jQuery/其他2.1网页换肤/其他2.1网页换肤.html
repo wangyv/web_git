@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/skin_0.css" id="skin-change">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            width: 210px;
+            height: 15px;
+            margin: 10px;
+            padding:5px 0 5px 5px;
+            border: rgb(204,204,204) 1px solid;
+        }
+        li{
+            list-style:none;
+            float:left;
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+            overflow:hidden;
+            text-indent: -999px;
+            background: url('img/theme.gif');
+        }
+        #div0,#div1{
+            float: left;
+        }
+        h1{
+            font-size: 14px;
+            color: #fff;
+            margin: 10px;
+            width: 60px;
+            padding: 10px 20px;
+        }
+        #skin_1{
+            background-position: 15px 0;
+        }
+        #skin_2{
+            background-position: 35px 0;
+        }
+        #skin_3{
+            background-position: 55px 0;
+        }
+        #skin_4{
+            background-position: 75px 0;
+        }
+        #skin_5{
+            background-position: 95px 0;
+        }
+        #skin .selected{
+            background-position-y:15px ;
+        }
+
+    </style>
+</head>
+<body>
+    <ul id="skin">
+        <li id="skin_0" title="灰色" class="selected">灰色</li>
+        <li id="skin_1" title="紫色">紫色</li>
+        <li id="skin_2" title="红色">红色</li>
+        <li id="skin_3" title="天蓝色">天蓝色</li>
+        <li id="skin_4" title="橙色">橙色</li>
+        <li id="skin_5" title="淡绿色">淡绿色</li>
+    </ul>
+
+    <div id="div0">
+        <div id="news">
+            <h1 class="title">时事新闻</h1>
+        </div>
+    </div>
+    <div id="div1">
+        <div id="game">
+            <h1 class="title">娱乐新闻</h1>
+        </div>
+    </div>
+
+    <script src="../jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            $('#skin li').on('click',function () {
+                $(this).addClass('selected').siblings().removeClass('selected');
+                var skin=this.id;
+                $('#skin-change').attr('href','css/'+ skin +'.css');
+            });
+
+
+        });
+    </script>
+</body>
+</html>
