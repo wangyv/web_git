@@ -82,14 +82,22 @@
     </div>
 
     <script src="../jquery-3.2.1.js"></script>
+    <script src="js/jquery.cookie.js"></script>
     <script>
         $(function () {
+            var skin=$.cookie('skin');
+            if(skin){
+                changeSkin(skin);
+            }
             $('#skin li').on('click',function () {
-                $(this).addClass('selected').siblings().removeClass('selected');
-                var skin=this.id;
-                $('#skin-change').attr('href','css/'+ skin +'.css');
+                skin=this.id;
+                $.cookie('skin',skin,{expires:30});
+                changeSkin(skin);
             });
-
+            function changeSkin() {
+                $('#'+skin).addClass('selected').siblings().removeClass('selected');
+                $('#skin-change').attr('href','css/'+ skin +'.css');
+            }
 
         });
     </script>
