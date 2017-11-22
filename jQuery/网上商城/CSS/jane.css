@@ -7,10 +7,14 @@
     position: relative;
 }
 #imager img{
-    display: none;
+    position: absolute;
+    left: 0;
+    top:0;
+    opacity: 0;
+    transition: all 0.5s ease;
 }
 #imager .selected{
-    display: block;
+    opacity: 1;
 }
 #imager .img-nav{
     width: 550px;
@@ -42,6 +46,11 @@
     width: 79px;
     font-style: normal;
 }
+
+#imager .img-nav .selected{
+    background: dodgerblue url('../images/adindex.gif') no-repeat  50% 100%;
+    opacity: 1;
+}
 /*轮播图结束*/
 /*右侧导航栏开始*/
 #notice{
@@ -70,8 +79,23 @@
     color: #666666;
     font-size: 12px;
 }
-/*右侧导航栏结束*/
+#notice ul .selected{
+    background: dodgerblue;
+}
+#notice ul .pop-up-box{
+    height: 20px;
+    background: orange;
+    border: 1px solid;
+    position: absolute;
+    /*display: none;*/
+    z-index: 999;
+    width: 228px;
+    font-size: 12px;
+    transition:all 0.5s ease;
+}
 
+/*右侧导航栏结束*/
+/*品牌活动开始*/
 #brand{
     width: 790px;
     height: 230px;
@@ -92,12 +116,10 @@
 #brand #brandtab ul{
     position: absolute;
     right: 0;
-    bottom:-1px;
+    bottom:-4px;
 }
 #brand #brandtab li{
     float: left;
-    width: 44px;
-    height: 20px;
     padding-bottom:3px;
     margin-right: 10px;
 }
@@ -111,8 +133,19 @@
     display: inline-block;
     font-size: 12px;
 }
+#brand #brandtab li a:hover{
+    text-decoration: underline;
+}
+#brand #brandtab .selected{
+     background: url('../images/chos.gif') no-repeat 50% 100%;
+    z-index: 1;
+ }
+#brand #brandtab .selected a{
+    background-color: #FA5889;
+    color: #FFFFFF;
+}
 #brand #brandcontent{
-    width: 785px;
+    width: 780px;
     height: 188px;
     margin:8px 5px;
     overflow: hidden;
@@ -126,6 +159,10 @@
 }
 #brand #brandcontent #brandlist{
     width: 3200px;
+    position: absolute;
+    left: 0;
+    height: 188px;
+    transition: all 1s ease;
 }
 #brandcontent li span {
     background-color: #EFEFEF;
@@ -145,5 +182,6 @@
 }
 #brandcontent li span a:hover{
     color: #0086b4;
-
 }
+
+/*品牌活动结束*/
