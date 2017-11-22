@@ -27,14 +27,45 @@ $(function () {
     });
 
     //热门商品选项卡
+    var $brandList=$('#brandlist');
+    var $brandContent=$('#brandcontent');
     $('#brandtab li').on('click',function () {
-        console.log($('#brandcontent').outerWidth(true)*$(this).index());
         $(this).addClass('selected').siblings().removeClass('selected');
-        $('#brandlist').css({
-            left:-($('#brandcontent').width()*$(this).index())
+        $brandList.css({
+            left:-($brandContent.width()*$(this).index())
         })
     });
 
     //划入提示框
+    var sDivs=[];
+    var sInner=[];
+    var $nLis=$('#notice li');
+    var $noticeInfo=$('#notice');
+    for(var i=0;i<$nLis.length;i++){
+        sInner.push($nLis.children('a').eq(i).text());
+    }
+    for(var i=0;i<$nLis.length;i++){
+        sDivs.push("<div class='pop-up-box'>"+sInner[i]+"</div>");
+    }
+    var x=10;
+    var y=20;
+    $nLis.hover(function (e) {
+        e=e||window.event();
+        $nLis.eq($(this).index()).append(sDivs[$(this).index()]).show('fast');
+        $(this).children('div').css({
+            display:'block',
+            left:e.pageX+x,
+            top:e.pageY+y
+        });
+        },function () {
+            $(this).children('div').remove();
+        });
+    $nLis.on('mousemove',function (e) {
+        e=e||window.event();
+        $(this).children('div').css({
+            left:e.pageX+x+'px',
+            top:e.pageY+y+'px'
+        })
+    });
 
 });
