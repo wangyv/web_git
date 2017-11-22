@@ -1,0 +1,60 @@
+/*放大镜开始*/
+#proitm{
+    float: left;
+    width: 312px;
+    height: 560px;
+}
+#magnifier{
+    width: 310px;
+    height: 310px;
+    border: 1px solid #bbbbbb;
+    cursor: pointer;
+    float: left;
+}
+#proitm span{
+    clear: both;
+    text-align: center;
+    display: block;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 320px;
+}
+#proitm .imglist{
+    height: 80px;
+}
+#proitm .imglist li{
+    float: left;
+    margin-right:10px;
+    display: none;
+}
+#proitm .imglist .selected{
+    display: block;
+}
+#proitm .imglist img{
+    width: 60px;
+    height: 60px;
+    border: 1px solid #eee;
+}
+#tab .tab-menu li.selected {
+    color: #FFF;
+    background: #6D84B4;
+}
+#tab .tab-menu li {
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    padding: 1px 6px;
+    margin-right: 4px;
+    background: #F1F1F1;
+    border: 1px solid #898989;
+    border-bottom: none;
+}
+#tab .tab-box div{
+    clear: both;
+    border: 1px solid #898989;
+    display: none;
+}
+#tab .tab-box .selected{
+    display: block;
+}
+/*放大镜结束*/
