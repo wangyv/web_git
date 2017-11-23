@@ -3,6 +3,7 @@
     float: left;
     width: 312px;
     height: 560px;
+    position: relative;
 }
 #magnifier{
     width: 310px;
@@ -34,6 +35,10 @@
     width: 60px;
     height: 60px;
     border: 1px solid #eee;
+    cursor: pointer;
+}
+#proitm .imglist img:hover{
+    border-color: #999;
 }
 #tab .tab-menu li.selected {
     color: #FFF;
@@ -57,4 +62,126 @@
 #tab .tab-box .selected{
     display: block;
 }
+
+#drag{
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    opacity: 0.6;
+    filter: alpha(opacity: 60);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+#big-img{
+    position: absolute;
+    display: none;
+    overflow: hidden;
+    z-index: 2;
+    top:0;
+    left:312px;
+    width: 310px;
+    height: 310px;
+    border: 1px solid #bbbbbb;
+}
+#big-img #img{
+    position: absolute;
+}
 /*放大镜结束*/
+/*右侧选项开始*/
+#details{
+    float: left;
+    overflow: hidden;
+    width: 468px;
+}
+#pro-detail{
+    padding:0 10px 10px 10px;
+}
+#details .detail-list li{
+    line-height: 25px;
+}
+#details .detail-list .del{
+    color: #404040;
+    font-size: 12px;
+    position: static;
+    text-decoration: line-through;
+}
+#details .detail-list .price{
+    font-weight: 700;
+    color: #FF5500;
+    font: 24px Tahoma,Arial,Helvetica,sans-serif;
+    padding-right: 5px;
+    vertical-align: middle;
+}
+#details .detail-list .color-change li{
+    float: left;
+    margin-right: 10px;
+    width: 40px;
+}
+#details .detail-list .color-change li img{
+    width: 30px;
+    height: 30px;
+    padding: 1px;
+    background: #EEE;
+    border: 1px solid #BBB;
+    cursor: pointer;
+}
+#details .detail-list .color-change li img:hover{
+    border-color: #f60;
+}
+#details .detail-list .size-change,#details .detail-list .num-change{
+    clear: both;
+}
+#details .detail-list .size-change li {
+    float: left;
+    margin-right: 6px;
+    border: 1px solid #AAA;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+#details #pro-rating li{
+    float: left;
+    cursor: pointer;
+    text-indent: -999em;
+}
+#details #pro-rating ul{
+    width: 80px;
+    height: 16px;
+    margin: 0 0 20px 0;
+    padding: 0;
+    position: relative;
+    background: url(../images/star-matrix.gif) no-repeat 0 0;
+    overflow: hidden;
+}
+#details #pro-rating li a{
+    position: absolute;
+    top:0;
+    width: 16px;
+    height: 16px;
+    left: 0;
+    text-decoration: none;
+    z-index: 200;
+}
+#details #pro-rating .one a{
+    left:0;
+}
+#details #pro-rating .two a{
+    left:16px;
+}
+#details #pro-rating .three a{
+    left:32px;
+}
+#details #pro-rating .four a{
+    left:48px;
+}
+#details #pro-rating .five a{
+    left:64px;
+}
+
+
+
+/*右侧选项结束*/
