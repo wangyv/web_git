@@ -9,18 +9,28 @@ $(function () {
             $(this).val(this.defaultValue);
         }
     });
-
+    //划入导航栏，弹出子菜单
+    $('#nav li').hover(function () {
+       $(this).children('.subitem') .css('display','block');
+    },function () {
+        $(this).children('.subitem') .css('display','none');
+    });
     //换肤
-    var $categories=$('#categories h2');
-    var $nav=$('#nav');
-    var $sLis=$('#skin li');
-    $sLis.on('click',function () {
-        $(this).addClass('selected').siblings().removeClass('selected');
-        $nav.css({
-            background:$(this).data('color')
+    $(function () {
+        // var $skin=$('#skin li');
+        var skin=$.cookie('skin');
+        if(skin){
+            changeSkin(skin);
+        }
+        $('#skin li').on('click',function () {
+            skin=this.id;
+            $.cookie('skin',skin,{expires:30});
+            changeSkin(skin);
         });
-        $categories.css({
-            background:$(this).data('sort')
-        })
+        function changeSkin() {
+            $('#'+skin).addClass('selected').siblings().removeClass('selected');
+            $('#skin-change').attr('href','CSS/skin/'+ skin +'.css');
+        }
+
     });
 });
