@@ -85,4 +85,14 @@ $(function () {
         $magnifier.find('img').prop('src',src);
     });
 
+    //尺寸改变
+    var $sizeChange=$('#pro-detail .size-change');
+    $sizeChange.find('li').on('click',function () {
+        $(this).addClass('selected').siblings().removeClass('selected');
+        $sizeChange.find('.size').text($(this).text());
+    });
+
+
+
+
 });
