@@ -92,7 +92,15 @@ $(function () {
         $sizeChange.find('.size').text($(this).text());
     });
 
+    //总价改变
+    var $numOption=$('#pro-detail .num-change select'),
+        $sum=$('#pro-detail .sum-price .sum');
+    $numOption.on('click',function () {
+        $sum.text($(this).val()*$sum.data('price'));
+    });
 
+
+    
 
 
 });
