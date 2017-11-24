@@ -1,7 +1,7 @@
 $(function () {
    //放大镜
-    var $drag=$('#proitm #drag'),$bigImg=$('#big-img'),$magnifier=$('#magnifier');
-    var $img=$('#img'),$proitm=$('#proitm');
+    var $drag=$('#pro-itm #drag'),$bigImg=$('#big-img'),$magnifier=$('#magnifier');
+    var $img=$('#img'),$proitm=$('#pro-itm');
     $magnifier.on ('mouseenter',function () {
         $drag.add($bigImg).css('display','block');
     });
@@ -10,8 +10,8 @@ $(function () {
     });
     $magnifier.on ('mousemove',function (e) {
         e=e||window.event;
-        var left=e.clientX-($drag.width()/2)-$proitm.offset().left;
-        var top=e.clientY-($drag.height()/2)-$proitm.offset().top;
+        var left=e.pageX-($drag.width()/2)-$proitm.offset().left;
+        var top=e.pageY-($drag.height()/2)-$proitm.offset().top;
         if(left<0){
             left=0;
         }
@@ -44,7 +44,21 @@ $(function () {
     var $tabLi=$('#tab .tab-menu li'),$tabDiv=$('#tab .tab-box div');
     $tabLi.on('click',function () {
         $(this).add($tabDiv.eq($(this).index())).addClass('selected').siblings().removeClass('selected');
-
     });
+
+
+
+    //点击小图切图片
+    var $imgListLi=$('#img-list li'),$bigImgImg=$bigImg.children('img');
+
+    $imgListLi.on('click',function () {
+        var $selectedColor=$('#pro-detail .color-change li.selected').find('img').data('name');
+        var href = 'images/pro_img/'+$selectedColor+'_'+$(this).find('img').attr('alt')+'_big.jpg';
+        var src='images/pro_img/'+$selectedColor+'_'+$(this).find('img').attr('alt')+'_small.jpg';
+        $magnifierA.add($bigPicture).attr('href',href);
+        $bigImgImg.prop('src',href);
+        $magnifier.find('img').prop('src',src);
+    });
+
 
 });
