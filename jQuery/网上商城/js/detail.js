@@ -46,7 +46,32 @@ $(function () {
         $(this).add($tabDiv.eq($(this).index())).addClass('selected').siblings().removeClass('selected');
     });
 
+    //点击小图切不同颜色图片
+    var $colorChange=$('#pro-detail .color-change');
+    var $magnifierA=$magnifier.find('a');
+    var $bigPicture=$('#big-picture');
+    $colorChange.find('li').on('click',function () {
+        //切换右侧颜色图片及标题
+        $(this).addClass('selected').siblings().removeClass('selected');
+        $(this).children('img').addClass('selected');
+        $(this).siblings().children('img').removeClass('selected');
+        $colorChange.find('.color').text($(this).children('img').attr('alt'));
 
+        //切换大图
+        var href= 'images/pro_img/'+$(this).find('img').data('name')+'_one_big.jpg';
+        var src='images/pro_img/'+$(this).find('img').data('name')+'_one_small.jpg';
+        $magnifierA.add($bigPicture).prop('href',href);
+        $bigImgImg.prop('src',href);
+        $magnifier.find('img').prop('src',src);
+
+        //小图随右侧选择切换
+        $imgListLi.removeClass('selected');
+        for(var i=0;i<$imgListLi.length;i++){
+            if($imgListLi.eq(i).attr('class').indexOf($(this).find('img').data('name'))==0){
+                $imgListLi.eq(i).addClass('selected');
+            }
+        }
+    });
 
     //点击小图切图片
     var $imgListLi=$('#img-list li'),$bigImgImg=$bigImg.children('img');
@@ -59,6 +84,5 @@ $(function () {
         $bigImgImg.prop('src',href);
         $magnifier.find('img').prop('src',src);
     });
-
 
 });
