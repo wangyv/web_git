@@ -40,6 +40,11 @@ $(function () {
         })
     });
 
+    //选项卡
+    var $tabLi=$('#tab .tab-menu li'),$tabDiv=$('#tab .tab-box div');
+    $tabLi.on('click',function () {
+        $(this).add($tabDiv.eq($(this).index())).addClass('selected').siblings().removeClass('selected');
 
+    });
 
 });
