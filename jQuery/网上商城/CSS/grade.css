@@ -1,0 +1,40 @@
+/*#details #pro-rating ul li a:hover {*/
+    /*z-index: 3;*/
+    /*width: 80px;*/
+    /*height: 16px;*/
+    /*display: block;*/
+    /*overflow: hidden;*/
+    /*left: 0;*/
+    /*background: url(../images/star-matrix.gif) no-repeat 0 0;*/
+/*}*/
+#details #pro-rating .one-hover{
+     background-position-y:-96px;
+ }
+#details #pro-rating .two-hover{
+    background-position-y:-112px;
+}
+#details #pro-rating .three-hover{
+    background-position-y:-128px;
+}
+#details #pro-rating .four-hover{
+    background-position-y:-144px;
+}
+#details #pro-rating .five-hover{
+    background-position-y:-160px;
+}
+
+#details #pro-rating .one-selected{
+    background-position-y:-16px;
+}
+#details #pro-rating  .two-selected{
+    background-position-y:-32px;
+}
+#details #pro-rating  .three-selected{
+    background-position-y:-48px;
+}
+#details #pro-rating  .four-selected{
+    background-position-y:-64px;
+}
+#details #pro-rating  .five-selected{
+    background-position-y:-80px;
+}
