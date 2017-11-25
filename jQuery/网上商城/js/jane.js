@@ -33,7 +33,8 @@ $(function () {
         $(this).addClass('selected').siblings().removeClass('selected');
         $brandList.css({
             left:-($brandContent.width()*$(this).index())
-        })
+        });
+        return false;
     });
 
     //划入提示框
