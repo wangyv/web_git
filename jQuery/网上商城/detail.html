@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/detail.css">
     <link rel="stylesheet" href="CSS/skin/skin_0.css" id="skin-change">
+    <link rel="stylesheet" href="CSS/grade.css">
 </head>
 <body>
 <!--头部开始-->
@@ -217,7 +218,7 @@
         </div>
         <!--左侧导航栏结束-->
         <!--放大镜开始-->
-        <div id="proitm">
+        <div id="pro-itm">
             <div id="magnifier">
                 <a href="images/pro_img/blue_one_big.jpg" title="免烫高支棉条纹衬衣">
                     <img src="images/pro_img/blue_one_small.jpg" alt="">
@@ -228,51 +229,51 @@
                 <img src="images/pro_img/blue_one_big.jpg" alt="免烫高支棉条纹衬衣" id="img">
             </div>
             <span>
-                <a href="images/pro_img/blue_one_big.jpg" title="介绍文字">
+                <a href="images/pro_img/blue_one_big.jpg" title="介绍文字" id="big-picture">
                     <img src="images/look.gif" alt="">
                 </a>
             </span>
-            <ul class="imglist">
-                <li class="imgList_blue selected">
+            <ul id="img-list">
+                <li class="blue selected">
                     <a>
-                        <img src='images/pro_img/blue_one.jpg' alt=""/>
+                        <img src='images/pro_img/blue_one.jpg' alt="one"/>
                     </a>
                 </li>
-                <li class="imgList_blue selected">
+                <li class="blue selected">
                     <a>
-                        <img src='images/pro_img/blue_two.jpg' alt=""/>
+                        <img src='images/pro_img/blue_two.jpg' alt="two"/>
                     </a>
                 </li>
-                <li class="imgList_blue selected">
+                <li class="blue selected">
                     <a>
-                        <img src='images/pro_img/blue_three.jpg' alt=""/>
-                    </a>
-                </li>
-
-                <li class="imgList_green">
-                    <a>
-                        <img src='images/pro_img/green_one.jpg' alt=""/>
-                    </a>
-                </li>
-                <li class="imgList_green">
-                    <a>
-                        <img src='images/pro_img/green_two.jpg' alt=""/>
+                        <img src='images/pro_img/blue_three.jpg' alt="three"/>
                     </a>
                 </li>
 
-                <li class="imgList_yellow">
+                <li class="green">
                     <a>
-                        <img src='images/pro_img/yellow_one.jpg' alt=""/>
+                        <img src='images/pro_img/green_one.jpg' alt="one"/>
                     </a>
                 </li>
-                <li class="imgList_yellow">
+                <li class="green">
                     <a>
-                        <img src='images/pro_img/yellow_two.jpg' alt=""/>
+                        <img src='images/pro_img/green_two.jpg' alt="two"/>
                     </a>
                 </li>
-                <li class="imgList_yellow">
+
+                <li class="yellow">
                     <a>
-                        <img src='images/pro_img/yellow_three.jpg' alt=""/>
+                        <img src='images/pro_img/yellow_one.jpg' alt="one"/>
+                    </a>
+                </li>
+                <li class="yellow">
+                    <a>
+                        <img src='images/pro_img/yellow_two.jpg' alt="two"/>
+                    </a>
+                </li>
+                <li class="yellow">
+                    <a>
+                        <img src='images/pro_img/yellow_three.jpg' alt="three"/>
                     </a>
                 </li>
 
@@ -317,10 +318,10 @@
                     <li class="color-change">
                         <span>颜&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;色：</span>
                         <span class="color">蓝白</span>
-                        <ul>
-                            <li><img src="images/pro_img/blue.jpg" alt="蓝白"></li>
-                            <li><img src="images/pro_img/yellow.jpg" alt="黄白"></li>
-                            <li><img src="images/pro_img/green.jpg" alt="粉绿"></li>
+                        <ul >
+                            <li class="selected"><img src="images/pro_img/blue.jpg" alt="蓝白" data-name="blue"></li>
+                            <li><img src="images/pro_img/yellow.jpg" alt="黄白" data-name="yellow"></li>
+                            <li><img src="images/pro_img/green.jpg" alt="粉绿" data-name="green"></li>
                         </ul>
                     </li>
                     <li class="size-change">
@@ -347,7 +348,7 @@
                     </li>
                     <li class="sum-price">
                         <span>总&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;计：</span>
-                        <span class="sum">200</span>元
+                        <span class="sum" data-price="200">200</span>元
                     </li>
                 </ul>
                 <div id="pro-rating">
