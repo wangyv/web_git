@@ -100,7 +100,18 @@ $(function () {
     });
 
 
-    
+    //评分
+    var $ratingUl=$('#pro-rating ul'),
+        $ratingA=$('#pro-rating li a');
+    $ratingA.hover(function () {
+        $ratingUl.addClass($(this).parent().attr('class')+'-hover');
+    },function () {
+        $ratingUl.removeClass($(this).parent().attr('class')+'-hover');
+    }).on('click',function () {
+        $ratingUl.removeClass().addClass($(this).parent().attr('class')+'-selected');
+        alert('您给这件商品的评分是：'+this.title);
+        return false;
+    });
 
 
 });
