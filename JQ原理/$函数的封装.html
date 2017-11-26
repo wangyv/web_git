@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">div1</div>
+    <div class="aa">aa</div>
+    <div class="aa">aa</div>
+    <script>
+        $(function () {
+           $('#div1').on('click',function () {
+               alert('1');
+           }).css('background',function () {
+               return 'red';
+           });
+           $('.aa').css('background','green');
+        });
+        function $(selector,context) {
+            return new JQuery(selector,context);
+        }
+        function JQuery(selector,context) {
+            this.elements=[];
+            if(typeof selector==='string'){
+                if(selector.charAt(0)==='#'){
+                    this.elements.push(document.getElementById(selector.substring(1)));
+                }else if(selector.charAt(0)==='.'){
+                    this.elements=classNameSelector(selector.substring(1),context);
+                }
+            }else if(typeof selector=='function'){
+                addEvent(document,'DOMContentLoaded',selector);
+            }
+        }
+        JQuery.prototype.on=function (type,handler) {
+            for(var elem in this.elements){
+                addEvent(this.elements[elem],type,handler);
+            }
+            return this;
+        };
+        JQuery.prototype.css=function (arg1,arg2) {
+            if(typeof arg1==='string'&&typeof arg2==='string'){
+                for(var i=0;i<this.elements.length;i++){
+                    this.elements[i].style[arg1]=arg2;
+                }
+            }else if(typeof arg1==='object'&&typeof arg2==='undefined'){
+                for(var i=0;i<this.elements.length;i++){
+                    for(var p in arg1){
+                        this.elements[i].style[p]=arg1[p];
+                    }
+                }
+            }else if(typeof arg1==='string'&&typeof arg2==='function'){
+                for(var i=0;i<this.elements.length;i++){
+                    this.elements[i].style[arg1]=arg2();
+                }
+            }
+            return this;
+        };
+        function  classNameSelector(selector,context) {//selecter 是classname ，context 是 上下文。
+            context=context||document;
+            if(context.getElementsByClassName){
+                return context.getElementsByClassName(selector);
+            }else{
+                var allList=context.getElementsByTagName('*');
+                var result=[];
+                for(var i=0;i<allList.length;i++){
+                    if(allList[i].className.indexOf(selector)!=-1){
+                        result.push(allList[i]);
+                    }
+                }
+                return result;
+            }
+        }
+        function addEvent(elem,type,handler) {
+            if(elem.addEventListener){
+                elem.addEventListener(type,handler,false);
+            }else if(elem.attachEvent){
+                elem.ae=function () {
+                    handler.call(elem);
+                };
+                elem.attachEvent('on'+type,elem.ae);
+            }else{
+                elem['on'+type]=handler;
+            }
+        }
+    </script>
+</body>
+</html>
