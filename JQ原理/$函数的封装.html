@@ -78,10 +78,10 @@
             if(elem.addEventListener){
                 elem.addEventListener(type,handler,false);
             }else if(elem.attachEvent){
-                elem.ae=function () {
+                elem[type+handler]=function () {
                     handler.call(elem);
                 };
-                elem.attachEvent('on'+type,elem.ae);
+                elem.attachEvent('on'+type,elem[type+handler]);
             }else{
                 elem['on'+type]=handler;
             }
