@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #container,img{
+            width: 500px;
+            height: 310px;
+        }
+        #container{
+            margin: 100px auto;
+            position: relative;
+        }
+        #imgs img{
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        #tab li,#switch span{
+            float: left;
+            width: 20px;
+            height: 20px;
+            background-color: #000;
+            color: #fff;
+            margin-right:5px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+            transition:all 1s ease;
+        }
+        #tab {
+            position: absolute;
+            z-index: 2;
+            right: 10px;
+            bottom:10px;
+        }
+        #switch{
+            position: absolute;
+            z-index: 2;
+            left:10px;
+            bottom:10px;
+        }
+        #tab .selected{
+            background-color: #ff6700;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="imgs">
+            <img src="1.jpg" alt="" style="z-index: 1">
+            <img src="2.jpg" alt="">
+            <img src="3.jpg" alt="">
+            <img src="4.jpg" alt="">
+        </div>
+        <div id="tab">
+            <ul>
+                <li class="selected">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
+        <div id="switch">
+            <span id="prve">&lt;</span>
+            <span id="next">&gt;</span>
+        </div>
+    </div>
+
+
+    <script src="../../jQuery/jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+
+            var timer;
+            var idx=0;
+            var $tabs=$('#tab li');
+            var $imgs=$('#imgs img');
+            $tabs.on('mouseenter',function () {
+                idx=$(this).index();
+                changeImg();
+            });
+            $('#prve,#next').on('click',function () {
+                if(this.id=='next'){
+                    idx++;
+                    if(idx==$tabs.length){
+                        idx=0;
+                    }
+                }else{
+                    idx--;
+                    if(idx==-1){
+                        idx=$tabs.length;
+                    }
+                }
+                changeImg();
+            });
+
+            $('#container').hover(function () {
+                clearInterval(timer);
+            },function () {
+                play();
+            });
+            play();
+            function play(){
+                timer=setInterval(function () {
+                    $('#next').trigger('click');
+                },2000)
+            }
+
+            function changeImg() {
+                $tabs.eq(idx).addClass('selected').siblings().removeClass('selected');
+                $imgs.eq(idx).fadeIn(1000).siblings().fadeOut(1000);
+            }
+        });
+    </script>
+</body>
+</html>
