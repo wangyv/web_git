@@ -1,0 +1,27 @@
+#content .one{
+    background-position:0 0;
+}
+#content .two{
+    background-position:-177px 0;
+}
+#content .three{
+    background-position:-354px 0;
+}
+#content .four{
+    background-position:0 -100px;
+}
+#content .five{
+    background-position:-177px -100px;
+}
+#content .six{
+    background-position:-354px -100px;
+}
+#content .seven{
+    background-position:0 -200px;
+}
+#content .eight{
+    background-position:-177px -200px;
+}
+#content .nine{
+    background-position:-354px -200px;
+}
