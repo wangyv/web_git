@@ -99,7 +99,7 @@ $(function () {
                 index=getRandom(len);
                 i=ableArr[index][0];
                 j=ableArr[index][1];
-                this.arrValueUpDate(2,i,j);
+                this.arrValueUpDate(2*getRandom1(),i,j);
                 this.drawCell(i,j);
             }else{
                 console.log('没有空闲的格子了');
@@ -237,7 +237,7 @@ $(function () {
             },200);
             this.score+=temp1;
             $("#score").html("分数："+this.score);
-            if(temp==2048){
+            if(temp1==2048){
                 alert('you win!');
                 this.start()
             }
@@ -274,6 +274,10 @@ $(function () {
     //生成随机数0-n
     function getRandom(n){
         return Math.floor(Math.random()*n)
+    }
+    //随机生成1或2
+    function getRandom1() {
+        return Math.floor(Math.random()*2 + 1);
     }
     g = new G2048();
     g.start();
