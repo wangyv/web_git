@@ -46,7 +46,7 @@ $(function () {
         addEvent:function () {
             var that=this;
             document.onkeydown=function (event) {
-                var e=event||window.event|| arguments.callee.caller.arguments[0];
+                var e=event||window.event;
                 var direction=that.direction;
                 var keyCode=e.keyCode;
                 switch (keyCode){
@@ -237,10 +237,14 @@ $(function () {
             },200);
             this.score+=temp1;
             $("#score").html("分数："+this.score);
-            if(temp1==2048){
-                alert('you win!');
-                this.start()
-            }
+            var that=this;
+            setTimeout(function () {
+                if(temp1==2048){
+                    alert('you win!');
+                    that.start();
+                }
+            },300);
+
         },
         //移动格子
         moveCell:function (i1,j1,i2,j2) {
@@ -269,7 +273,14 @@ $(function () {
             alert('you lose!');
             this.start();
             return true;
-        }
+        },
+        // //判赢
+        // checkWin:function () {
+        //     if(temp1==2048){
+        //         alert('you win!');
+        //         this.start()
+        //     }
+        // }
     };
     //生成随机数0-n
     function getRandom(n){
