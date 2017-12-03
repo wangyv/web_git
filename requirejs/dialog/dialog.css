@@ -1,0 +1,32 @@
+.dialog-mask{
+    background-color: #ccc;
+    opacity: 0.5;
+    filter: alpha(opacity:100);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.dialog-box{
+    background: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.dialog-title{
+    height: 30px;
+    color: #fff;
+    background: #000000;
+    line-height: 30px;
+    padding: 0 10px;
+}
+.dialog-item{
+    float: left;
+}
+.dialog-close{
+    float: right;
+    cursor: pointer;
+}
