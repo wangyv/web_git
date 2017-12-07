@@ -1,0 +1,36 @@
+*{
+    margin:0;
+    padding:0;
+}
+li{
+    list-style: none;
+}
+#container{
+    width: 500px;
+    height: 550px;
+    margin: 0 auto;
+}
+#title{
+    text-align: center;
+    height: 25px;
+    line-height: 25px;
+}
+#title input{
+    padding: 0 4px;
+}
+#score{
+    text-align: center;
+    height: 25px;
+    line-height: 25px;
+}
+label input{
+    width: 50px;
+}
+#content li{
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+    border: 1px solid white;
+    background: lawngreen;
+    float: left;
+}
