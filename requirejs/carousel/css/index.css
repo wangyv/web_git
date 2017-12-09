@@ -1,0 +1,46 @@
+*{
+    margin:0;
+    padding:0;
+}
+li{
+    list-style:none;
+}
+img{
+    width: 500px;
+    height: 320px;
+}
+.carousel-container{
+    width: 500px;
+    height: 320px;
+    position: relative;
+}
+.carousel-imgs img{
+    display: none;
+}
+.carousel-imgs .selected{
+    display: block;
+}
+.carousel-nav li,.carousel-arrows span{
+    width: 20px;
+    height: 20px;
+    line-height:20px;
+    background-color: #000;
+    color: #fff;
+    margin-right: 5px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+}
+.carousel-nav .selected{
+    background-color: #ff6700;
+}
+.carousel-nav{
+    position: absolute;
+    bottom:10px;
+    right:10px;
+}
+.carousel-arrows{
+    position: absolute;
+    bottom:10px;
+    left:10px;
+}
