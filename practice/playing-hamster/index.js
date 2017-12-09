@@ -23,14 +23,16 @@ $(function () {
                     this.arr[i][j].value=0;
                 }
             }
-            this.arise();
+            this.arise();//初始出现的地鼠
             var that=this;
             $li.on('click',function () {
                 var i=$(this).prop('row');
                 var j=$(this).prop('cow');
                 if(that.arr[i][j].value==1){
-                    clearTimeout(timer);
-                    $('.p'+i+j).remove('img');
+                    // console.log($(this).find('img'));
+                    clearTimeout($(this).children('img').timer);
+                    $(this).children('img').remove();
+                    console.log($(this).remove('.hamster'))
                     that.arr[i][j].value=0;
                     that.hit++;
 
@@ -43,7 +45,8 @@ $(function () {
         },
         //画一个新格子
         drawCell:function (i,j) {
-            var $img = $('<img src="img/hamster.png"/>');
+            var $img = $('<img src="img/hamster.jpg" class="hamster"/>');
+            $img.timer=null;
             $img.appendTo('.p'+i+j);
         },
         //出现地鼠
@@ -55,8 +58,9 @@ $(function () {
                 this.arr[i][j].value=1;
             }
             var that=this;
-            var timer=setTimeout(function () {
-                $('.p'+i+j).remove('img');
+            $('.p'+i+j+' img').timer=setTimeout(function () {
+                $('.p'+i+j+' img').remove();
+                console.log('111');
                 that.arr[i][j].value=0;
             },3000);
         },
