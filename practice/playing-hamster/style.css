@@ -2,8 +2,15 @@
     margin:0;
     padding:0;
 }
+body{
+    position: relative;
+}
 li{
     list-style: none;
+}
+img{
+    width: 100px;
+    height: 100px;
 }
 #container{
     width: 500px;
@@ -33,4 +40,9 @@ label input{
     border: 1px solid white;
     background: lawngreen;
     float: left;
+}
+.hit{
+    width: 75px;
+    height: 75px;
+    position: absolute;
 }
