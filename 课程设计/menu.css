@@ -1,0 +1,32 @@
+#container .left{
+    width: 233px;
+    float: left;
+}
+#container .right{
+    float: right;
+    width: 485px;
+    height: 430px;
+    overflow-y: scroll;
+    margin-right: -18px;
+}
+#container .left li{
+    height: 26px;
+    padding-left: 30px;
+    line-height:26px;
+    color: #fc0;
+    cursor:pointer;
+    font-size: 13px;
+}
+#container .left li:hover{
+    color: #ffffff;
+}
+#container .left ul{
+    margin: 40px 35px 0px 40px;
+}
+#container .right ul li{
+    display: none;
+    color:white;
+}
+#container .right ul .selected{
+    display: block;
+}
