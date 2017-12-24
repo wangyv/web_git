@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        #container{
+            width: 250px;
+            height: 170px;
+            margin: 50px auto;
+            position: relative;
+        }
+        #container div{
+            width: 250px;
+            height: 170px;
+            border: 5px solid #ccc;
+            -webkit-box-shadow: 5px 5px 5px  #999;
+            -moz-box-shadow: 5px 5px 5px  #999;
+            box-shadow: 5px 5px 5px  #999;
+            position: absolute;
+            left: 0;
+            top:0;
+            -webkit-transition: all 1s linear;
+            -moz-transition: all 1s linear;
+            -ms-transition: all 1s linear;
+            -o-transition: all 1s linear;
+            transition: all 1s linear;
+        }
+        .div1{
+            background: url('2.jpg');
+            -webkit-transform: rotate(15deg);
+            -moz-transform: rotate(15deg);
+            -ms-transform: rotate(15deg);
+            -o-transform: rotate(15deg);
+            transform: rotate(15deg);
+        }
+        .div2{
+            background: url('3.jpg');
+            -webkit-transform: rotate(-20deg);
+            -moz-transform: rotate(-20deg);
+            -ms-transform: rotate(-20deg);
+            -o-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+        }
+        #container div:hover{
+            -webkit-box-shadow: 10px 10px 5px  #999;
+            -moz-box-shadow: 10px 10px 5px  #999;
+            box-shadow: 10px 10px 5px  #999;
+            transform: scale(1.2);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="div1"></div>
+        <div class="div2"></div>
+    </div>
+</body>
+</html>
