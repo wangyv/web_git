@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            position: relative;
+        }
+        div{
+            margin-bottom: 20px;
+        }
+        .blackhole{
+            position: absolute;
+            left:50%;
+            top:50%;
+            -webkit-transform: translate(-50%,-50%);
+            -moz-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+            -o-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+            z-index: 1;
+            width: 50px;
+            height: 50px;
+        }
+        @keyframes disappear {
+            to{
+                width: 0;
+                height: 0;
+                opacity: 0;
+            }
+        }
+        img{
+            width: 520px;
+            height: 350px;
+            /*animation: disappear 1.5s linear;*/
+        }
+        p{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <lable>
+            <input type="text">
+        </lable>
+        <button>搜索</button>
+    </div>
+    <div class="content">
+        <img src="动画/2.jpg" alt="">
+        <img src="动画/3.jpg" alt="">
+        <img src="动画/2.jpg" alt="">
+        <img src="动画/3.jpg" alt="">
+        <p>1236546+464646486</p>
+    </div>
+
+
+
+    <script src="../practice/jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            var flag = false;
+            $('button').on('click',function () {
+                if(($('input').val().indexOf('黑洞')!=-1)&&!flag){
+                    $('body').prepend('<img class="blackhole" src="blackhole.png">');
+                    flag = true;
+//                    console.log($('.blackhole').get(0).offsetWidth);
+                    var timer = setInterval(function () {
+                        if($('.blackhole').get(0).offsetWidth<= 1300){
+                            $('.blackhole').css('width',$('.blackhole').get(0).offsetWidth+50) ;
+                            $('.blackhole').css('height',$('.blackhole').get(0).offsetHeight+50) ;
+//                            console.log($('.content').children())
+//                            $('.content').children().attr('animation','disappear 1.5s linear')
+                            $('.content img').css('width',$('.content img').get(0).offsetWidth-20)
+                        }else{
+                            clearInterval(timer);
+//                            var timer1;
+                        }
+                    },70);
+//                    timer1 = setTimeout(function () {
+//                        if($('.blackhole').get(0).offsetWidth>=0){
+//                            $('.blackhole').css('width',$('.blackhole').get(0).offsetWidth-50) ;
+//                            $('.blackhole').css('height',$('.blackhole').get(0).offsetHeight-50) ;
+//                        }else{
+//                            setTimeout(function () {
+//                                window.location.reload();
+//                            },0);
+//                            clearInterval(timer1);
+//                        }
+//                    },70);
+
+                }
+            });
+
+        })
+    </script>
+</body>
+</html>
