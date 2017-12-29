@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        body{
+        body,html{
+            height: 100%;
             position: relative;
         }
         div{
@@ -17,34 +18,75 @@
             position: absolute;
             left:50%;
             top:50%;
-            -webkit-transform: translate(-50%,-50%);
-            -moz-transform: translate(-50%,-50%);
-            -ms-transform: translate(-50%,-50%);
-            -o-transform: translate(-50%,-50%);
-            transform: translate(-50%,-50%);
-            z-index: 1;
-            width: 50px;
-            height: 50px;
+            transform-origin:50% 50%;
+            -webkit-transform: translate(-50%,-50%) rotate(0);
+            -moz-transform: translate(-50%,-50%) rotate(0);
+            -ms-transform: translate(-50%,-50%) rotate(0);
+            -o-transform: translate(-50%,-50%) rotate(0);
+            transform: translate(-50%,-50%) rotate(0);
+            z-index: 2;
+            width: 0;
+            height: 0;
         }
         @keyframes disappear {
-            to{
+            50%{
+                width: 1300px;
+                height: 1300px;
+                -webkit-transform:translate(-50%,-50%) rotate(720deg);
+                -moz-transform:translate(-50%,-50%) rotate(720deg);
+                -ms-transform:translate(-50%,-50%) rotate(720deg);
+                -o-transform:translate(-50%,-50%) rotate(720deg);
+                transform:translate(-50%,-50%) rotate(720deg);
+            }
+            100%{
                 width: 0;
                 height: 0;
-                opacity: 0;
+                -webkit-transform:translate(-50%,-50%) rotate(1440deg);
+                -moz-transform:translate(-50%,-50%) rotate(1440deg);
+                -ms-transform:translate(-50%,-50%) rotate(1440deg);
+                -o-transform:translate(-50%,-50%) rotate(1440deg);
+                transform:translate(-50%,-50%) rotate(1440deg);
+
             }
+        }
+        .content{
+            -webkit-transform-origin:50% 50%;
+            -moz-transform-origin:50% 50%;
+            -ms-transform-origin:50% 50%;
+            -o-transform-origin:50% 50%;
+            transform-origin:50% 50%;
         }
         img{
             width: 520px;
             height: 350px;
-            /*animation: disappear 1.5s linear;*/
+            /*-webkit-transform-origin:right bottom;*/
+            /*-moz-transform-origin:right bottom;*/
+            /*-ms-transform-origin:right bottom;*/
+            /*-o-transform-origin:right bottom;*/
+            /*transform-origin:right bottom;*/
         }
         p{
             width: 100%;
             height: 100%;
+            overflow: hidden;
+
+        }
+        @keyframes vanish {
+            to{
+                width: 0;
+                height: 0;
+                font-size: 0;
+                -webkit-transform: translate(0,0);
+                -moz-transform: translate(0,0);
+                -ms-transform: translate(0,0);
+                -o-transform: translate(0,0);
+                transform: translate(0,0);
+            }
         }
     </style>
 </head>
 <body>
+    <!--<img class="blackhole" src="blackhole.png">-->
     <div class="title">
         <lable>
             <input type="text">
@@ -69,31 +111,19 @@
                 if(($('input').val().indexOf('黑洞')!=-1)&&!flag){
                     $('body').prepend('<img class="blackhole" src="blackhole.png">');
                     flag = true;
-//                    console.log($('.blackhole').get(0).offsetWidth);
-                    var timer = setInterval(function () {
-                        if($('.blackhole').get(0).offsetWidth<= 1300){
-                            $('.blackhole').css('width',$('.blackhole').get(0).offsetWidth+50) ;
-                            $('.blackhole').css('height',$('.blackhole').get(0).offsetHeight+50) ;
-//                            console.log($('.content').children())
-//                            $('.content').children().attr('animation','disappear 1.5s linear')
-                            $('.content img').css('width',$('.content img').get(0).offsetWidth-20)
-                        }else{
-                            clearInterval(timer);
-//                            var timer1;
-                        }
-                    },70);
-//                    timer1 = setTimeout(function () {
-//                        if($('.blackhole').get(0).offsetWidth>=0){
-//                            $('.blackhole').css('width',$('.blackhole').get(0).offsetWidth-50) ;
-//                            $('.blackhole').css('height',$('.blackhole').get(0).offsetHeight-50) ;
-//                        }else{
-//                            setTimeout(function () {
-//                                window.location.reload();
-//                            },0);
-//                            clearInterval(timer1);
-//                        }
-//                    },70);
-
+                    $('.blackhole').css({
+                        animation: 'disappear 7s linear '
+                    });
+                    for(var i=0;i<$('body .content').children().length;i++){
+                        $('body .content').children()[i].style.animation='vanish 7s linear';
+                    }
+                }else{
+                    $('.blackhole').css({
+                        animation: 'disappear 7s linear '
+                    });
+                    for(var i=0;i<$('body .content').children().length;i++){
+                        $('body .content').children()[i].style.animation='vanish 7s linear';
+                    }
                 }
             });
 
