@@ -7,12 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
         body,html{
             height: 100%;
             position: relative;
         }
         div{
             margin-bottom: 20px;
+        }
+        .title{
+            margin-top: 20px;
+            margin-left: 20px;
         }
         .blackhole{
             position: absolute;
@@ -49,16 +57,27 @@
 
             }
         }
-        .content{
-            -webkit-transform-origin:50% 50%;
-            -moz-transform-origin:50% 50%;
-            -ms-transform-origin:50% 50%;
-            -o-transform-origin:50% 50%;
-            transform-origin:50% 50%;
+        .img1{
+            top: 50px;
+            left: 0;
+        }
+        .img2{
+            left: 0;
+            top: 410px;
+        }
+        .img3{
+            left: 530px;
+            top: 50px;
+        }
+        .img4{
+            left:530px;
+            top: 410px;
         }
         img{
             width: 520px;
             height: 350px;
+            position: absolute;
+
             /*-webkit-transform-origin:right bottom;*/
             /*-moz-transform-origin:right bottom;*/
             /*-ms-transform-origin:right bottom;*/
@@ -66,9 +85,12 @@
             /*transform-origin:right bottom;*/
         }
         p{
-            width: 100%;
-            height: 100%;
+            width: 170px;
+            height: 20px;
+            position: absolute;
             overflow: hidden;
+            top:780px;
+            left:0;
 
         }
         @keyframes vanish {
@@ -76,11 +98,13 @@
                 width: 0;
                 height: 0;
                 font-size: 0;
-                -webkit-transform: translate(0,0);
-                -moz-transform: translate(0,0);
-                -ms-transform: translate(0,0);
-                -o-transform: translate(0,0);
-                transform: translate(0,0);
+                left:50%;
+                top:50%;
+                -webkit-transform: translate(-50%,-50%);
+                -moz-transform: translate(-50%,-50%);
+                -ms-transform: translate(-50%,-50%);
+                -o-transform: translate(-50%,-50%);
+                transform: translate(-50%,-50%);
             }
         }
     </style>
@@ -94,10 +118,10 @@
         <button>搜索</button>
     </div>
     <div class="content">
-        <img src="动画/2.jpg" alt="">
-        <img src="动画/3.jpg" alt="">
-        <img src="动画/2.jpg" alt="">
-        <img src="动画/3.jpg" alt="">
+        <img src="动画/2.jpg" alt="" class="img1">
+        <img src="动画/3.jpg" alt="" class="img2">
+        <img src="动画/2.jpg" alt="" class="img3">
+        <img src="动画/3.jpg" alt="" class="img4">
         <p>1236546+464646486</p>
     </div>
 
