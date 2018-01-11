@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin:0;
+            padding: 0;
+        }
+        li{
+            list-style:none;
+        }
+        body,html{
+            height: 100%;
+            width: 100%;
+        }
+        #container{
+            height: 100%;
+            width: 100%;
+            background: url('img/bg.jpg');
+            position: relative;
+        }
+        #container .img{
+            width: 125px;
+            height: 125px;
+            border:5px solid #fff;
+            -webkit-box-shadow: 2px 2px 2px 2px rgba(0,0,0,.5);
+            -moz-box-shadow: 2px 2px 2px 2px rgba(0,0,0,.5);
+            box-shadow: 2px 2px 2px 2px rgba(0,0,0,.5);
+            position: absolute;
+            left: -500px;
+            top:-500px;
+            -webkit-transition: all ease 1s;
+            -moz-transition: all ease 1s;
+            -ms-transition: all ease 1s;
+            -o-transition: all ease 1s;
+            transition: all ease 1s;
+            cursor: pointer;
+        }
+        #container span{
+            width: 100%;
+            height: 100%;
+            display: block;
+            opacity: 0;
+            position: absolute;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+        var ROW = 4,COL = 6,SUM=ROW*COL,count=0;
+        var countImg = 0;
+        var oContainer = document.getElementById('container');
+        for(var i=0;i<SUM;i++){
+            var oThumbsImg = new Image();
+            oThumbsImg.onload = function () {
+                count++;
+                if(count == SUM*2){
+                    loadSuccess();
+                }
+            };
+            oThumbsImg.src = 'img/thumbs/'+ (i+1) +'.jpg';
+            var oBigImg = new Image();
+            oBigImg.onload = function () {
+                count++;
+                if(count == SUM*2){
+                    loadSuccess();
+                }
+            };
+            oBigImg.src = 'img/'+ (i+1) +'.jpg';
+        }
+        function loadSuccess() {
+            //图片放到容器里
+            for (var i = 0; i < ROW; i++) {
+                for(var j=0;j<COL;j++){
+                    countImg++;
+                    var oDiv = document.createElement('div');
+                    var oSpan = document.createElement('span');
+                    oDiv.style.background = 'url(img/thumbs/' + countImg + '.jpg) no-repeat';
+                    oDiv.className = 'img';
+                    oSpan.index =oDiv.index= countImg;
+                    oDiv.appendChild(oSpan);
+                    oSpan.pos=oDiv.pos={
+                        x:j,
+                        y:i
+                    };
+                    oContainer.appendChild(oDiv);
+                }
+            }
+            reduction();
+
+        }
+        function reduction() {
+            //计算图片间隙
+            var aDiv = oContainer.getElementsByTagName('div');
+            var imgWidth = aDiv[0].offsetWidth;
+            var colGap = (oContainer.offsetWidth - aDiv[0].offsetWidth * COL)/ (COL+1) ;
+            var rowGap = (oContainer.offsetHeight - aDiv[0].offsetHeight * ROW)/(ROW+1);
+            //计算图片位置
+            for(var i=0;i<SUM;i++){
+                aDiv[i].style.left = (colGap + imgWidth) * aDiv[i].pos.x + colGap+'px';
+                aDiv[i].style.top = (rowGap + imgWidth)  *  aDiv[i].pos.y + rowGap+'px';
+                aDiv[i].style.transform = 'rotate('+ Math.floor(Math.random()*40-20) +'deg)';
+                aDiv[i].style.transitionDelay = (SUM-i)*100 +'ms';
+            }
+        }
+        //点击合成
+        var flag = true;//true 是分图状态
+        var aSpan = document.getElementsByTagName('span');
+        var aImg = oContainer.getElementsByTagName('div');
+        oContainer.onclick = function (e) {
+
+            var spanWidth = aSpan[0].offsetWidth;
+            var topGap = (oContainer.offsetHeight - aSpan[0].offsetHeight * ROW)/2;
+            var leftGap = (oContainer.offsetWidth - aSpan[0].offsetWidth * COL)/2;
+            if(e.currentTarget != e.target){
+//                    console.log(e.target.index);
+                var target = e.target;
+                if(flag){
+                    for(var i=0;i<SUM;i++){
+                        aImg[i].style.left = leftGap + aImg[i].pos.x * spanWidth;
+                        aImg[i].style.top = topGap + aImg[i].pos.y * spanWidth;
+                        aSpan[i].style.opacity = 1;
+                        aSpan[i].style.background= 'url(img/'+ target.index +'.jpg) '+ (aSpan[i].pos.x * spanWidth - 1) +'px ' + (-aSpan[i].pos.y * spanWidth + 1)+'px';
+//                        console.log(leftGap + aImg[i].pos.x * spanWidth);
+
+                    }
+                    flag = false;
+                }else{
+                    for(var i=0;i<SUM;i++){
+                        aSpan[i].style.opacity =0;
+                        reduction();
+                    }
+                    flag = true;
+                }
+
+            }
+        }
+
+
+    </script>
+</body>
+</html>
