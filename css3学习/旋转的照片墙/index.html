@@ -48,6 +48,15 @@
             opacity: 0;
             position: absolute;
             z-index: 1;
+            transition: all ease 1s;
+        }
+        #container .left{
+            background: url('img/prev.png') no-repeat;
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            left:0;
+            
         }
     </style>
 </head>
@@ -58,6 +67,7 @@
         var ROW = 4,COL = 6,SUM=ROW*COL,count=0;
         var countImg = 0;
         var oContainer = document.getElementById('container');
+        var aDiv = null;
         for(var i=0;i<SUM;i++){
             var oThumbsImg = new Image();
             oThumbsImg.onload = function () {
@@ -99,7 +109,7 @@
         }
         function reduction() {
             //计算图片间隙
-            var aDiv = oContainer.getElementsByTagName('div');
+            aDiv = oContainer.getElementsByTagName('div');
             var imgWidth = aDiv[0].offsetWidth;
             var colGap = (oContainer.offsetWidth - aDiv[0].offsetWidth * COL)/ (COL+1) ;
             var rowGap = (oContainer.offsetHeight - aDiv[0].offsetHeight * ROW)/(ROW+1);
@@ -108,15 +118,20 @@
                 aDiv[i].style.left = (colGap + imgWidth) * aDiv[i].pos.x + colGap+'px';
                 aDiv[i].style.top = (rowGap + imgWidth)  *  aDiv[i].pos.y + rowGap+'px';
                 aDiv[i].style.transform = 'rotate('+ Math.floor(Math.random()*40-20) +'deg)';
+                aDiv[i].location={
+                    left:  (colGap + imgWidth) * aDiv[i].pos.x + colGap+'px',
+                    top:(rowGap + imgWidth)  *  aDiv[i].pos.y + rowGap+'px',
+                    transform:aDiv[i].style.transform
+                };
                 aDiv[i].style.transitionDelay = (SUM-i)*100 +'ms';
             }
         }
         //点击合成
         var flag = true;//true 是分图状态
         var aSpan = document.getElementsByTagName('span');
-        var aImg = oContainer.getElementsByTagName('div');
-        oContainer.onclick = function (e) {
+//        var aImg = oContainer.getElementsByTagName('div');
 
+        oContainer.onclick = function (e) {
             var spanWidth = aSpan[0].offsetWidth;
             var topGap = (oContainer.offsetHeight - aSpan[0].offsetHeight * ROW)/2;
             var leftGap = (oContainer.offsetWidth - aSpan[0].offsetWidth * COL)/2;
@@ -125,22 +140,27 @@
                 var target = e.target;
                 if(flag){
                     for(var i=0;i<SUM;i++){
-                        aImg[i].style.left = leftGap + aImg[i].pos.x * spanWidth;
-                        aImg[i].style.top = topGap + aImg[i].pos.y * spanWidth;
+                        aDiv[i].style.left = leftGap + aDiv[i].pos.x * spanWidth + 'px';
+                        aDiv[i].style.top = topGap + aDiv[i].pos.y * spanWidth + 'px';
                         aSpan[i].style.opacity = 1;
-                        aSpan[i].style.background= 'url(img/'+ target.index +'.jpg) '+ (aSpan[i].pos.x * spanWidth - 1) +'px ' + (-aSpan[i].pos.y * spanWidth + 1)+'px';
-//                        console.log(leftGap + aImg[i].pos.x * spanWidth);
-
+                        aSpan[i].style.background= 'url(img/'+ target.index +'.jpg) '+ (-aSpan[i].pos.x * (spanWidth -1 )) +'px ' + (-aSpan[i].pos.y * (spanWidth - 1))+'px';
+                        aDiv[i].style.transform = 'rotate(0deg)';
+                        aDiv[i].style.transitionDelay = '0ms';
+                        aDiv[i].style.borderWidth = '1px';
                     }
-                    flag = false;
+//                    if(target.){}
                 }else{
                     for(var i=0;i<SUM;i++){
                         aSpan[i].style.opacity =0;
-                        reduction();
+                        aDiv[i].style.transitionDelay = '0ms';
+                        aDiv[i].style.left = aDiv[i].location.left;
+                        aDiv[i].style.top = aDiv[i].location.top;
+                        aDiv[i].style.transform = aDiv[i].location.transform;
+                        aDiv[i].style.borderWidth = '5px';
                     }
-                    flag = true;
-                }
 
+                }
+                flag = !flag;
             }
         }
 
