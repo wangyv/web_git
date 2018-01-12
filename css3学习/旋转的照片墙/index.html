@@ -42,21 +42,27 @@
             cursor: pointer;
         }
         #container span{
-            width: 100%;
-            height: 100%;
+            width: 126px;
+            height: 126px;
             display: block;
             opacity: 0;
             position: absolute;
-            z-index: 1;
+            left:0;
+            top:0;
             transition: all ease 1s;
         }
-        #container .left{
-            background: url('img/prev.png') no-repeat;
-            width: 16px;
-            height: 16px;
+        .left,.right{
+            width: 20px;
+            height: 20px;
             position: absolute;
-            left:0;
-            
+            top:50%;
+            margin-top: -10px;
+        }
+        #container .left{
+            left:5px;
+        }
+        #container .right{
+            right:5px;
         }
     </style>
 </head>
@@ -68,6 +74,7 @@
         var countImg = 0;
         var oContainer = document.getElementById('container');
         var aDiv = null;
+        var oBody = document.getElementsByTagName('body')[0];
         for(var i=0;i<SUM;i++){
             var oThumbsImg = new Image();
             oThumbsImg.onload = function () {
@@ -129,38 +136,69 @@
         //点击合成
         var flag = true;//true 是分图状态
         var aSpan = document.getElementsByTagName('span');
-//        var aImg = oContainer.getElementsByTagName('div');
-
+        var oLeft = document.createElement('img');
+        oLeft.className = 'left';
+        oLeft.src = 'img/prev.png';
+        var oRight = document.createElement('img');
+        oRight.className = 'right';
+        oRight.src = 'img/next.png';
+        var nowIndex = null;
         oContainer.onclick = function (e) {
             var spanWidth = aSpan[0].offsetWidth;
             var topGap = (oContainer.offsetHeight - aSpan[0].offsetHeight * ROW)/2;
             var leftGap = (oContainer.offsetWidth - aSpan[0].offsetWidth * COL)/2;
             if(e.currentTarget != e.target){
-//                    console.log(e.target.index);
                 var target = e.target;
-                if(flag){
-                    for(var i=0;i<SUM;i++){
-                        aDiv[i].style.left = leftGap + aDiv[i].pos.x * spanWidth + 'px';
-                        aDiv[i].style.top = topGap + aDiv[i].pos.y * spanWidth + 'px';
-                        aSpan[i].style.opacity = 1;
-                        aSpan[i].style.background= 'url(img/'+ target.index +'.jpg) '+ (-aSpan[i].pos.x * (spanWidth -1 )) +'px ' + (-aSpan[i].pos.y * (spanWidth - 1))+'px';
-                        aDiv[i].style.transform = 'rotate(0deg)';
-                        aDiv[i].style.transitionDelay = '0ms';
-                        aDiv[i].style.borderWidth = '1px';
+                if(flag && target.tagName != 'IMG'){
+                    oContainer.appendChild(oLeft);
+                    oContainer.appendChild(oRight);
+                    if(flag) {
+                        nowIndex = target.index;
+                        for (var i = 0; i < SUM; i++) {
+                            aDiv[i].style.left = leftGap + aDiv[i].pos.x * (spanWidth) + 'px';
+                            aDiv[i].style.top = topGap + aDiv[i].pos.y * (spanWidth) + 'px';
+                            aSpan[i].style.opacity = 1;
+                            aSpan[i].style.background = 'url(img/' + nowIndex + '.jpg) ' + (-aSpan[i].pos.x * (spanWidth-2)) + 'px ' + (-aSpan[i].pos.y * (spanWidth-2)) + 'px';
+                            aDiv[i].style.transform = 'rotate(0deg)';
+                            aDiv[i].style.transitionDelay = '0ms';
+                            aDiv[i].style.borderWidth = '1px';
+                        }
+                        flag = false;
                     }
-//                    if(target.){}
-                }else{
+                }else if(!flag && target.tagName != 'IMG'){
+                    oContainer.removeChild(oLeft);
+                    oContainer.removeChild(oRight);
                     for(var i=0;i<SUM;i++){
                         aSpan[i].style.opacity =0;
+                        aSpan[i].style.transitionDelay = '0ms';
                         aDiv[i].style.transitionDelay = '0ms';
                         aDiv[i].style.left = aDiv[i].location.left;
                         aDiv[i].style.top = aDiv[i].location.top;
                         aDiv[i].style.transform = aDiv[i].location.transform;
                         aDiv[i].style.borderWidth = '5px';
                     }
+                    flag = true;
+                }else if(target.tagName == 'IMG'){
+                    if(target.className == 'right'){
+                        nowIndex++;
+                        if(nowIndex >= SUM){
+                            nowIndex = 0;
+                        }
+                    }else{
+                        nowIndex--;
+                        if(nowIndex <= 0){
+                            nowIndex = SUM-1;
+                        }
 
+                    }
+                    for(var i=0;i<SUM;i++){
+                        aSpan[i].style.backgroundImage = 'url(img/'+ (nowIndex+1) +'.jpg) ';
+                        aSpan[i].style.transitionDelay = Math.floor(Math.random()*20+5)*40+'ms';
+                    }
+                    console.log(nowIndex);
+                    flag = false;
                 }
-                flag = !flag;
+
             }
         }
 
