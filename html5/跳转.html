@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+        }
+        body{
+            height: 3000px;
+        }
+        ul{
+            height: 28px;
+        }
+        li{
+            list-style: none;
+            width: 100px;
+            height: 28px;
+            line-height: 28px;
+            float: left;
+            background: #ccc;
+            border-right: 3px solid white;
+            text-align: center;
+        }
+        a{
+            text-decoration: none;
+            color:black;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        div{
+            height: 500px;
+        }
+        #div1{
+            margin-top: 200px;
+            background: #f00;
+        }
+        #div2{
+            background: #00ff00;
+        }
+        #div3{
+            background: #00f;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#div1">link one</a></li>
+        <li><a href="#div2">link two</a></li>
+        <li><a href="#div3">link three</a></li>
+    </ul>
+
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+
+    <script src="../jQuery/jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            $('a').on('click',function () {
+                var id=$(this).attr('href');
+                $('body,html').animate( {
+                    scrollTop:$(id).offset().top
+                },500);
+                history.pushState($(id).offset().top,'');
+                return false;
+            });
+
+            window.onpopstate = function (e) {
+                $('body,html').animate({
+                    scrollTop:e.state
+                },500);
+            }
+        });
+    </script>
+</body>
+</html>
