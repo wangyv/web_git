@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>历史管理H5</title>
+</head>
+<body>
+    <button id="btn">切换数字</button>
+    <h1 id="num"></h1>
+    <script>
+        var obj = {};
+        var oBtn = document.getElementById('btn');
+        var h1 = document.getElementById('num');
+        oBtn.onclick=function () {
+            var arr = [];
+            for(var i=0;i<5;i++){
+                arr.push(Math.ceil(Math.random()*10)+' ');
+            }
+            h1.innerHTML = arr;
+            history.pushState(arr,'');
+        };
+        window.onpopstate = function (e) {
+            h1.innerHTML=e.state;
+        }
+    </script>
+</body>
+</html>
