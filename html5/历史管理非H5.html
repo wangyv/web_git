@@ -16,11 +16,11 @@
         var oBtn = document.getElementById('btn');
         var h1 = document.getElementById('num');
         oBtn.onclick=function () {
-            var arr = [];
+            var arr1 = [];
             for(var i=0;i<5;i++){
                 arr.push(Math.ceil(Math.random()*10)+' ');
             }
-            h1.innerHTML = arr;
+            h1.innerHTML = arr1;
             location.hash = Math.random();
             obj[location.hash] = arr;
         };
