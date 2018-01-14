@@ -29,3 +29,14 @@ function getClassName(className,content) {
         return aClass;
     }
 }
+
+
+// 3、获取到elem的下一个兄弟元素节点
+function next(elem) {
+    do{
+        elem = elem.nextSibling;
+    }while(elem && elem.nodeType !=1);
+    return elem;
+}
+
+//4、
