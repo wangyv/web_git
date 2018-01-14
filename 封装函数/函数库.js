@@ -39,4 +39,9 @@ function next(elem) {
     return elem;
 }
 
-//4、
+//4、获取到elem的第一个孩子元素
+
+function firstChildren(elem) {
+    elem = elem.firstChildren();
+    return elem.nodeType ==1?elem:next(elem);
+}
