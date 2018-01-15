@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var obj = {
+        a:'hello',
+        b:'world'
+    };
+    var str = JSON.stringify(obj);//obj=>string
+
+    var obj2 = JSON.parse(str);//string=>obj
+    console.log(obj);
+    console.log(obj2);
+    obj.a = 'bye';
+    console.log(obj);
+    console.log(obj2)
+</script>
+
+</body>
+</html>
