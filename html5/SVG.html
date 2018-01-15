@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #sec{
+            stroke-dashoffset: 0;
+            stroke-dasharray: 628;
+            transition: all 1s linear;
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+            -webkit-transform-origin:50% 50%;
+            -moz-transform-origin:50% 50%;
+            -ms-transform-origin:50% 50%;
+            -o-transform-origin:50% 50%;
+            transform-origin:50% 50%;
+        }
+        #time{
+            width: 80px;
+            height: 80px;
+            font-size: 80px;
+            position: absolute;
+            left:80px;
+            top:80px;
+            text-align: center;
+            line-height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <svg id="svg" width="400" height="400">
+        <circle cx="120" cy="120" r="100" stroke="#43aefa" stroke-width="10" fill="#fff"></circle>
+        <circle id="sec" cx="120" cy="120" r="100" stroke="#f4f1f1" stroke-width="10"  fill="transparent"></circle>
+        <div id="time"></div>
+    </svg>
+    <script>
+        var sec = document.getElementById('sec');
+        var time = document.getElementById('time');
+        var t = 10;
+        var timer = setInterval(function () {
+            time.innerHTML = t;
+            t--;
+            if(t < 0){
+                clearInterval(timer);
+            }else{
+                console.log(sec.strokeDashoffset);
+                sec.style.strokeDashoffset = (628/10) * t - 628;
+            }
+        },1000);
+    </script>
+</body>
+</html>
