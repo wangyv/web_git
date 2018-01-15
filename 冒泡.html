@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ul1">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+    </ul>
+    <script>
+        var oUl=document.getElementById('ul1');
+        //事件代理或事件委托，子元素把时间委托给父元素绑定
+        oUl.onclick = function (e) {
+            var target;
+            if(e){
+                target=e.target;
+            }else{
+                target=window.event.srcElement;
+            }
+            console.log(target.innerHTML);//取到当前事件源
+        }
+</script>
+
+
+</body>
+</html>
