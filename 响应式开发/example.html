@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        #nav,#header,#footer{
+            background-color: #ccc;
+            color:white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 16px;
+            height: 0.5rem;
+            line-height: 0.5rem;
+        }
+        /*img{*/
+            /*width: 100%;*/
+        /*}*/
+        #banner{
+            width: 100%;
+            height: 540px;
+            background: url("01.jpg") center/cover;
+        }
+        #news{
+            font-size: 16px;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+        #news div{
+            float: left;
+            height: 250px;
+            display: table;
+        }
+        #news p{
+            padding: 10px;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        #left{
+            /*margin-right: 30px ;*/
+            background-color: deepskyblue;
+            width: 67%;
+            margin-right: 3%;
+        }
+        #right{
+            background-color: #ff6700;
+            width: 30%;
+        }
+        .clearfix::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        @media (min-width : 1200px){
+            #container{
+                width: 1200px;
+                margin: 0 auto;
+            }
+            #nav,#header,#footer{
+                width: 1200px;
+            }
+        }
+        @media (min-width : 992px)and(max-width: 1199px){
+            #container{
+                width: 100%;
+            }
+            #nav,#header,#footer{
+                width: 100%;
+            }
+            #banner{
+                width: 100%;
+                padding-top:52.56%;
+                height: 0;
+            }
+        }
+        @media (min-width: 768px) and (max-width: 991px){
+            #container{
+                width: 100%;
+            }
+            #nav,#header,#footer{
+                width: 100%;
+            }
+            #banner{
+                width: 100%;
+                padding-top:52.56%;
+                height: 0;
+            }
+        }
+        @media (max-width: 767px) {
+            #container{
+                width: 100%;
+            }
+            #nav,#header,#footer{
+                width: 100%;
+                height:20px;
+            }
+            #news{
+                display: block;
+            }
+            #news div{
+                float: none;
+                width: 100%;
+                font-size: 0.2rem;
+            }
+            #left{
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+            #banner{
+                width: 100%;
+                padding-top:52.56%;/*高度/宽度*/
+                height: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header">首部</div>
+        <div id="nav">导航</div>
+        <div id="banner">
+            <!--<img src="01.jpg" alt="">-->
+        </div>
+        <div id="news" class="clearfix">
+            <div id="left">
+                <p>
+                    树欲静而风不止，子欲养而亲不待。“上穷碧落下黄泉,两处茫茫皆不见。“相会于庙堂,不如相忘于江湖。既然琴瑟起,何以笙箫默
+                    覆了江南终为月，怎管江火似流萤。 年年岁岁花相似，岁岁年年人不同。 “暮色杭城苍草中，飞萤撩乱惹花颠。 “辗转萤火留人间，为那台上人煜煜。
+                    树欲静而风不止，子欲养而亲不待。“上穷碧落下黄泉,两处茫茫皆不见。“相会于庙堂,不如相忘于江湖。既然琴瑟起,何以笙箫默
+                </p>
+            </div>
+            <div id="right">
+                <p>
+                    树欲静而风不止，子欲养而亲不待。“上穷碧落下黄泉,两处茫茫皆不见。“相会于庙堂,不如相忘于江湖。既然琴瑟起,何以笙箫默
+                    树欲静而风不止，子欲养而亲不待。“上穷碧落下黄泉,两处茫茫皆不见。“相会于庙堂,不如相忘于江湖。既然琴瑟起,何以笙箫默
+                </p>
+            </div>
+        </div>
+        <div id="footer">脚部</div>
+
+        <script src="rem.js"></script>
+    </div>
+<!--等比的高度算法：图片高度/宽度-->
+</body>
+</html>
