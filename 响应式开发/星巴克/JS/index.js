@@ -5,7 +5,7 @@ $(function(){
        $('.dialog-mask').css({
            opacity:0.5,
            filter: 'alpha(opacity:50)',
-           zIndex:1
+           zIndex:11
        });
        $('#nav-sub-menu').css({
                width:270+'px'
@@ -13,7 +13,7 @@ $(function(){
    });
     $('.dialog-mask').on('click',function () {
        $('.dialog-mask').css({
-           zIndex:-1,
+           zIndex:-999,
            opacity:0,
            filter: 'alpha(opacity:0)'
        });
@@ -23,5 +23,10 @@ $(function(){
     });
    $('#nav-sub-menu .nav-sub-menu-second li').on('click',function () {
       $(this).find('ul').slideToggle();
+   }).on('selectstart',function () {
+       return false;
    });
+   $('#nav-sub-menu .nav-sub-menu-second li a').on('click',function () {
+       return false;
+   })
 });
