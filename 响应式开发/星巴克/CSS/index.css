@@ -4,9 +4,12 @@
     font-size: 16px;
     box-sizing: border-box;
 }
+body{
+    height: 4000px;
+}
 a{
     text-decoration: none;
-    color:black;
+    color: #b89f7a;
 }
 li{
     list-style: none;
@@ -94,7 +97,7 @@ li{
     opacity: 0;
     filter: alpha(opacity:0);
     position: fixed;
-    z-index: -1;
+    z-index: -999;
     top: 0;
     bottom: 0;
     left: 0;
@@ -114,7 +117,7 @@ li{
     position: absolute;
     left:0;
     top:0;
-    z-index: 2;
+    z-index: 12;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     -ms-transition: all 0.5s;
@@ -123,6 +126,12 @@ li{
 }
 #nav-sub-menu .nav-sub-menu-first{
     border-bottom: 1px solid #525252;
+}
+#nav-sub-menu .nav-sub-menu-first a{
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+    display: block;
     color: #b89f7a;
 }
 #nav-sub-menu .nav-sub-menu-first li:hover{
@@ -135,16 +144,24 @@ li{
     color: white;
     padding-bottom: 200px;
 }
-#nav-sub-menu .nav-sub-menu-second li:hover{
+#nav-sub-menu .nav-sub-menu-second li a{
+    color: white;
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+    display: block;
+}
+#nav-sub-menu .nav-sub-menu-second li:hover,#nav-sub-menu .nav-sub-menu-second li a:hover{
     color:#b89f7a;
 }
 #nav-sub-menu li{
     padding: 10px 15px;
+    width: 235px;
 }
 #nav-sub-menu .nav-sub-menu-second li:first-child{
     padding-top: 20px;
 }
-#nav-sub-menu .nav-sub-menu-second ul{
+#nav-sub-menu .nav-sub-menu-second ul a{
     color:#aaa;
 }
 /*广告图*/
@@ -154,6 +171,8 @@ li{
     padding-top: 50%;
     position: relative;
     background: url('../img/banner_big.jpg') no-repeat center/cover;
+    z-index: 10;
+    cursor: pointer;
 }
 /*#banner img{*/
     /*width: 100%;*/
@@ -184,13 +203,8 @@ li{
     text-align: center;
     top: auto;
     color: #FFF;
+    cursor: pointer;
 }
-
-
-
-
-
-
 @media (min-width: 993px) {
     #banner{
         padding-top: 50%;
@@ -217,4 +231,461 @@ li{
     #nav .nav-login .login-content span,#nav .nav-login .login-content a{
         font-size:12px;
     }
+}
+
+/*login 部分*/
+#login{
+    width: 100%;
+    height: 220px;
+    background-color: #0f0f0f;
+    position: relative;
+    z-index:10;
+}
+#login .login-content{
+    width: 1140px;
+    padding: 0 15px;
+    margin: 0 auto;
+    display: flex;
+    justify-content:center;
+}
+#login .login-content .login-left{
+    width: 260px;
+    height: 220px;
+    padding-left: 90px;
+    display: flex;
+    background: url("../img/rewards_bg.png") no-repeat 0 0;
+    -webkit-background-size:contain;
+    background-size:contain;
+    flex: 0 0 350px;
+    justify-content: center;
+    flex-direction: column;
+}
+#login .login-content .login-left span{
+    width: 260px;
+    height: 28px;
+    display: block;
+    color: #fff;
+}
+#login .login-content .login-left .login-left-logo{
+    background: url("../img/rewards_logo_20170209.svg") no-repeat;
+    width: 160px;
+    height: 39px;
+    background-size: contain;
+}
+#login .login-content .login-right{
+    width: 430px;
+    height: 220px;
+    flex:0 0 430px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#login .login-content .login-right span{
+    color: white;
+}
+#login .login-content .login-right .login-name{
+    font-size:25px;
+}
+#login .login-content .login-right .login-rewords-content{
+    height: 65px;
+    display: flex;
+    flex-direction: row;
+}
+#login .login-content .login-right .login-text{
+    margin-bottom: 5px;
+}
+#login .login-content .login-right .login-register{
+    border: 2px solid #a98e67;
+    padding: 14px 40px;
+    color: #a98e67;
+    margin: 7px 14px 7px 0;
+}
+#login .login-content .login-right .login-register:hover{
+    background-color:  #a98e67;
+    color: #fff;
+}
+#login .login-content .login-right .login-rewords-content .login-more{
+    margin-left: 30px;
+    font-size: 14px;
+    color: #a98e67;
+    line-height: 65px;
+}
+#login .login-content .login-right .login-rewords-content .login-more:hover{
+    color:#b89f7a;
+    text-decoration: underline;
+}
+@media (max-width: 1200px){
+    #login .login-content{
+        width: 940px;
+    }
+}
+@media(max-width: 992px){
+    #login .login-content{
+        width: 720px;
+    }
+}
+@media (max-width: 768px){
+    #login{
+        height: auto;
+    }
+    #login .login-content{
+        padding: 0 35px;
+        width: 100%;
+        display: block;
+    }
+    #login .login-content .login-left{
+        width: 100%;
+        height: 180px;
+        text-align: center;
+        padding: 55px;
+    }
+    #login .login-content .login-left span{
+        width: 100%;
+    }
+    #login .login-content .login-left .login-left-logo{
+        position: relative;
+        left: 50%;
+        margin-left: -67px;
+    }
+    #login .login-content .login-right{
+        width: 100%;
+        height: auto;
+    }
+    #login .login-content .login-right .login-name{
+        width: 100%;
+        text-align: center;
+    }
+    #login .login-content .login-right .login-text{
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    #login .login-content .login-right .login-rewords-content{
+        width: 100%;
+        height: auto;
+        padding: 10px 0;
+        flex-direction: column;
+    }
+    #login .login-content .login-right .login-register{
+        padding: 14px 10%;
+        width: 80%;
+        text-align: center;
+        margin: 0.5em auto;
+    }
+    #login .login-content .login-right .login-rewords-content .login-more{
+        padding: 25px 0;
+        text-align: right;
+    }
+}
+/*APP 推荐*/
+#app-pc,#app-mobile{
+    display: block;
+    position: relative;
+    background-color: #efebe8;
+    z-index: 10;
+}
+#app-pc img{
+    width: 100%;
+    height: auto;
+}
+#app-pc .app-download-code{
+    width: 130px;
+    height: 130px;
+    background: url('../img/app_qr_20171115.png') 0 0;
+    -webkit-background-size:contain;
+    background-size:contain;
+    position: absolute;
+    top:50%;
+    margin-top: -65px;
+    left:42%;
+}
+#app-pc .app-pc-content-info{
+    height: 100px;
+    width: 35%;
+    position: absolute;
+    top:50%;
+    margin-top: -50px;
+    left: 42%;
+    margin-left: 150px;
+}
+#app-pc .app-pc-content-info span{
+    display: block;
+    width: 100%;
+    margin-bottom: 14px;
+    font-size: 18px;
+    color: #3d3d3d;
+}
+#app-pc .app-pc-content-info a{
+    display: block;
+}
+#app-pc .app-pc-content-info a:hover{
+    text-decoration: underline;
+    color:#b89f7a;
+}
+#app-mobile{
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+#app-mobile img{
+    max-width: 100%;
+}
+#app-mobile span{
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    padding: 4%;
+    text-align: center;
+    margin-bottom: 14px;
+    color: #3d3d3d;
+}
+#app-mobile .app-mobile-logo{
+    background: url("../img/udp-starbucks-cn.svg") no-repeat center center;
+    height: 80px;
+    display: block;
+    padding: 14px 0;
+    margin: 7px 14px 0 0;
+}
+@media (max-width: 768px) {
+    #app-pc{
+        display: none;
+    }
+    #app-mobile{
+        display: block;
+    }
+}
+
+/*mosaic部分*/
+#mosaic{
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+#mosaic .mosaic-product{
+    width: 50%;
+    display: block;
+    float: left;
+    position: relative;
+}
+#mosaic .mosaic-product img{
+    width: 100%;
+    float: left;
+}
+#mosaic .mosaic-product .mosaic-product-name{
+    letter-spacing: normal;
+    font-size: 30px;
+    font-weight: 400;
+    display: block;
+    line-height: 38px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom:40px;
+}
+#mosaic .mosaic-product .mosaic-product-explanation{
+    font-weight: 900;
+    font-size: 13px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: #a98e67;
+    letter-spacing: 3px;
+    position: absolute;
+    left:0;
+    bottom: 10px;
+    width:100%;
+    text-align: center;
+}
+#mosaic .mosaic-product .name-first{
+    color: #d81026;
+}
+#mosaic .mosaic-product .explanation-first{
+    color:#000;
+}
+#mosaic .mosaic-product .name-second{
+    color: #fff;
+}
+@media (max-width: 768px) {
+    #mosaic .mosaic-product{
+        width: 100%;
+    }
+}
+
+/*wsg*/
+#wsg{
+    height: 222px;
+    width: 100%;
+    background: #106e4b;
+    position: relative;
+    z-index: 10;
+}
+#wsg .wsg-content{
+    width: 767px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+#wsg .wsg-content .wsg-content-block{
+    height: 100%;
+    width: 50%;
+    float: left;
+}
+#wsg .wsg-content .wsg-content-block .wsg-content-item{
+    margin: 0 25px;
+    height: 100%;
+    float: left;
+}
+#wsg .wsg-content .wsg-content-block .wsg-content-img1{
+    background: url('../img/reword.png') no-repeat center/contain;
+    height: 100%;
+    width: 177px;
+}
+#wsg .wsg-content .wsg-content-block .wsg-content-img2{
+    background: url('../img/code.png') no-repeat center/contain;
+    height: 100%;
+    width: 106px;
+}
+#wsg .wsg-content .wsg-content-block .wsg-content-img3{
+    width: 99px;
+    height: 100%;
+    background: url('../img/cup.png') no-repeat center/contain;
+}
+#wsg .wsg-content .wsg-content-block .wsg-content-img4{
+    background: url('../img/right_reword.png') no-repeat center/contain;
+    width: 184px;
+    height: 100%;
+}
+@media (max-width: 768px){
+    #wsg{
+        height:382px;
+    }
+    #wsg .wsg-content{
+        padding: 30px 35px;
+        width: 100%;
+    }
+    #wsg .wsg-content .wsg-content-block{
+        width: 100%;
+        height: 172px;
+        float: none;
+        padding: 5px 0;
+        text-align: center;
+    }
+    #wsg .wsg-content .wsg-content-block .wsg-content-item{
+        margin: 0;
+    }
+    #wsg .wsg-content .wsg-content-block .wsg-content-img1{
+        background: url('../img/cup.png') no-repeat center/contain;
+        width: 150px;
+        height: 162px;
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        margin-left: -150px;
+    }
+    #wsg .wsg-content .wsg-content-block .wsg-content-img2{
+        background: url('../img/reword.png') no-repeat center/contain;
+        height: 76px;
+        width: 150px;
+        display: inline-block;
+        position: absolute;
+        right: 50%;
+        margin-right: -170px;
+        top:25%;
+        margin-top: -20px;
+    }
+    #wsg .wsg-content .wsg-content-block .wsg-content-img3{
+        width: 120px;
+        height: 120px;
+        background: url('../img/code.png') no-repeat center/contain;
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        margin-left: -135px;
+    }
+    #wsg .wsg-content .wsg-content-block .wsg-content-img4{
+        background: url('../img/right_reword.png') no-repeat center/contain;
+        width: 180px;
+        height: 92px;
+        display: inline-block;
+        position: absolute;
+        right: 50%;
+        margin-right: -185px;
+    }
+}
+
+/*apple-watch-web*/
+
+#apple-watch-web{
+    height: 220px;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    background: url(../img/web-bg.png);
+    text-align: center;
+}
+#apple-watch-web .watch-cn-image{
+    background: url('../img/app_watch.png') no-repeat center/contain;
+    display: inline-block;
+    width: 408px;
+    height: 100%;
+}
+#apple-watch-web .watch-intro{
+    display: inline-block;
+    vertical-align: top;
+}
+#apple-watch-web .watch-intro p{
+    text-align: left;
+    width: 480px;
+    font-size: 18px;
+    padding: 35px 68px 0 68px;
+    line-height: 28px;
+    color: #3d3d3d;
+    margin-bottom: 14px;
+}
+#apple-watch-web .watch-code{
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 35px;
+    padding-left: 20px;
+    margin: 0;
+}
+#apple-watch-web .watch-code .app-download-code{
+    width: 130px;
+    height: 130px;
+    background:url("../img/app_qr_20171115.png") no-repeat center/contain;
+    display: inline-block;
+}
+#apple-watch-web .watch-code p{
+    width: 130px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #3d3d3d;
+    margin-bottom: 14px;
+}
+
+#apple-watch-mobile{
+    position: relative;
+    z-index: 10;
+    display: block;
+    width: 100%;
+    height: 630px;
+    text-align: center;
+    background: url(../img/mobile-bg.png);
+}
+#apple-watch-mobile .watch-cn-image{
+    background: url("../img/mobile-iwatch-cn.png") no-repeat center/contain;
+    min-width: 300px;
+    max-width: 414px;
+    height: 338px;
+    margin: 0 auto;
+}
+#apple-watch-mobile .watch-intro p{
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+    padding: 0 31px;
+    line-height: 28px;
+    color: #3d3d3d;
+    margin-bottom: 14px;
 }
