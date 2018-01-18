@@ -698,6 +698,93 @@ li{
     }
 }
 
+/*精选*/
+#collection{
+    width: 100%;
+    padding: 80px 16px;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+}
+#collection .collection-title{
+    margin: 20px 0;
+    text-align: center;
+    font-size: 30px;
+}
+#collection .collection-subtitle{
+    margin-bottom: 80px;
+    text-align: center;
+    color: #8b8b8b;
+    font-size: 18px;
+}
+#collection .collection-box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#collection .collection-box a{
+    position: relative;
+    display: block;
+    width: 240px;
+    height: 280px;
+    margin: 15px;
+    text-decoration: none;
+    box-shadow: 0 0 2px #ccc;
+}
+#collection .collection-box a img{
+    width: 240px;
+    height: 160px;
+}
+#collection .collection-box a  .collection-box-item-title{
+    display: block;
+    width: 240px;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 15px;
+    color: #2F2F2F;
+    text-decoration: none;
+    font-weight: 700;
+}
+#collection .collection-box a p{
+    width: 240px;
+    text-align: center;
+    font-size: 14px;
+    color: #707175;
+}
+
+@media (max-width: 667px) {
+    #collection .collection-box a{
+        width: 136px;
+        height: 220px;
+        margin: 10px;
+    }
+    #collection .collection-box a .collection-box-item-title{
+        font-size: 18px;
+        text-align: left;
+        padding-left: 15px;
+        width: 136px;
+        height: 32px;
+    }
+    #collection .collection-box a img{
+        width: 137px;
+        height: 86px;
+    }
+    #collection .collection-box a p{
+        text-align: left;
+        padding-left: 15px;
+        margin-top: 15px;
+        width: 130px;
+    }
+    #collection .collection-box a span span{
+        display: inline-block;
+        width: 18px;
+        height: 33px;
+        line-height: 33px;
+        background:url("../img/arrow.png") no-repeat bottom/contain;
+        position: relative;
+        bottom: -2px;
+    }
+}
+
 
 
 
