@@ -5,11 +5,16 @@
     box-sizing: border-box;
 }
 body{
-    height: 4000px;
+    height: 5000px;
 }
 a{
     text-decoration: none;
     color: #b89f7a;
+}
+p{
+    margin-bottom: 14px;
+    line-height: 28px;
+    color: #3d3d3d;
 }
 li{
     list-style: none;
@@ -26,7 +31,6 @@ li{
     padding-left: 15px;
     padding-right: 15px;
     position: relative;
-    z-index: 10;
 }
 #nav>div{
     height: 100px;
@@ -171,18 +175,9 @@ li{
     padding-top: 50%;
     position: relative;
     background: url('../img/banner_big.jpg') no-repeat center/cover;
-    z-index: 10;
     cursor: pointer;
 }
-/*#banner img{*/
-    /*width: 100%;*/
-/*}*/
-/*#banner .banner-big-img{*/
-    /*display: block;*/
-/*}*/
-/*#banner .banner-small-img{*/
-    /*display: none;*/
-/*}*/
+
 #banner .ad{
     background: #47474A;
     color: rgba(255, 255, 255, 0.7);
@@ -239,7 +234,6 @@ li{
     height: 220px;
     background-color: #0f0f0f;
     position: relative;
-    z-index:10;
 }
 #login .login-content{
     width: 1140px;
@@ -383,7 +377,6 @@ li{
     display: block;
     position: relative;
     background-color: #efebe8;
-    z-index: 10;
 }
 #app-pc img{
     width: 100%;
@@ -460,7 +453,6 @@ li{
 #mosaic{
     width: 100%;
     position: relative;
-    z-index: 10;
 }
 #mosaic .mosaic-product{
     width: 50%;
@@ -517,7 +509,6 @@ li{
     width: 100%;
     background: #106e4b;
     position: relative;
-    z-index: 10;
 }
 #wsg .wsg-content{
     width: 767px;
@@ -618,10 +609,9 @@ li{
 #apple-watch-web{
     height: 220px;
     width: 100%;
-    position: relative;
-    z-index: 10;
     background: url(../img/web-bg.png);
     text-align: center;
+    display: block;
 }
 #apple-watch-web .watch-cn-image{
     background: url('../img/app_watch.png') no-repeat center/contain;
@@ -667,7 +657,7 @@ li{
 #apple-watch-mobile{
     position: relative;
     z-index: 10;
-    display: block;
+    display: none;
     width: 100%;
     height: 630px;
     text-align: center;
@@ -689,3 +679,38 @@ li{
     color: #3d3d3d;
     margin-bottom: 14px;
 }
+#apple-watch-mobile .watch-intro p a{
+    font-size: 18px;
+}
+#apple-watch-mobile .watch-udp-cn-btn{
+    background: url("../img/udp-starbucks-cn.svg") no-repeat center;
+    width: 188px;
+    height: 75px;
+    display: block;
+    margin: 0 auto;
+}
+@media (max-width: 1066px) {
+    #apple-watch-web{
+        display: none;
+    }
+    #apple-watch-mobile{
+        display: block;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
