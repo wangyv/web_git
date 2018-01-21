@@ -4,9 +4,7 @@
     font-size: 16px;
     box-sizing: border-box;
 }
-body{
-    height: 5000px;
-}
+
 a{
     text-decoration: none;
     color: #b89f7a;
@@ -24,17 +22,43 @@ li{
     display: block;
     clear: both;
 }
+
+
+
 /*导航栏*/
 #nav{
     width: 100%;
     border-top: 4px solid #e3e3e3;
     padding-left: 15px;
     padding-right: 15px;
-    position: relative;
+    position: fixed;
+    top:0;
+    z-index: 9;
+    background: #fff;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -ms-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+
 }
-#nav>div{
+#nav .nav-content{
+    height: 100px;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -ms-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+#nav .nav-content>div{
     height: 100px;
     float: left;
+    overflow: hidden;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
 }
 #nav .nav-menu{
     width: 40%;
@@ -73,6 +97,11 @@ li{
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
     transform: translateX(-50%);
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
 }
 #nav .nav-login{
     width: 40%;
@@ -227,6 +256,12 @@ li{
         font-size:12px;
     }
 }
+
+/*container*/
+#container{
+    margin-top: 102px;
+}
+
 
 /*login 部分*/
 #login{
@@ -907,9 +942,6 @@ li{
     font-size: 0.9rem;
     line-height: 26px;
 }
-#footer .footer-container .page-footer-row .item .hide{
-    display: none;
-}
 #footer .footer-container .page-footer-row .item .item-title{
     color: #fff;
     display: block;
@@ -1011,12 +1043,61 @@ li{
 @media(max-width:768px){
     #footer .footer-container{
         width: 100%;
+        padding: 20px 15px 30px;
+    }
+
+    #footer .footer-container .bottom .contents{
+        display: table-cell;
+        float: left;
+        height: 70px;
+    }
+    #footer .footer-container .bottom .contents a{
+        display: block;
     }
 
     #footer .footer-container .bottom .icons{
         width: 80px;
         margin-top: -15px;
+        flex: inherit;
+        display: table-cell;
+        position: absolute;
+        top:50%;
+        right: 0;
+    }
+    #footer .footer-container .bottom .icons .icon{
+        height: 30px;
+        width: 30px;
+        margin: 0 10px 0 0;
         float: left;
+    }
+    #footer .footer-container .item .item-content{
+        display: none;
+    }
+    #footer .footer-container .page-footer-row{
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    #footer .footer-container .page-footer-row .item{
+        width: 100%;
+    }
+    #footer .footer-container .page-footer-row .item .item-title{
+        color: #fff;
+        display: block;
+        margin-bottom: 15px;
+        font-weight: 600;
+        width: 100%;
+        font-size: 1.1rem;
+    }
+
+    #footer .footer-container .page-footer-row .download-section{
+        display: none;
+    }
+
+    #footer .footer-container .bottom {
+        margin-top:20px;
+        display: table;
+        position: relative;
     }
 }
 
