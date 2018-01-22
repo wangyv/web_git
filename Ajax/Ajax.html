@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script src='../jQuery/jquery-3.2.1.js'></script>
+    <script>
+        $(function() {
+
+
+
+
+
+
+
+
+            //Promise 判断响应失败
+//            let p1 = new Promise(function (resolve,reject) {
+//               $.get('a.json',{},(res) =>{
+//                   console.log(res);
+//                   if(res.a){
+//                       resolve(res);
+//                   }else{
+//                       reject();
+//                   }
+//               })
+//            }).then((resa) => {
+//                $.get('b.json',{},(resd) => {
+//                    console.log(resd);
+//                })
+//            }).catch(() => {
+//                $.get('c.json',{},(resc) => {
+//                    console.log(resc)
+//                })
+//            });
+//    let p1 = new Promise(function (resolve,reject) {
+//        $.get('a.json',{},(res) => {
+//                    console.log(res);
+//                    resolve();
+//        });
+//    });
+//    let p2 = new Promise(function (resolve,reject) {
+//        $.get('b.json',{},(res) => {
+//            console.log(res);
+//            reject();
+//        });
+//    });
+//    let p3 = new Promise(function (resolve,reject) {
+//        $.get('c.json',{},(res) => {
+//            console.log(res);
+//            resolve();
+//        });
+//    });
+//
+//    Promise.all([p1,p2,p3]).then(() =>{
+//       console.log('over!');
+//    },() => {
+//        console.log('fail');
+//    });
+//
+//            const p1 = new Promise((resolve, reject) => {
+//                resolve('hello');
+//            })
+//                .then(result => result)
+//                .catch(e => e);
+//
+//            const p2 = new Promise((resolve, reject) => {
+//                throw new Error('报错了');
+//            })
+//                .then(result => result)
+//                .catch(e => e);
+//
+//            Promise.all([p1, p2])
+//                .then(result => console.log(result))
+//                .catch(e => console.log(e));
+//            // ["hello", Error: 报错了]
+
+
+            //Generator
+//            function request(url){
+//                $.get(url,{},function (res) {
+//                    ma.next(res);
+//                },'json');
+//            }
+//            function* myAjax(){
+//                console.log(yield request('a.json'));
+//                console.log(yield request('b.json'));
+//                console.log(yield request('c.json'));
+//            }
+//            let ma = myAjax();
+//            ma.next();
+//        });
+
+
+//        let xmlhttp;
+//        if(window.XMLHttpRequest){
+//            xmlhttp = new XMLHttpRequest();
+//        }else{
+//            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+//        }
+//
+//        xmlhttp.open('GET',"a.json",true);
+//        xmlhttp.send();
+//
+//        xmlhttp.onreadystatechange = function () {
+//            if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+//                console.log(JSON.parse(xmlhttp.responseText));
+//            }
+//        }
+
+
+//        let m = 101;
+//        console.log(parseInt(m,2));
+
+
+//    console.log((function (a){}));                 // 1
+//    console.log((function (...arg) {}).length);   // 0
+//    console.log((function (a, ...b) {}).length);  // 1
+
+//    let p1 = new Promise(function(resolve,reject){
+//        $.get('a.json',{},function(res){
+//            console.log(res);
+//            if(res.a){
+//                resolve(res);
+//            }else{
+//                reject();
+//            }
+//        });
+//    }).then(function(resa){
+//        return new Promise(function(resolve,reject){
+//            $.get('b.json',{},function(resb){
+//                console.log(resb);
+//                resolve();
+//            });
+//        });
+//    },function(){
+//        console.log('失败');
+//    }).then(function(){
+//        $.get('c.json',{},function(resc){
+//            console.log(resc);
+//        });
+//    });
+
+//
+//        function getPromise(url){
+//            return new Promise(function(resolve,reject){
+//                $.get(url,{},function(res){
+//                    resolve(res);
+//                })
+//            }) ;
+//        }
+
+//        getPromise('a.json').then(function(res){
+//            console.log(res);
+//            return getPromise('b.json');
+//        }).then(function(res){
+//            console.log(res);
+//            return getPromise('c.json');
+//        }).then(function(res){
+//            console.log(res);
+//        });
+
+
+//        let pro = new Proxy({
+//            name:'zs',
+//            age:18
+//        },{
+//            get(target,key,property){
+//                console.log(target);
+//                console.log(key);
+//                console.log(property);
+//
+//                return target[key];
+//            },
+//            set(target,key,value,receiver){
+//                console.log(target);
+//                console.log(key);
+//                console.log(value);
+//                console.log(receiver);
+//                return target[key = value];
+//            }
+
+//        pro.name = 'ls';
+
+//            let target = function () {
+////            console.log('target');
+//                return 'target'
+//            };
+//
+//            let handler = {
+//                apply(target, ctx, args){
+//                    console.log('do apply');
+//                    return Reflect.apply(...arguments);
+//                }
+//            };
+//
+//            let proxy = new Proxy(target, handler);
+//            console.log(proxy());
+
+
+//
+//            let a = 5;
+//            let obj = {
+//                a: 6,
+//                foo1(){
+//                    console.log(this.a);
+//                },
+//                foo2: () => {
+//                    console.log(this);
+//                }
+//            };
+//            obj.foo1();
+//            obj.foo2();
+
+//
+//
+//            let People = (name,age) => {
+//                this.name = naem;
+//                this.age = age;
+//            };
+//            let p = People('zs',18);//报错
+
+
+//            var aDiv = document.querySelectorAll('div');
+//            let arr3 = Array.prototype.slice.call(aDiv);
+//            let arr4 = [].slice.call(aDiv);
+//            console.log(`arr3=${arr3}`);
+//            console.log(`arr4=${arr4}`);
+
+
+//            let arr1 = [9,8,7,6,5,4,3,2,1];
+//            let result = arr1.find(function(val,key,arr){//当前的值、当前的位置、原数组
+//                if(val > 5){
+//                    return val;
+//                }
+//            });
+//            console.log(result);
+
+//            let myName = 'zs';
+//            let n = 'name';
+//            let obj = {
+//                [n]:myName,
+//                age:18
+//            };
+//            console.log(obj);
+
+//            let obj = {
+//                name:'zs',
+//                age:18
+//            };
+//            let name = Symbol();
+//            obj[name] = 'xx';
+//            console.log(obj);//{name；'zs',age:18,Symbol():'xx'};
+//
+//            for(let p in obj){
+//                console.log(p,obj[p]);
+//                // name zs
+//                //age 18
+//            }
+//            console.log(obj[name]);//'xx';
+//            console.log(obj['name']);//'zs';
+
+//            let proxy = new Proxy({
+//                name: 'zs',
+//                age: 18
+//            }, {
+//                get(target, key, property){
+//                    console.log('调用了get方法');
+//                    return target[key];
+//                },
+//                set(target, key, value, receiver){
+//                    console.log('调用了set方法');
+//                    return target[key] = value;
+//                }
+//            });
+//
+//            console.log(proxy.name);
+//            proxy.name = 'ls';
+//            console.log(proxy.name);
+
+            let target = function(){
+                return 'target'
+            };
+
+            let handler = {
+                apply(target, ctx, args){
+                    console.log('调用了apply方法');
+                    return Reflect.apply(...arguments);
+                }
+            };
+
+            let proxy = new Proxy(target, handler);
+            console.log( proxy());
+
+        });
+
+    </script>
+</body>
+</html>

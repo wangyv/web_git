@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #container{
+            height: 200px;
+            width: 260px;
+            border: 1px solid #999;
+            background-color: #ccc;
+        }
+        ul{
+            list-style: none;
+            overflow: hidden;
+            border-bottom: 1px solid #999;
+        }
+        #option li{
+            float: left;
+            width:80px;
+            height: 30px;
+            line-height: 30px;
+            text-align:center;
+            margin-right: 5px;
+            background-color: #888;
+            cursor: pointer;
+        }
+        #content div{
+            display: none;
+        }
+        #content .selected{
+            display: block;
+        }
+        #option .selected{
+            background-color: black;
+            color:white;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+    <ul id="option">
+        <li class="selected">html</li>
+        <li>css</li>
+        <li>js</li>
+    </ul>
+    <div id="content">
+        <div class="selected">111</div>
+        <div>222</div>
+        <div>333</div>
+    </div>
+</div>
+
+    <script src="../jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            $('#option li').on('click',function () {
+                $(this).addClass('selected').siblings().removeClass('selected');
+                $('#content div').eq($(this).index()).addClass('selected').siblings().removeClass('selected');
+            })
+        });
+    </script>
+</body>
+</html>

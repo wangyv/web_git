@@ -6,7 +6,7 @@ $(function () {
         }
     }).on('blur',function () {
         if(this.value==''){
-            $(this).val(this.defaultValue);
+            this.value=this.defaultValue;
         }
     });
     //划入导航栏，弹出子菜单

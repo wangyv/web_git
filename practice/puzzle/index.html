@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/img.css">
+</head>
+<body>
+<div id="container">
+    <div id="content">
+        <ul>
+            <li class="one"></li>
+            <li class="two"></li>
+            <li class="three"></li>
+            <li class="four"></li>
+            <li class="five"></li>
+            <li class="six"></li>
+            <li class="seven"></li>
+            <li class="eight"></li>
+            <li class="nine"></li>
+        </ul>
+        <!--<div class="1"><img src="3.jpg" alt=""></div>-->
+        <!--<div class="2"><img src="3.jpg" alt=""></div>-->
+        <!--<div class="3"><img src="3.jpg" alt=""></div>-->
+        <!--<div class="4"><img src="3.jpg" alt=""></div>-->
+        <!--<div class="5"><img src="3.jpg" alt=""></div>-->
+        <!--<div class="6"><img src="3.jpg" alt=""></div>-->
+        <!--<div class="7"><img src="3.jpg" alt=""></div>-->
+        <!--<div class="8"><img src="3.jpg" alt=""></div>-->
+        <!--<div class="9"><img src="3.jpg" alt=""></div>-->
+    </div>
+</div>
+
+
+<script src="../jquery-3.2.1.js"></script>
+<script>
+    $(function () {
+        var $li=$('#container li');
+        //定位
+        for (var i = $li.length - 1; i >= 0; i--) {
+            $li.eq(i).css({
+                left:$li.eq(i).get(0).offsetLeft,
+                top: $li.eq(i).get(0).offsetTop,
+                position: 'absolute'
+            });
+        }
+
+        //拖拽
+        $li.on('mousedown', function (e) {
+            e = e || window.event;
+            var left=e.pageX-this.offsetLeft;
+            var top=e.pageY-this.offsetTop;
+            var that=this;
+            $(document).on('mousemove', function (e) {
+                $(that).css({
+                    left: e.pageX - left,
+                    top: e.pageY - top
+                });
+                //碰撞检测
+                for(var i=0;i<$li.length;i++){
+                    if($(this)==$li.eq(i)){
+                        continue;
+                    }
+                    collideTest($(this),$li.eq(i));
+                }
+                return false;
+            });
+            $(this).on('mouseup', function () {
+                $(document).unbind('mousemove');
+                return null;
+            });
+        });
+
+        //交换
+
+
+
+
+        //碰撞检测函数  返回布尔型的结果 elem是拖拽元素 target是目标元素
+        function collideTest(elem,target) {
+
+        }
+    })
+</script>
+</body>
+</html>

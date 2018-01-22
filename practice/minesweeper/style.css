@@ -1,0 +1,17 @@
+.primary{
+    width: 400px;
+    height: 300px;
+}
+.content{
+    width: 400px;
+    height: 258px;
+}
+.panel td{
+    font-size: 10pt;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #FFFFFF #000000 #000000 #FFFFFF;
+}

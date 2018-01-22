@@ -87,7 +87,8 @@
     </tr>
     </tbody>
 </table>
-<script src="JQ基础习题/jquery-3.2.1.js"></script>
+<script src="jquery-3.2.1.js"></script>
+<script src="表格排序组件.js"></script>
 <script>
     $(function () {
         var $tbl = $('#tableSort'),
@@ -114,7 +115,10 @@
             for(var i=0;i<arr.length;i++){
                 $('tbody').append(arr[i]);
             }
-        });
+        })
+
+//        sort($('#tableSort'),0,'asc');
+//        sort($('#tableSort'),1,'asc');
     });
 </script>
 </body>

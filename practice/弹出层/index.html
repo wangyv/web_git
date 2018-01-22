@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body,html{
+            height: 100%;
+        }
+        #layer{
+            position: absolute;
+            z-index: 99;
+        }
+        #container{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index:100;
+            display: none;
+        }
+        #light-box{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: #ccc;
+            opacity: 0.5;
+            filter: alpha(opacity:100);
+            z-index: 101;
+        }
+        #inner{
+            width: 500px;
+            height: 400px;
+            border: 1px solid #666;
+            background-color: #999;
+            position: absolute;
+            left: 50%;
+            top:50%;
+            margin-top: -200px;
+            margin-left: -250px;
+
+            z-index:102;
+        }
+    </style>
+</head>
+<body>
+
+    <button type="button" id="layer">弹出层</button>
+
+    <div id="container">
+        <div id="light-box"></div>
+        <div id="inner">这里是弹出层</div>
+    </div>
+
+
+    <script src="../jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+           $('#layer').on('click',function () {
+               $('#container').css('display','block');
+           })
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span{
+            font-size: 12px;
+        }
+        table{
+            font-size: 12px;
+            border-collapse:collapse;
+        }
+        th{
+            width: 96px;
+            height: 17px;
+            padding: 4px;
+            font:bold 12px/17px Arial;
+            text-align:left;
+            border-bottom:1px solid #333
+        }
+        td{
+            font-size: 12px;
+            height: 16px;
+            padding: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <br>
+        <span>筛选:</span><label><input type="text" id="filtername"></label>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>暂住地</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>张山</td><td>男</td><td>浙江宁波</td>
+            </tr>
+            <tr>
+                <td>李四</td><td>女</td><td>浙江杭州</td>
+            </tr>
+            <tr>
+                <td>王五</td><td>男</td><td>湖南长沙</td>
+            </tr>
+            <tr>
+                <td>找六</td><td>男</td><td>浙江温州</td>
+            </tr>
+            <tr>
+                <td>Rain</td><td>男</td><td>浙江杭州</td>
+            </tr>
+            <tr>
+                <td>MAXMAN</td><td>女</td><td>浙江杭州</td>
+            </tr>
+            <tr>
+                <td>王六</td><td>男</td><td>浙江杭州</td>
+            </tr>
+            <tr>
+                <td>李字</td><td>女</td><td>浙江杭州</td>
+            </tr>
+            <tr>
+                <td>李四</td><td>男</td><td>湖南长沙</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="../jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+           $("#filtername").on('keyup',function () {
+//                   console.log(this.value);
+//                   console.log( $("tbody tr").filter(':contains('+this.value+')'))
+               if(this.value!='')
+                   $("tbody tr").hide().filter(':contains('+this.value+')').show();
+               else
+                   $("tbody tr").show();
+                   //不能用siblings，因为选中多行时，siblings是选中全部；
+           });
+        });
+    </script>
+</body>
+</html>

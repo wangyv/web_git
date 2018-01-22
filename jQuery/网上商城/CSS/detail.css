@@ -1,5 +1,5 @@
 /*放大镜开始*/
-#proitm{
+#pro-itm{
     float: left;
     width: 312px;
     height: 560px;
@@ -12,7 +12,7 @@
     cursor: pointer;
     float: left;
 }
-#proitm span{
+#pro-itm span{
     clear: both;
     text-align: center;
     display: block;
@@ -20,24 +20,24 @@
     padding-top: 10px;
     width: 320px;
 }
-#proitm .imglist{
+#pro-itm #img-list{
     height: 80px;
 }
-#proitm .imglist li{
+#pro-itm #img-list li{
     float: left;
     margin-right:10px;
     display: none;
 }
-#proitm .imglist .selected{
+#pro-itm #img-list .selected{
     display: block;
 }
-#proitm .imglist img{
+#pro-itm #img-list img{
     width: 60px;
     height: 60px;
     border: 1px solid #eee;
     cursor: pointer;
 }
-#proitm .imglist img:hover{
+#pro-itm #img-list img:hover{
     border-color: #999;
 }
 #tab .tab-menu li.selected {
@@ -130,6 +130,9 @@
 #details .detail-list .color-change li img:hover{
     border-color: #f60;
 }
+#details .detail-list .color-change li .selected{
+    border-color: #f60;
+}
 #details .detail-list .size-change,#details .detail-list .num-change{
     clear: both;
 }
@@ -142,6 +145,9 @@
     height: 30px;
     line-height: 30px;
     text-align: center;
+}
+#details .detail-list .size-change ul .selected{
+    background: #f60;
 }
 #details #pro-rating li{
     float: left;
@@ -164,7 +170,7 @@
     height: 16px;
     left: 0;
     text-decoration: none;
-    z-index: 200;
+    z-index: 2;
 }
 #details #pro-rating .one a{
     left:0;

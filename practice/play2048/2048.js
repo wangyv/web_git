@@ -53,22 +53,30 @@ $(function () {
                     case 39://右
                         that.moveAble=false;
                         that.moveRight();
-                        that.checkLose();
+                        setTimeout(function () {
+                            that.checkLose();
+                        },400);
                         break;
                     case 40://下
                         that.moveAble=false;
                         that.moveDown();
-                        that.checkLose();
+                        setTimeout(function () {
+                            that.checkLose();
+                        },400);
                         break;
                     case 37://左
                         that.moveAble=false;
                         that.moveLeft();
-                        that.checkLose();
+                        setTimeout(function () {
+                            that.checkLose();
+                        },400);
                         break;
                     case 38://上
                         that.moveAble=false;
                         that.moveUp();
-                        that.checkLose();
+                        setTimeout(function () {
+                            that.checkLose();
+                        },400);
                         break;
 
                 }
@@ -239,7 +247,7 @@ $(function () {
             $("#score").html("分数："+this.score);
             var that=this;
             setTimeout(function () {
-                if(temp1==2048){
+                if(temp1==16384){
                     alert('you win!');
                     that.start();
                 }
@@ -273,14 +281,7 @@ $(function () {
             alert('you lose!');
             this.start();
             return true;
-        },
-        // //判赢
-        // checkWin:function () {
-        //     if(temp1==2048){
-        //         alert('you win!');
-        //         this.start()
-        //     }
-        // }
+        }
     };
     //生成随机数0-n
     function getRandom(n){

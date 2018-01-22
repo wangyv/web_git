@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+#container{
+    width: 545px;
+    height: 314px;
+    margin: 0 auto;
+}
+#content{
+    width: 537px;
+    height: 306px;
+    margin: 5px;
+    position: relative;
+}
+
+li{
+    width: 177px;
+    height: 100px;
+    overflow: hidden;
+    background: url('../1.jpg') no-repeat 0 0;
+    border: 1px solid #ccc;
+    /*position: absolute;*/
+    float: left;
+    cursor: pointer;
+}

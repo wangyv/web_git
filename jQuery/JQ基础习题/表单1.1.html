@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="messege">
+        <fieldset>
+            <legend>个人基本信息</legend>
+            <div>
+                <label for="username">姓名：</label>
+                <input type="text" id="username">
+            </div>
+            <div>
+                <label for="password">密码：</label>
+                <input type="text" id="password">
+            </div>
+            <div>
+                <label for="msg">详细信息：</label>
+                <textarea id="msg" rows="2" cols="20"></textarea>
+            </div>
+        </fieldset>
+    </form>
+
+    <script src="../jquery-3.2.1.js"></script>
+    <script>
+        $('#username,#msg,#password').focus(function () {
+            $(this).css('background','#ccc');
+        });
+        $('#username,#msg,#password').blur(function () {
+            $(this).css('background','transparent');
+        });
+
+    </script>
+</body>
+</html>

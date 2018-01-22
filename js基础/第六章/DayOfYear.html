@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var oDate={
+        year:parseInt(prompt('请输入年份：')),
+        month:parseInt(prompt('请输入月份：')),
+        day:parseInt(prompt('请输入日期：'))
+    };
+    function IsLeapYear(year){
+        if((year%4==0&&year%100!=0)||(year%400==0)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    function DayOfYear(d){
+        var months=new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+        if(IsLeapYear(d.year)){
+            months[1]=29;
+        }
+        var date=0;
+        for(var i=1;i<d.month;i++){
+            date+=months[i-1];
+        }
+        date+=d.day;
+        return date;
+    }
+    var a=DayOfYear(oDate);
+    document.write('<h2>'+oDate.year+'年'+oDate.month
+        +'月'+oDate.day+'日是所在年份的第'+a+'天</h2>');
+
+//    8.设计一个函数DayOfYear(d)，它接必一个日期参数d，
+//    返回一个该日期是所在年份的第几天，如DayOfYear(2000,2,8)的返回值是39.
+</script>
+</body>
+</html>

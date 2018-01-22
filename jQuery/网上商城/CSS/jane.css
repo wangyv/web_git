@@ -82,6 +82,10 @@
 #notice ul .selected{
     background: dodgerblue;
 }
+#notice ul li{
+    height: 20px;
+    line-height: 20px;
+}
 #notice ul .pop-up-box{
     height: 20px;
     background: orange;
@@ -92,6 +96,20 @@
     width: 228px;
     font-size: 12px;
     transition:all 0.5s ease;
+    line-height: 20px;
+}
+
+#notice ul #pop-up-box{
+    height: 20px;
+    line-height: 20px;
+    background: orange;
+    border: 1px solid;
+    position: absolute;
+    /*display: none;*/
+    z-index: 999;
+    width: 228px;
+    font-size: 12px;
+    /*transition:all 0.5s ease;*/
 }
 
 /*右侧导航栏结束*/

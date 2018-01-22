@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+//        let [a,b,c] = [1,2,3];
+//        console.log(a,b,c);
+
+//        let [a,b,[c],d] = [1,2,[3,4],5];
+//        console.log(a,b,c,d);
+
+//        let [a,b,c,d] = [1,2,[3,4],5];
+//        console.log(a,b,c,d);
+
+//        let {name,age} = {
+//            name:'zs',
+//            age:18,
+//        };
+//        console.log(name,age);
+
+//        let {name:n,age:a} = {
+//            name:'zs',
+//            age:18,
+//        };
+//        console.log(n,a);
+
+//        let str = 'hello';
+//        let [a,b,c,d,e] = str;
+//        console.log(a,b,c,d,e);
+
+//        function  sum([x,y]){
+//            return x + y;
+//        }
+//        let arr = [5,6];
+//        console.log(sum(arr));
+
+//        function  sum([x = 0,y = 0]){
+//            return x + y;
+//        }
+//        let arr = [5];
+//        console.log(sum(arr));
+
+//        function foo() {
+//            console.log('未传值！');
+//        }
+//        let [a = foo()] = [undefined];
+//        console.log(a);
+
+//        function foo({name,age,school = 'xx'}) {
+//            console.log(`name:${name},age:${age},school:${school}`);
+//        }
+//        let obj = {
+//            name:'zs',
+//            age: 18,
+////            school:'农大',
+//        };
+//        foo(obj);
+
+//        function foo() {
+//            let arr = [1,2];
+//            return arr;
+//        }
+//        let [a,b] = foo();
+//        console.log(a,b);
+
+//        let a = 5;
+//        let b = 6;
+//        [b,a]=[a,b];
+//        console.log(a,b);
+
+        let json = '{"a":"hello","b":"world"}';
+        let {a,b} = JSON.parse(json);
+        let str = JSON.parse(json);
+        console.log(str);//Object
+        console.log(a,b);//hello world
+    </script>
+</body>
+</html>

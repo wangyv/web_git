@@ -12,20 +12,26 @@
     var num=99;
     var counter=0;
     function prime_number(x){
-        for(var i=2;i<x;i++){
+        var bFlag=false;
+        for(var i=2;i<=Math.sqrt(x);i++){
             if(x%i==0){
+                bFlag=false;
                 return null;
-//                break;
-            }
-            if(i=x-1){
-                return x;
+//               break;
+            }else{
+                bFlag=true;
             }
         }
+        if(bFlag){
+            return x;
+        }
+
+        //
     }
     while(num<1000){
         num++;
         if(prime_number(num)){
-            document.write(prime_number(num)+'&nbsp');
+            document.write(num+'&nbsp');
             counter++;
             if(counter%6==0){
                 document.write('<br>');
