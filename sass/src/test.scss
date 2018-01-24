@@ -1,0 +1,32 @@
+$m:(light:#fff,dark:#000);
+
+@function get($key){
+    @if not(map-has-key($m,$key)){
+        @warn "input a worng key!";
+        @return #f00;
+    }
+    @else{
+        @return map-get($m,$key);
+    }
+};
+
+#div1{
+    color:get(light);
+}
+
+#div2{
+    color:transparentize($color: #000000, $amount: 0.6);
+    width:200px;
+}
+
+$hw:abb;
+#div3{
+    .aa-#{$hw}{
+        width: 200px;
+        height: 200px;
+    }
+}
+$bottom:bottom;
+#div4{
+    border-#{$bottom}:1px solid #fff;
+}

@@ -1,0 +1,10 @@
+#div1{
+    width: 200px;
+    height: 200px;
+    background-color: #ff0;
+}
+#div2{
+    background: url(http://localhost:8081/images/6fae9753aa043b7efc5e35b30c93ce16.jpg);
+    width: 600px;
+    height: 400px;
+}
