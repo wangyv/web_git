@@ -7,4 +7,18 @@
     background: url('../img/5.jpg');
     width: 600px;
     height: 400px;
+    transform: rotate(30deg);
+}
+.aa{
+    border: 10px solid #f00;
+}
+#div5{
+    width: 200px;
+    height: 200px;
+    background-color: #ccc;
+}
+#div6{
+    width: 200px;
+    height: 200px;
+    background-color: burlywood;
 }
