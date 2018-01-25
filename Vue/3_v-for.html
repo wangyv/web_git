@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="school in schools">{{school}}</li>
+        </ul>
+        <br>
+         <br>
+        <ul>
+            <li v-for="(item,key) in obj">{{item}}--{{key}}</li>
+        </ul>
+        <br> 
+        <br>
+        <ul>
+            <li v-for="obj in arrSort">
+                {{obj.name}}--{{obj.age}}--{{obj.school}}
+            </li>
+        </ul> 
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                schools:['1','2','3'],
+                obj:{
+                    name:'zs',
+                    age:18,
+                    school:'1'
+                },
+                arr:[{
+                    name:'zs',
+                    age:28,
+                    school:'1'
+                },{
+                    name:'ls',
+                    age:20,
+                    school:'2'
+                },{
+                    name:'ww',
+                    age:30,
+                    school:'3'
+                }]
+            },
+            computed:{
+                arrSort(){
+                    return this.arr.sort(function(a,b){
+                        return a.age-b.age;
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>
