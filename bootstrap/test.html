@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,13 +11,14 @@
     <!-- Bootstrap -->
     <link href="bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style> 
-        .col-md-1{
+    <style>
+        .row div {
             border: 1px solid #000;
         }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="container">
         <div class="row">
             <div class="col-md-1">col-md-1</div>
@@ -32,10 +34,40 @@
             <div class="col-md-1">col-md-1</div>
             <div class="col-md-1">col-md-1</div>
         </div>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-8 col-xs-12 col-sm-6">.col-xs-12 .col-md-8 .col-sm-6</div>
+            <div class="col-md-4 col-xs-6">.col-xs-6 .col-md-4</div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-4 col-xs-6 col-sm-4">.col-xs-6 .col-md-4 .col-sm-4</div>
+            <div class="col-md-4 col-xs-6 col-sm-4">.col-xs-6 .col-md-4 .col-sm-4</div>
+            <div class="col-md-4 col-xs-6 col-sm-4">.col-xs-6 .col-md-4 .col-sm-4</div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-6">.col-md-6</div>
+            <div class="col-md-6">.col-md-6</div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-xs-6">.col-xs-6</div>
+            <div class="col-xs-6">.col-xs-6</div>
+          </div>
     </div>
 
 
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-  </body>
+</body>
+
 </html>
