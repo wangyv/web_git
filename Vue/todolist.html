@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        body,
+        ul,
+        input {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+            height: 40px;
+            line-height: 40px;
+            background-color: #ccc;
+            border-top: 5px solid #fff;
+            padding: 0 5px;
+        }
+
+        .todolist {
+            width: 400px;
+            margin: 100px auto;
+        }
+
+        .todolist div {
+            margin-bottom: 5px;
+        }
+
+        .caption {
+            text-align: center;
+            font-size: 30px;
+            margin: 10px 0;
+        }
+
+        .checked,
+        .name,
+        .close {
+            float: left;
+        }
+
+        .checked {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .price {
+            float: right;
+        }
+
+        .selected {
+            background-color: #ff0;
+        }
+
+        .delete-checked {
+            margin-top: 5px;
+        }
+
+        .tip {
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="todolist">
+        <h4 class="caption">ToDoList</h4>
+
+        <div class="shopping-name">
+            商品名称：
+            <input type="text" v-model="shoppingName">
+            <span v-text="tip" class="tip"></span>
+        </div>
+        <div class="shopping-price">
+            商品价格：
+            <input type="text" v-model="shoppingPrice">
+            <span v-text="priceTip" class="tip"></span>
+            <br>
+            <button @click="submit">提交</button>
+        </div>
+        <div class="search">
+            <input type="text" v-model.trim="searchItem" @keyup.13="search">
+            <button @click="search">搜索</button>
+        </div>
+        <ul>
+            <li v-for="(obj,index) in list" @click="handler(index)" :class="{selected:obj.isSelected}" v-show="obj.isShow">
+                <input type="checkbox" v-model="obj.isChecked" class="checked" @click.stop>
+                <span class="close" @click.stop="deleteItem(index)">[ X ]</span>
+                <span class="name">{{obj.name}}</span>
+                <span class="price">{{obj.price}}</span>
+            </li>
+        </ul>
+
+        <button @click="strikeOut" class="delete-checked">删除选中项</button>
+        <input type="checkbox" v-model="allChecked" @click="allCheck">全选
+        <input type="checkbox" @click="itemsCheck">反选
+        <h4 class="sum" v-text="'总价是：'+ sum"></h4>
+    </div>
+
+
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: '.todolist',
+            data: {
+                list: [{
+                    name: '衣服',
+                    price: 230,
+                    isSelected: false,
+                    isShow: true,
+                    isChecked: false
+                }, {
+                    name: '裤子',
+                    price: 130,
+                    isSelected: false,
+                    isShow: true,
+                    isChecked: false
+                }, {
+                    name: '运动用品',
+                    price: 99,
+                    isSelected: false,
+                    isShow: true,
+                    isChecked: false
+                }, {
+                    name: 'iphoneX',
+                    price: 8399,
+                    isSelected: false,
+                    isShow: true,
+                    isChecked: false
+                }, {
+                    name: 'Mac',
+                    price: 13000,
+                    isSelected: false,
+                    isShow: true,
+                    isChecked: false
+                }],
+                // sum:0,
+                shoppingName: '',
+                shoppingPrice: '',
+                searchItem: '',
+                allChecked: false,
+                // itemChecked:false
+                tip: '',
+                priceTip: ''
+            },
+            computed: {
+                sum() {
+                    let sumItem = 0;
+                    for (obj of this.list) {
+                        if (obj.isSelected) {
+                            sumItem += obj.price;
+                        }
+                    }
+                    return sumItem;
+                }
+            },
+            methods: {
+                handler(index) {
+                    this.list[index].isSelected = !this.list[index].isSelected;
+                },
+                submit() {
+                    this.priceTip = '';                    
+                    this.tip = '';
+                    let itemPrice = parseInt(this.shoppingPrice);
+                    for (obj of this.list) {
+                        if (obj.name == this.shoppingName) {
+                            this.tip = '请加入不同的商品';
+                            break;
+                        }
+                        if (Number.isNaN(itemPrice)) {
+                            this.priceTip = '商品价格请填写为数字';
+                            break;
+                        }
+                    }
+                    if (this.shoppingName != '' && this.tip == '' && this.priceTip == '') {
+                            let obj = {
+                                name: this.shoppingName,
+                                price: parseInt(this.shoppingPrice),
+                                isSelected: false,
+                                isShow: true,
+                                isChecked: false
+                            };
+                            this.list.push(obj);
+                            this.shoppingName = '';
+                            this.shoppingPrice = '';
+                    }
+
+                },
+                search() {
+                    for (idx of this.list) {
+                        console.log(idx)
+                        if (!idx.name.includes(this.searchItem)) {
+                            idx.isShow = false;
+                        } else {
+                            idx.isShow = true;
+                        }
+                    }
+                },
+                deleteItem(index) {
+                    this.list.splice(index, 1);
+                },
+                strikeOut() {
+                    this.list = this.list.filter(function (obj) {
+                        if (!obj.isChecked) {
+                            return obj;
+                        }
+                    });
+                    this.allChecked = false;
+                },
+                allCheck() {
+                    this.allChecked = !this.allChecked;
+                    if (this.allChecked) {
+                        for (obj of this.list) {
+                            obj.isChecked = true;
+                        }
+                    } else {
+                        for (obj of this.list) {
+                            obj.isChecked = false;
+                        }
+                    }
+
+                },
+                itemsCheck() {
+                    for (obj of this.list) {
+                        obj.isChecked = !obj.isChecked;
+                    }
+                }
+
+
+            }
+        })
+
+
+
+
+
+
+
+        // let  str = parseInt('123');
+        // console.log(str);
+        console.log(Number.isNaN(NaN));
+    </script>
+</body>
+
+</html>
