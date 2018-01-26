@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .aa{
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <img v-bind:src="imgSrc" v-bind:alt="tip">
+
+        <div :class="{aa:isAa}"></div>
+        <div :style="style"></div>
+
+        <div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                imgSrc:'20.jpg',
+                tip:'图片加载失败',
+                isAa:true,
+                style:{
+                    width:200 + 'px',
+                    height:200 + 'px',
+                    backgroundColor:'#ff0'
+                },
+                someProp:'abc',
+                otherProp:true
+            }
+        })
+    </script>
+</body>
+</html>
