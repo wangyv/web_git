@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-text="content"></h1>
+        <button @click="close">停止</button>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                content:0,
+                timer:null,
+            },
+            beforeCreate() {
+                console.log('1-beforeCreate');
+            },
+            created() {
+                console.log('2-created');
+                this.timer = setInterval(() => {
+                    console.log(Math.random());
+                    this.content++;
+                },1000);
+            },
+            beforeMount() {
+                console.log('3-beforeMount');
+            },
+            mounted() {
+                console.log('4-mounted');
+            },
+            beforeUpdate() {
+                console.log('5-beforeUpdated');
+            },
+            updated() {
+                console.log('6-updated');
+            },
+            beforeDestroy() {
+                console.log('7-beforeDistroy');
+                
+            },
+            destroyed() {
+                console.log('8-distroyed');
+                clearInterval(this.timer);
+            },
+            methods:{
+                close(){
+                    this.$destroy();
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
