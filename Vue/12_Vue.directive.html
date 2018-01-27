@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div v-weichuang="red" @click="click1">11111</div>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        Vue.directive('weichuang',{
+            bind(el,binding,vnode){
+                console.log('1-bind');
+                el.style = 'background: ' + binding.value;
+            },
+            inserted(){
+                console.log('2-inserted');
+            },
+            update(){
+                console.log('3-update');
+            },
+            componentUpdated(){
+                console.log('4-componentUpdated');
+            },
+            unbind(){
+                console.log('5-unbind');
+            }
+        });
+
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                red:'#f00'
+            },
+            methods:{
+                click1(){
+                    this.$destroy();
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>
