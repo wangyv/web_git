@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <style>
+        #todolist .selected {
+            background-color: rgb(7, 153, 250);
+        }
+
+        #todolist .form-style {
+            margin-bottom: 20px;
+        }
+        #todolist .tip{
+            font-size: 13px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="todolist" class=" text-center col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2">
+        <h1>ToDoList</h1>
+        <hr>
+
+        <form class="form-inline form-style" @submit.prevent>
+            <div class="form-group">
+                <label for="product-name">商品名称</label>
+                <input type="text" class="form-control" id="product-name" placeholder="请输入商品名称" v-model="shoppingName">
+                <!-- <span v-text="priceTip" class="tip"></span> -->
+            </div>
+            <div class="form-group">
+                <label for="product-price">商品价格</label>
+                <input type="text" class="form-control" id="product-price" placeholder="请输入商品价格" v-model="shoppingPrice">
+                <!-- <span v-text="priceTip" class="tip"></span> -->
+            </div>
+            <button type="submit" class="btn btn-info" @click="submit">添加</button>
+            <!-- <span v-text="tip" class="tip"></span> -->
+        </form>
+
+        <form class="form-inline form-style" @submit.prevent>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="请输入关键字" v-model.trim="searchItem" @keyup.13="search">
+                <button type="submit" class="btn btn-info" @click="search">搜索</button>
+            </div>
+        </form>
+
+
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+                <tr class="info">
+                    <td>选择</td>
+                    <td>商品名称</td>
+                    <td>商品价格</td>
+                    <td>删除</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(obj,index) in list" @click="handler(index)" :class="{selected:obj.isSelected}" v-show="obj.isShow">
+                    <td>
+                        <input type="checkbox" v-model="obj.isChecked" class="checked" @click.stop>
+                    </td>
+                    <td v-text="obj.name"></td>
+                    <td v-text="obj.price"></td>
+                    <td>
+                        <button type="button" class="btn btn-danger btn-xs glyphicon glyphicon-remove"></button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><button @click="strikeOut" class="btn btn-danger btn-xs">删除选中项</button></td>
+                    <td><input type="checkbox" v-model="allChecked" @click="allCheck">全选
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        <input type="checkbox" @click="itemsCheck">反选</td>
+                    <td colspan="2" v-text="'总价是：'+ sum + '元'"></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <script src="../jQuery/jquery-3.2.1.js"></script>
+    <script src="./bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="../Vue/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#todolist',
+            data: {
+                list: [{
+                    name: '衣服',
+                    price: 230,
+                    isSelected: false,
+                    isShow: true,
+                    isChecked: false
+                }, {
+                    name: '裤子',
+                    price: 130,
+                    isSelected: false,
+                    isShow: true,
+                    isChecked: false
+                }, {
+                    name: '运动用品',
+                    price: 99,
+                    isSelected: false,
+                    isShow: true,
+                    isChecked: false
+                }, {
+                    name: 'iphoneX',
+                    price: 8399,
+                    isSelected: false,
+                    isShow: true,
+                    isChecked: false
+                }, {
+                    name: 'Mac',
+                    price: 13000,
+                    isSelected: false,
+                    isShow: true,
+                    isChecked: false
+                }],
+                // sum:0,
+                shoppingName: '',
+                shoppingPrice: '',
+                searchItem: '',
+                allChecked: false,
+                tip: '',
+                // priceTip: ''
+            },
+            computed: {
+                sum() {
+                    let sumItem = 0;
+                    for (obj of this.list) {
+                        if (obj.isSelected) {
+                            sumItem += obj.price;
+                        }
+                    }
+                    return sumItem;
+                }
+            },
+            methods: {
+                handler(index) {
+                    this.list[index].isSelected = !this.list[index].isSelected;
+                },
+                submit() {
+                    // this.priceTip = '';
+                    this.tip = '';
+                    let itemPrice = parseInt(this.shoppingPrice);
+                    for (obj of this.list) {
+                        if (obj.name == this.shoppingName) {
+                            this.tip = '请加入不同商品';
+                            break;
+                        }
+                        if (Number.isNaN(itemPrice)) {
+                            this.tip = '商品价格请填写为数字';
+                            break;
+                        }
+                    }
+                    if (this.shoppingName != '' && this.tip == '' && this.priceTip == '') {
+                        let obj = {
+                            name: this.shoppingName,
+                            price: parseInt(this.shoppingPrice),
+                            isSelected: false,
+                            isShow: true,
+                            isChecked: false
+                        };
+                        this.list.push(obj);
+                        this.shoppingName = '';
+                        this.shoppingPrice = '';
+                    }
+
+                },
+                search() {
+                    for (idx of this.list) {
+                        // console.log(idx)
+                        if (!idx.name.includes(this.searchItem) && !idx.price.toString().includes(this.searchItem)) {
+                            idx.isShow = false;
+                        } else {
+                            idx.isShow = true;
+                        }
+                    }
+                },
+                deleteItem(index) {
+                    this.list.splice(index, 1);
+                },
+                strikeOut() {
+                    this.list = this.list.filter(function (obj) {
+                        if (!obj.isChecked) {
+                            return obj;
+                        }
+                    });
+                    this.allChecked = false;
+                },
+                allCheck() {
+                    this.allChecked = !this.allChecked;
+                    if (this.allChecked) {
+                        for (obj of this.list) {
+                            obj.isChecked = true;
+                        }
+                    } else {
+                        for (obj of this.list) {
+                            obj.isChecked = false;
+                        }
+                    }
+
+                },
+                itemsCheck() {
+                    for (obj of this.list) {
+                        obj.isChecked = !obj.isChecked;
+                    }
+                }
+
+
+            }
+        })
+    </script>
+</body>
+
+</html>
