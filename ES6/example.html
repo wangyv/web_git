@@ -1,58 +1,91 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
 
+    <script src="jquery-3.2.1.js"></script>
     <script>
-//        function foo(){
-//            console.log(arguments[0]);//未知参数个数 实参多，形参少
-//        }
-//        foo(5,6,7);
-//
-//
-//        function foo1(...arg){
-//            console.log(arg);
-//        }
-//        foo1(5,6,7,8,9);
+        //        function foo(){
+        //            console.log(arguments[0]);//未知参数个数 实参多，形参少
+        //        }
+        //        foo(5,6,7);
+        //
+        //
+        //        function foo1(...arg){
+        //            console.log(arg);
+        //        }
+        //        foo1(5,6,7,8,9);
 
 
-//        let b = 2;
-//        let c = 3;
-//        let a = `adnjk${b}bfierut${c}bodsgger`;
-//        console.log(a);
+        //        let b = 2;
+        //        let c = 3;
+        //        let a = `adnjk${b}bfierut${c}bodsgger`;
+        //        console.log(a);
 
-//    function foo(a,b='world'){
-//        console.log(`${a} ${b}`);
-//    }
-//    foo('hello');
-//
-//    function foo1([a,b,c=0,d]){
-//        console.log(`${a} ${b} ${c} ${d}`);
-//    }
-//    foo1([1,1,6,6]);
-
-
-//    let fun = function (){
-//        //...
-//    };
-//    console.log(fun.name);
-//let fun1 = function fun2(){
-//    //...
-//};
-//console.log(fun2.name);
-//console.log(fun2);
+        //    function foo(a,b='world'){
+        //        console.log(`${a} ${b}`);
+        //    }
+        //    foo('hello');
+        //
+        //    function foo1([a,b,c=0,d]){
+        //        console.log(`${a} ${b} ${c} ${d}`);
+        //    }
+        //    foo1([1,1,6,6]);
 
 
-//function foo(a,b，...arg){
-//    //...
-//}
-//console.log(foo.length);
+        //    let fun = function (){
+        //        //...
+        //    };
+        //    console.log(fun.name);
+        //let fun1 = function fun2(){
+        //    //...
+        //};
+        //console.log(fun2.name);
+        //console.log(fun2);
+
+
+        //function foo(a,b，...arg){
+        //    //...
+        //}
+        //console.log(foo.length);
+
+
+        let p1 = new Promise(function (resolve, reject) {
+            $.get('a.json', {}, (res) => {
+                console.log(res);
+                reject();
+            });
+        });
+        let p2 = new Promise(function (resolve, reject) {
+            $.get('b.json', {}, (res) => {
+                console.log(res);
+                resolve();
+            });
+        });
+        let p3 = new Promise(function (resolve, reject) {
+            $.get('c.json', {}, (res) => {
+                console.log(res);
+                reject();
+            });
+        });
+
+        Promise.race([p1, p2, p3]).then(() => {
+            console.log('over');
+        }).catch(() => {
+            console.log('fail')
+        });
+
+        // Promise.all([p1, p2, p3])
+        // .then(() => console.log('over'))
+        // .catch(() => console.log('fail'));
     </script>
 </body>
+
 </html>
