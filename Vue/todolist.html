@@ -80,26 +80,26 @@
 
         <div class="shopping-name">
             商品名称：
-            <input type="text" v-model="shoppingName">
+            <input type="text" v-model="shoppingName" placeholder="请输入商品名称">
             <span v-text="tip" class="tip"></span>
         </div>
         <div class="shopping-price">
             商品价格：
-            <input type="text" v-model="shoppingPrice">
+            <input type="text" v-model="shoppingPrice" placeholder="请输入商品价格">
             <span v-text="priceTip" class="tip"></span>
             <br>
             <button @click="submit">提交</button>
         </div>
         <div class="search">
-            <input type="text" v-model.trim="searchItem" @keyup.13="search">
+            <input type="text" v-model.trim="searchItem" @keyup.13="search" placeholder="请输入关键字">
             <button @click="search">搜索</button>
         </div>
         <ul>
             <li v-for="(obj,index) in list" @click="handler(index)" :class="{selected:obj.isSelected}" v-show="obj.isShow">
                 <input type="checkbox" v-model="obj.isChecked" class="checked" @click.stop>
                 <span class="close" @click.stop="deleteItem(index)">[ X ]</span>
-                <span class="name">{{obj.name}}</span>
-                <span class="price">{{obj.price}}</span>
+                <span class="name" v-text="obj.name"></span>
+                <span class="price" v-text="obj.price"></span>
             </li>
         </ul>
 
@@ -152,7 +152,6 @@
                 shoppingPrice: '',
                 searchItem: '',
                 allChecked: false,
-                // itemChecked:false
                 tip: '',
                 priceTip: ''
             },
@@ -177,7 +176,7 @@
                     let itemPrice = parseInt(this.shoppingPrice);
                     for (obj of this.list) {
                         if (obj.name == this.shoppingName) {
-                            this.tip = '请加入不同的商品';
+                            this.tip = '请加入不同商品';
                             break;
                         }
                         if (Number.isNaN(itemPrice)) {
@@ -201,8 +200,8 @@
                 },
                 search() {
                     for (idx of this.list) {
-                        console.log(idx)
-                        if (!idx.name.includes(this.searchItem)) {
+                        // console.log(idx)
+                        if (!idx.name.includes(this.searchItem) && !idx.price.toString().includes(this.searchItem)) {
                             idx.isShow = false;
                         } else {
                             idx.isShow = true;
