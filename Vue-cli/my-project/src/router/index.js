@@ -5,6 +5,7 @@ import test from '@/components/Test'
 import test1 from '@/components/Test1'
 import test2 from '@/components/Test2'
 import Error from '@/components/Error'
+import Count from '@/components/Count'
 
 Vue.use(Router)
 
@@ -17,17 +18,17 @@ export default new Router({
       component: HelloWorld,
       alias: '/acbc'
     }, {
-      path: '/test',
+      path: '/Test',
       name: 'test',
       component: test,
       children: [{
-        path: 'test1',
+        path: 'Test1',
         component: test1,
         name: '/test/test1'
       }, {
-        path: 'test2/:userId(\\d+)/:username',
+        path: 'Test2/:userId(\\d+)/:username',
         component: test2,
-        name: '/test/test2',
+        name: '/Test/Test2',
         beforeEnter (to, from, next) {
           console.log(to)
           console.log(from)
@@ -35,11 +36,14 @@ export default new Router({
         }
       }, {
         path: '/home/:userId(\\d+)/:username',
-        redirect: 'test2/:userId(\\d+)/:username'
+        redirect: 'Test2/:userId(\\d+)/:username'
       }]
     }, {
-      path: '/error',
+      path: '/Error',
       component: Error
+    }, {
+      path: '/Count',
+      component: Count
     }
   ]
 })
