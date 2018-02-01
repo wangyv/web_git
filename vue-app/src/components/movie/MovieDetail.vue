@@ -1,6 +1,7 @@
 <template>
     <div class="detail">
         <div class="detail-info">
+            <img :src="movieDetail.img" alt="" class="detail-background">
             <div class="detail-img">
                 <img :src="movieDetail.img" alt="">
             </div>
@@ -36,7 +37,7 @@ export default {
       axios.get(`${API_PROXY}http://m.maoyan.com/movie/${
           this.$route.params.movieId
         }.json`).then(res=>{
-            console.log(res);
+            // console.log(res);
             this.movieDetail = res.data.data.MovieDetailModel;
             this.isLoading = false;
         })
@@ -47,16 +48,26 @@ export default {
 <style scoped>
 .detail{
     padding: 0.1rem;
+    margin-top: 1rem;
 }
 .detail-info{
     display: flex;
     border-bottom: 1px solid #aaa;
     padding-bottom: 0.1rem;
+    position: relative;
+}
+.detail-background{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: blur(0.6rem);
+    z-index: -1;
 }
 .detail-img{
     width: 0;
     flex-grow: 1;
     margin-right: 0.1rem;
+    /* height: 1.28rem; */
 }
 .detail-info .detail-star{
     width: 0;
