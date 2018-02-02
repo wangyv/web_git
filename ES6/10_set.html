@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 1. 类数组，不能有重复值，与集合类似
+        let s1 = new Set([1, 2, 3, 4, 5, 5, 4]); //类数组
+        // console.log(s1); // Set(5) {1, 2, 3, 4, 5}
+
+        //2.  add(value);delete(value);has(value)是否存在此成员；clear()
+        s1.add(25);
+        // console.log(s1);
+        s1.delete(25);
+        // console.log(s1);
+        // console.log(s1.has(5));
+        // s1.clear()
+        // console.log(s1); //Set(0) {}
+
+
+        //3. keys(),values(),for...of,forEach(),entries()  Set 的keys就是它的值
+        s1.forEach(function (val, key, arr) {
+            // console.log(val, key);
+        });
+        for ([item, index] of s1.entries()) {
+            // console.log(item,index);
+        }
+        for (item of s1.keys()) {
+            // console.log(item,index);
+        }
+        for (item of s1.values()) {
+            // console.log(item,index);
+        }
+
+        //4. size
+        // console.log(s1.size);
+
+        //5. 在set内部NaN与NaN是相等的
+        let set = new Set();
+        let a = NaN;
+        let b = NaN;
+        set.add(a);
+        set.add(b);
+        console.log(set); // Set {NaN}
+    </script>
+</body>
+
+</html>
