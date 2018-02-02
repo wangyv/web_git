@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 1. Objest.is
+        let obj1 = {
+            name: 'zs',
+            age: 18
+        };
+        let obj2 = {
+            name: 'zs',
+            age: 18
+        };
+        // console.log(Object.is(obj1, obj2)); //false 比地址
+        // console.log( Object.is(+0,-0));     //false
+        // console.log( +0 === -0);            //true
+        // console.log( Object.is(NaN,NaN));   //true
+        // console.log( NaN == NaN);           //false
+
+
+        //2. Object.assign()
+        let obj3 = {
+            name: 'zs',
+            age: 18,
+            dad: {
+                name: 'zhanger',
+                age: 40
+            }
+        };
+        let obj4 = {
+            name: 'zs',
+            school: 'xx'
+        };
+        obj3.dad.age = 41;
+
+        // console.log(Object.assign(obj3, obj4)); //也只深拷贝一次
+
+        //3. 'name' in obj
+        // console.log('name' in obj3);
+
+        let arr = [4, 2, 3];
+        console.log(3 in arr); //false
+    </script>
+</body>
+
+</html>
