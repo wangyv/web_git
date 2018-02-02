@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="div1">div1</div>
+    <div class="div2">div2</div>
+    <div class="div3">div3</div>
+    <script>
+        //1. 不确定参数
+        function foo1 (...arg){
+            // console.log(arg);
+        } 
+        foo1(5,6,7,8,9);// Array(5)
+
+
+        //2. 作为数组的一部分
+        let arr1 = [1, 2];
+        let arr2 = [3, 4];
+        let arr3 = [3, ...arr1, 4];
+        // console.log(arr3);// (4)[3,1,2,4]
+
+        //3. 数组复制 深拷贝
+        let arr4 = [1,2];
+        let arr5 = [...arr4];
+        arr4.push(3);
+        // console.log(arr4,arr5); // (3)[1,2,3] (2)[1,2]
+
+        //4. 合并数组
+        let arr6 = [...arr1,...arr2];
+        // console.log(arr6);//(4)[1,2,3,4]
+
+        //5. 合并对象
+        let obj1 = {
+            name:'zs',
+            age:18,
+            dad:{
+                name:'zhanger',
+                age:40
+            }
+        };
+        let obj2 = {
+            name:'lisi',
+            school:'xx'
+        };
+        let obj3 = {...obj1, ...obj2};
+        // console.log(obj3);
+        obj1.age = 19;
+        obj1.dad.name = 'zhangyi'
+
+
+        //6. 解构
+        let aDiv = document.querySelectorAll('div');
+        let [div1, div2, div3] = [...aDiv];
+        // console.log(div1, div2, div3);
+
+        //7. 剩余运算符
+        function foo2(a, b, ...arg) {
+            // console.log(a,b,arg);
+        }
+        foo2(2, 3, 4, 5, 6); // 2 3 (3)[4, 5, 6]
+    </script>
+</body>
+</html>
