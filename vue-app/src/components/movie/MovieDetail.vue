@@ -48,7 +48,7 @@ export default {
 <style scoped>
 .detail{
     padding: 0.1rem;
-    margin-top: 1rem;
+    margin: 1rem 0;
 }
 .detail-info{
     display: flex;
