@@ -1,30 +1,38 @@
 <template>
-    <!-- <div></div> -->
-    <div class="book-content clearfix">
-    <!-- <common-header bgColor="rgb(121, 85, 72)"> -->
-        <!-- <span slot="title">Book</span> -->
-    <!-- </common-header> -->
-    <!-- <common-footer bgColor="rgb(121, 85, 72)"></common-footer> -->
-    <!-- <transition tag="li" name="slide"> -->
-        <!-- <ul class="book-img">
-            <li  v-for="obj in imgArr">
+    <div class="book-content">
+      <!-- <div class="container">
+        <ul class="book-img" :style="'left:'+positionX">
+            <li  v-for="obj in imgArr" :key="obj.id">
                 <img :src="obj.src">
             </li>
-        </ul> -->
-    <!-- </transition> -->    
+        </ul>
+      </div>-->
+ 
+      <!-- <div class="container">
+          <ul class="book-img">
+            <transition-group tag='li' name="slide"  v-for="(obj, index) in imgArr" :key="obj.id" >
+              <img :src="obj.src" :key="obj.id"  v-show="index == nowIndex">
+            </transition-group>
+          </ul> 
+      </div> -->
+
+      <div class="container">
+        <transition-group tag='ul' name="slide"  class="book-img">
+          <li v-for="(obj, index) in imgArr" :key="obj.id"  v-show="index == nowIndex">
+            <img :src="obj.src" :key="obj.id">
+          </li>
+        </transition-group> 
+
+        <ul class="book-ul">
+          <li :class="{selected : index == nowIndex}" v-for="(obj, index) in imgArr" :key="obj.id" class="book-index">{{index + 1}}</li>
+        </ul>
+      </div>
+
     </div>
 
 </template>
 
 <script>
-// import CommonHeader from "@/components/common/Header.vue";
-// import CommonFooter from "@/components/common/Footer.vue";
-// export default {
-//   components: {
-//     CommonHeader,
-//     CommonFooter
-//   }
-// };
 export default {
   data: () => {
     return {
@@ -32,34 +40,30 @@ export default {
         {
           src: require(`@/assets/img/1.jpg`),
           id:1,
-          isShow:true
         },
         {
           src: require(`@/assets/img/2.jpg`),
-          id:2,
-          isShow:true          
+          id:2,       
         },
         {
           src: require(`@/assets/img/3.jpg`),
           id:3,
-          isShow:true          
         },
         {
           src: require(`@/assets/img/4.jpg`),
           id:4,
-          isShow:true
         },
         {
           src: require(`@/assets/img/5.jpg`),
-          id:5,
-          isShow:true          
+          id:5,         
         }
       ],
-      positionX: ""
+      positionX: "",
+      nowIndex: 0
     };
   },
   mounted() {
-    // this.change();
+    this.change();
   },
   methods: {
     // change(){
@@ -72,6 +76,16 @@ export default {
     //         this.positionX = - index * 100 +'%';
     //     },2000);
     // }
+
+
+    change(){
+        setInterval(()=>{
+            this.nowIndex++;
+            if(this.nowIndex == 5){
+                this.nowIndex = 0;
+            }
+        },3000);
+    }
   }
 };
 </script>
@@ -79,42 +93,70 @@ export default {
 <style scoped>
 .book-content {
   margin-top: 1rem;
-  margin-bottom: 1rem;
-  /* width: 100%; */
+  height: 250px;
+  position: relative;
+}
+.container{
+  width: 100%;
+  height: 276px;
+  overflow: hidden;
+  position: relative;
 }
 .book-img {
   overflow: hidden;
-  width: 500%;
-  position: absolute;
-  height: 250px;
-  left: 0;
-  transition: all 1s linear;
-}
-/* .clearfix::after{
-    content: '';
-    display: block;
-    clear: both;
-} */
-.book-img li {
-  float: left;
-  width: 20%;
-  height: auto;
+  width: 100%;
   position: relative;
+  height: 276px;
+}
+.book-img li {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
 }
 .book-img img {
   width: 100%;
   height: 100%;
 }
-/* .slide-enter{
-    left:0;
+.book-ul{
+  height: 20px;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+.book-index{
+  float: left;
+  width: 20px;
+  height: 20px;
+  background-color:rgba(0, 0, 0, 0.5);
+  color: #fff;
+  margin-right: 5px;
+  line-height: 20px;
+  text-align: center;
+}
+.selected{
+  background-color: #ff6700;
+  opacity: 0.6;
+}
+
+
+.slide-enter{
+    transform: translateX(100%);
+    opacity:0.5;
 }
 .slide-enter-active,.slide-leave-active{
+    transition: all 1.5s linear;
+}
+.slide-enter-active{
     transition: all 1s linear;
 }
-.slide-enter-to,.slide-leave{
-    left: -50%;
+.slide-enter-to, .slide-leave{
+  transform: translateX(0);
+  opacity:1;
 }
+
 .slide-leave-to{
-    left:-100%;
-} */
+    transform: translateX(-100%);
+    opacity:0;
+}
 </style>
