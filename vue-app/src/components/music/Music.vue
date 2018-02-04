@@ -1,7 +1,7 @@
 <template>
   <ul>
       <li v-for="item in musicAlbums" :key="item.id">
-        <router-link :to="'/musicalbums/' + item.id">
+        <router-link :to="'/musiclist/' + item.id">
           <img :src="item.bg">
         </router-link>
       </li>
@@ -19,7 +19,7 @@ export default {
   created(){
     axios.get('/static/data/musiclist.json')
     .then(res => {
-      console.log(res);
+      // console.log(res);
       this.musicAlbums = res.data.albums;
     })
   }
