@@ -1,6 +1,5 @@
 <template>
     <div class="music-content">
-
         <div class="music-play clearfix">
             <img :src="playBackground" alt="" class="play-background">
             <div class="play-img">
@@ -12,7 +11,7 @@
                 <audio :src="musicUrl" controls="controls" autoplay></audio>
             </div>
         </div>
-        
+       
         <ul>
             <li v-for="music in musicList" :key="music.song_id" class="clearfix music-list" @click="changeMusic(music)">
                 <div class="music-pic">
@@ -26,9 +25,6 @@
                 
             </li>
         </ul>
-    <!-- <div class="loading" v-show="isLoading">
-        <img src="../../assets/img/loading.gif" alt="">
-    </div> -->
     
     </div>
     
@@ -45,7 +41,6 @@ export default{
             playMusicSinger:'',
             playBackground:'',
             musicUrl:'',
-            // isLoading:true,
         }
     },
     methods:{
@@ -134,7 +129,7 @@ export default{
     filter: blur(0.6rem);
     z-index: -1;
 } 
- .play-img{
+.play-img{
     margin-right: 0.1rem;
     float: left;
     margin-top: 0.1rem;
@@ -146,6 +141,7 @@ export default{
 audio{
     width: 5rem;
     /* height: auto; */
+    background: transparent;
 }
 ul{
     background-color: rgba(0, 0, 0, 0.1);
