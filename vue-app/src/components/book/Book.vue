@@ -59,7 +59,8 @@ export default {
         }
       ],
       positionX: "",
-      nowIndex: 0
+      nowIndex: 0,
+      timer: null
     };
   },
   mounted() {
@@ -79,7 +80,7 @@ export default {
 
 
     change(){
-        setInterval(()=>{
+        this.timer = setInterval(()=>{
             this.nowIndex++;
             if(this.nowIndex == 5){
                 this.nowIndex = 0;
