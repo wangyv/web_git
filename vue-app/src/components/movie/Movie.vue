@@ -43,7 +43,7 @@ export default {
             .then(res=>{
                 // console.log(res)
                 let list = res.data.data.movies;
-                console.log(list.length);
+                // console.log(list.length);
                 if(list.length < 10){
                     this.isEnd = true;
                 }
