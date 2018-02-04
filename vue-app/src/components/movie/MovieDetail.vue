@@ -12,14 +12,25 @@
             </div>
         </div>
         <div class="detail-stars">
-            <p class="detail-name">主演</p>
+            <p class="detail-name" v-text="'主演'"></p>
             <p>{{movieDetail.star}}</p>
         </div>
         <div class="detail-content">
-            <p class="detail-name">简介</p>
+            <p class="detail-name" v-text="'简介'"></p>
             <div v-html="movieDetail.dra"></div>
         </div>
-        <div class="loading"></div>
+        <div class="detail-comment">
+            <p class="detail-name" v-text="'高分短评'"></p>
+            <div>
+                <div v-for="obj in CommentResponseModel" :key="obj.id">
+                    <span v-text="obj.nickName+'：'"></span>
+                    <p class="comment">&nbsp;&nbsp;&nbsp;&nbsp;{{obj.content}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="loading" v-show="isLoading">
+            <img src="../../assets/img/loading.gif" alt="">
+        </div>
     </div>
     
 </template>
@@ -30,22 +41,39 @@ export default {
   data(){
       return {
           movieDetail: {},
+          CommentResponseModel: [],
           isLoading: true
       }
   },
   created(){
-      axios.get(`${API_PROXY}http://m.maoyan.com/movie/${
-          this.$route.params.movieId
-        }.json`).then(res=>{
-            // console.log(res);
-            this.movieDetail = res.data.data.MovieDetailModel;
-            this.isLoading = false;
-        })
+    axios.get(`${API_PROXY}http://m.maoyan.com/movie/${
+        this.$route.params.movieId
+      }.json`).then(res=>{
+        // console.log(res);
+        this.movieDetail = res.data.data.MovieDetailModel;
+        this.CommentResponseModel = res.data.data.CommentResponseModel.hcmts;
+        this.isLoading = false;
+    })
   }
 }
 </script>
 
 <style scoped>
+.loading{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+
+}
+.loading img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}
 .detail{
     padding: 0.1rem;
     margin: 1rem 0;
@@ -76,9 +104,18 @@ export default {
 .detail-name{
     font-weight: bolder;
     text-align: center;
+    font-size: 0.4rem;
 }
 .detail-stars,.detail-content{
     border-bottom: 1px solid #aaa;
     padding: 0.1rem 0;
+}
+.detail-comment span{
+    font-weight: bold;
+    color:#ff6700;
+    font-size: 0.3rem;
+}
+.comment{
+    color: #666;
 }
 </style>
