@@ -14,16 +14,17 @@ function clone(obj) {
 
 
 //  2、实现通过元素class名查找
-function getClassName(clsName,content) {
-    var content = content||document;
-    if(content.getElementsByClassName){
-        return content.getElementsByClassName(clsName);
+function getClassName(clsName,context) {
+    var context = content||document;
+    if(context.getElementsByClassName){
+        return context.getElementsByClassName(clsName);
     }else{
-        var allList = content.getElementsByTagName('*');
+        var allList = context.getElementsByTagName('*');
         var aClass = [];
+        var reg = new RegExp('\\b' + clsName + '\\b')
         for(var i=0;i<allList.length;i++){
-            if (allList[i].className.indexOf(clsName) != -1) {
-                result.push(allList[i]);
+            if (reg.test(allList[i].className) != -1) {
+                aClass.push(allList[i]);
             }
         }
         return aClass;
