@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>www.a.com index8.html</h1>
+
+    <script src="./jquery-3.2.1.js"></script>
+    <script>
+        $.get('http://www.b.com/index4.php',{},function(){
+            console.log('获取成功！')
+        })
+    </script>
+</body>
+</html>
