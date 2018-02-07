@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <common-header :bgColor="cColor" @tapped="changed('Movie')">
+    <common-header :bgColor="cColor" @tapped="changed('Movie')" class="header">
         <span slot="title" v-text="cTitle"></span>
     </common-header>
-    <router-view class="content"/>
+    <router-view/>
     <common-footer :bgColor="cColor" @tapped="changed"></common-footer>
     
   </div>
@@ -12,6 +12,8 @@
 <script>
 import CommonHeader from "@/components/common/Header.vue";
 import CommonFooter from "@/components/common/Footer.vue";
+// import FastClick from 'fastclick'
+
 export default {
   name: "App",
   data: () => {
@@ -54,12 +56,15 @@ export default {
           this.cColor = "rgb(33, 150, 243)";
       }
     }
+  },
+  created(){
+    // FastClick.attach(document.body);
   }
 };
 </script>
 
 <style>
-/* .content{
-  margin: 1rem 0;
-} */
+.header{
+  z-index: 1;
+}
 </style>
