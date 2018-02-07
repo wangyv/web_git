@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        //1. 类似于对象，也是键值对的集合，但是'键'的范围不限于字符串，各种类型（包括对象）都可以当做键。new Map()    
+        let m1 = new Map();
+        m1.set(1,'75');
+        let obj = {name:'zs'};
+        m1.set(obj,'xx');
+        // console.log(m1)
+
+
+        //2..size 返回Map的成员总数
+        console.log(m1.size)//2
+
+        //3. .set(key,value) .get(key) .has(key) .delete(key) .clear()
+        // console.log(m1.get(1));//75
+
+        
+    </script>
+</body>
+</html>
