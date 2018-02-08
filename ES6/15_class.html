@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // function People(name, age) {
+        //     this.name = name;
+        //     this.age = age;
+        // }
+        // People.prototype.eat = function () {
+        //     console.log(this.name + ' is eating!');
+        // }
+
+        // function Coder(name, age, company) {
+        //     People.call(this, name, age);
+        //     this.company = company;
+        // }
+        // Coder.prototype = new People();
+        // Coder.prototype.work = function () {
+        //     console.log(this.name + ' are coding!');
+        // }
+        // Coder.prototype.constructor = Coder;
+
+        // let coder = new Coder('zs', 18, '阿里');
+        // console.log(coder);
+        // coder.work();
+        // coder.eat();
+
+
+        // 2. ES6 新语法
+        class People{
+            constructor(name, age){
+                this.name = name;
+                this.age = age;
+            }
+            eat(){
+                console.log(this.name + ' is eating!');
+            }
+        }
+        class Coder extends People{
+            constructor(name, age, company){
+                super(name, age);
+                this.company = company;
+            }
+            code(){
+                console.log(this.name + ' is coding!');
+            }
+        }
+        let coder = new Coder('zs', 18, '阿里');
+        console.log(coder);
+        coder.eat();
+        coder.code();
+    </script>
+</body>
+
+</html>
