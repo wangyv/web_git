@@ -13,18 +13,35 @@
 
     <script src="./jquery-3.2.1.js"></script>
     <script>
+        // let p1 = new Promise(function (resolve, reject) {
+        //     $.get('a.json', {}, function (res) {
+        //         console.log(res);
+        //         resolve(res);
+        //     });
+        // }).then(function (resa) {
+        //     // console.log(resa);
+        //     $.get('b.json', {}, function (resb) {
+        //         console.log(resb);
+        //     });
+        // });
 
 
-        let p1 = new Promise(function (resolve, reject) {
-            $.get('a.json', {}, function (res) {
-                console.log(res);
-                resolve(res);
+        function getPromise(url) {
+            return new Promise(function (resolve, reject) {
+                $.get(url, {}, function (res) {
+                    resolve(res);
+                })
             });
-        }).then(function (resa) {
-            // console.log(resa);
-            $.get('b.json', {}, function (resb) {
-                console.log(resb);
-            });
+        }
+
+        getPromise('a.json').then(function (res) {
+            console.log(res);
+            return getPromise('b.json');
+        }).then(function (res) {
+            console.log(res);
+            return getPromise('c.json');
+        }).then(function (res) {
+            console.log(res);
         });
     </script>
 </body>
