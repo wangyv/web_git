@@ -29,8 +29,8 @@
 
         <div class="song-lrc clearfix" v-show="!isPlaying">
             <img :src="playBackground" alt="" class="song-lrc-background">
-            <div class="lrc">
-                <p v-for="(obj,index) in lrc" :key="index" :class="white=isTrue">{{obj.lyric}}</p>
+            <div class="lrc" :style="`top:-${Top}rem`">
+                <p v-for="(obj,index) in lrc" :key="index" :class="{white: index == nowIndex}">{{obj.lyric}}</p>
             </div>
         </div>
     </div>
@@ -43,15 +43,16 @@ export default{
     data(){
         return{
             musicList: [],
-            playMusicImg:'',
-            playMusicName:'',
-            playMusicSinger:'',
-            playBackground:'',
-            musicUrl:'/static/music/569080829.mp3',
-            isPlaying:true,
-            songLrc:'',
-            lrc:[],
-            isTrue: false
+            playMusicImg: '',
+            playMusicName: '',
+            playMusicSinger: '',
+            playBackground: '',
+            musicUrl: '/static/music/569080829.mp3',
+            isPlaying: true,
+            songLrc: '',
+            lrc: [],
+            isTrue: false,
+            nowIndex: null,
         }
     },
     methods:{
@@ -113,7 +114,8 @@ export default{
                 }     
     
                 // 打印json数组  
-                this.lrc = jsonLyric;   
+                this.lrc = jsonLyric;
+                console.log(jsonLyric);   
             });
         },
         getTime(time) {          
@@ -129,19 +131,23 @@ export default{
         },
         playingHandler(){
             let audioPlay = document.querySelector('audio');
-            this.lrc.forEach(function(obj, index, arr){
-                let lastTime = 0;
-                if(obj.time > audioPlay.currentTime && lastTime < audioPlay.currentTime){
-                    
+            let lastTime = 0;
+            this.lrc.forEach((obj, index, arr) => {
+                if(Number.parseFloat(obj.time) > audioPlay.currentTime && lastTime < audioPlay.currentTime){
+                    this.nowIndex = index - 3;
+                    lastTime = obj.time;
+                    // this.Top += 0.01;
                 }
             })
-            console.log(audioPlay.currentTime);
         }  
     },
     created(){
         this.getMusicInfo();
     },
-    mounted(){
+    computed: {
+        Top(){
+            return this.nowIndex > 2? (this.nowIndex-2)*0.7 : 0; 
+        }
     }
 }
 </script>
@@ -229,15 +235,18 @@ ul{
 }
 .song-lrc-background{
     width: 100%;
-    height: 100%;
-    filter: blur(1rem);
+    height: 95%;
+    filter: blur(1.5rem);
     position: fixed;
+    bottom: 1rem;
 }
 .lrc{
     position: absolute;
     top:0;
     left: 0;
     width: 100%;
+    margin-bottom: 5rem;
+    transition: all 0.5s linear;
 }
 
 .white{
