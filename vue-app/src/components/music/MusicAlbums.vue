@@ -1,5 +1,5 @@
 <template>
-    <div class="music-content">
+    <div class="music-content clearfix">
         <div class="music-play clearfix">
             <img :src="playBackground" alt="" class="play-background">
             <div class="play-img">
@@ -74,7 +74,8 @@ export default{
             this.playMusicSinger = obj.author;
             this.playMusicName = obj.title;
             this.musicUrl = `/static/music/${obj.song_id}.mp3`;
-            this.songLrc = `/static/lrc/${obj.song_id}.lrc`
+            this.songLrc = `/static/lrc/${obj.song_id}.lrc`;
+            this.nowIndex = 0;
             this.getLrc(this.songLrc);
         },
         getLrc(url){
@@ -134,7 +135,7 @@ export default{
             let lastTime = 0;
             this.lrc.forEach((obj, index, arr) => {
                 if(Number.parseFloat(obj.time) > audioPlay.currentTime && lastTime < audioPlay.currentTime){
-                    this.nowIndex = index - 3;
+                    this.nowIndex = index > 3 ?index - 3:0;
                     lastTime = obj.time;
                     // this.Top += 0.01;
                 }
@@ -146,7 +147,8 @@ export default{
     },
     computed: {
         Top(){
-            return this.nowIndex > 2? (this.nowIndex-2)*0.7 : 0; 
+            return this.nowIndex*0.6; 
+            // return 0;
         }
     }
 }
@@ -154,12 +156,21 @@ export default{
 
 <style scoped>
 .music-content{
-    margin: 1rem 0;
     font-family: 'Courier New', Courier, monospace;
+    width: 100%;
+    position: relative;
+    margin: 1rem 0;
+    /* top:1rem; */
+    /* bottom:1rem; */
 }
 .music-content ul{
     padding: 0 0.1rem;
-    margin-top: 3.5rem;
+    /* margin-top: 3rem; */
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    top: 3rem;
+    margin-bottom: 1rem;
 }
 .clearfix::after{
     content: '';
@@ -224,14 +235,17 @@ audio{
 ul{
     background-color: rgba(0, 0, 0, 0.1);
 }
-.song-lrc{
-    position: relative;
-    margin-top: 3rem;
+.music-content .song-lrc{
+    position: absolute;
+    top: 1rem;
+    left: 0;
     margin-bottom: 4rem;
+    width: 100%;
 }
 .song-lrc p{
     text-align: center;
     font-size:0.4rem;
+    width: 100%;
 }
 .song-lrc-background{
     width: 100%;
@@ -245,7 +259,7 @@ ul{
     top:0;
     left: 0;
     width: 100%;
-    margin-bottom: 5rem;
+    margin: 5rem 0;
     transition: all 0.5s linear;
 }
 
