@@ -11,10 +11,14 @@
             </a>
             <ul class="registered">
                 <li>
-                    <a href="#"  target="_blank">登陆</a>
+                    <router-link  :to="{name:'login',params:{manner:'login'}}">
+                        登陆
+                    </router-link>
                 </li>
                 <li>
-                    <a href="#" target="_blank">注册</a>
+                    <router-link :to="{name:'login',params:{manner:'registered'}}">
+                        注册
+                    </router-link>
                 </li>
             </ul>
         </div>
