@@ -1,10 +1,13 @@
 <template>
   <div class="login-registered">
       <div class="login-content">
+          <!-- 标题 注册还是登录 -->
           <div class="page-name">
               <div :class="{selected:pageType == 'login'}" @click="pageType = 'login'">账号登录</div>
               <div :class="{selected:pageType == 'registered'}" @click="pageType = 'registered'">用户注册</div>
           </div>
+
+          <!-- 登录表单 -->
           <form v-show="pageType == 'login'">
             <input type="text" placeholder="请输入账号">
             <input type="password" placeholder="请输入密码">
@@ -15,10 +18,14 @@
             </div>
             <input type="submit" class="login-submit" value="登录">
             
+            <!-- 模拟从后台查找完成，跳转到控制台 -->
+            <div>
+                <router-link :to="{name:'control',params:{username:'lfny'}}" style="color:#999">去后台</router-link>                
+            </div>
           </form>
 
 
-
+          <!-- 注册表单 -->
           <form v-show="pageType == 'registered'" class="registered">
                 <input type="text" placeholder="用户名">
                 <input type="password" placeholder="请输入密码">
@@ -27,7 +34,7 @@
           </form>
 
 
-
+          <!-- 回到首页 -->
           <div class="go-index">
               <router-link to='/' class="product-logo">
                 <img src="/static/img/logo.bmp" alt="春雨溯源系统">
