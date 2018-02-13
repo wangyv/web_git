@@ -91,6 +91,7 @@ export default {
 .page-name div{
     flex-grow: 1;
     cursor: pointer;
+    text-align:center;
 }
 .page-name div:first-child{
     border-right: 3px #ddd solid;
@@ -106,6 +107,9 @@ export default {
     margin:0 5px 0 0;
     position: relative;
     top:0.02rem;
+}
+form{
+    text-align: center;
 }
 form div{
     width: 80%;
