@@ -158,7 +158,7 @@
     <!-- 回到顶部 -->
     <div class="go-top">
         <a href="javascript:window.scrollTo( 0, 0 );" title="返回顶部">
-            <span class="glyphicon glyphicon-arrow-up"></span>
+            <span class="Hui-iconfont Hui-iconfont-gotop"></span>
         </a>
     </div>
   </div>
@@ -352,6 +352,9 @@ a:hover{
 .list-group a{
     color: #333;
 }
+.cities{
+    text-align: center;
+}
 .cities span{
     margin-right: 0.15rem;
 }
@@ -364,6 +367,7 @@ a:hover{
 /* 脚部 */
 footer{
     padding: 15px 0;
+    text-align: center;
 }
 footer a{
     color: #999;
