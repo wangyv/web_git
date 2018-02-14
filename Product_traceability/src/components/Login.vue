@@ -16,7 +16,7 @@
                     <input type="checkbox" class="remember">记住密码
                 </label>
             </div>
-            <input type="submit" class="login-submit" value="登录">
+            <input type="submit" class="login-submit" value="登 录">
             
             <!-- 模拟从后台查找完成，跳转到控制台 -->
             <div>
@@ -30,15 +30,15 @@
                 <input type="text" placeholder="用户名">
                 <input type="password" placeholder="请输入密码">
                 <input type="password" placeholder="请再次输入密码">
-                <input type="submit" class="login-submit" value="注册">
+                <input type="submit" class="login-submit" value="注 册">
           </form>
 
 
           <!-- 回到首页 -->
           <div class="go-index">
-              <router-link to='/' class="product-logo">
+              <!-- <router-link to='/' class="product-logo">
                 <img src="/static/img/logo.bmp" alt="春雨溯源系统">
-            </router-link>
+              </router-link> -->
             <router-link to="/" class="product-name" @click.prevent>
                 <span>春雨溯源系统</span>
             </router-link>
@@ -63,7 +63,7 @@ export default {
 <style scoped>
 /* 主体 */ 
 .login-registered{
-    background: url('/static/img/bg.jpg') no-repeat center/cover;
+    background: url('/static/img/bg1.jpg') no-repeat center/cover;
     position: absolute;
     top:0;
     left: 0;
@@ -71,14 +71,14 @@ export default {
     right: 0;
 }
 .login-content{
-    border: 1px #fa6700 solid;
+    /* border: 1px #fa6700 solid; */
     width: 30%;
     height: 70%;
     position: absolute;
     top:50%;
     transform: translateY(-50%);
     right: 1rem;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 /* 页面类型 登录还是注册 */
@@ -102,11 +102,9 @@ export default {
 
 /* 登录 注册 表单 */
 .remember{
-    width: 0.09rem;
-    height: 0.09rem;
+    width: 0.08rem;
+    height: 0.08rem;
     margin:0 5px 0 0;
-    position: relative;
-    top:0.02rem;
 }
 form{
     text-align: center;
@@ -132,9 +130,11 @@ input::-webkit-input-placeholder{
     color:#ccc;
 }
 .login-submit{
+    margin-top: 0.2rem;
     border: 0;
     background-color: #fa6700;
     color: #fff;
+    font-size: 0.09rem;
 }
 
 
@@ -142,7 +142,7 @@ input::-webkit-input-placeholder{
 /* 回到主页 */
 .go-index{
     position: absolute;
-    bottom: 5px;
+    bottom: 0.1rem;
     left: 50%;
     transform: translateX(-50%);
     height: 0.2rem;
