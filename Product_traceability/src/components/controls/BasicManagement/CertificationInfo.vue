@@ -1,10 +1,11 @@
 <template>
+<!-- 企业认证证书 -->
     <div class="certificate">
         <div class="certificate-title">企业认证证书</div>
         <hr>
         <div class="certificate-content">
             <div class="add-certificate">
-                <router-link to="/addApprove" class="btn btn-success add"><span class="glyphicon glyphicon-plus"></span> 新增</router-link>
+                <router-link :to="{name:'addApprove',params:{username:$route.params.username,show:false}}" class="btn btn-success add"><span class="glyphicon glyphicon-plus"></span> 新增</router-link>
                 <form action="#">
                     <input type="text">
                     <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-search"></span></button>
