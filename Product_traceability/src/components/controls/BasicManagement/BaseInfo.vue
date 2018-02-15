@@ -1,4 +1,5 @@
 <template>
+    <!-- 企业基础信息 -->
     <div class="base-info">
         <div class="base-title">企业基础信息</div>
         <hr>
