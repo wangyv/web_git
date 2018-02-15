@@ -31,7 +31,7 @@
             </div>
         </aside>
         
-
+        <!-- 控制台首页显示内容 -->
         <div :style="leftList ? 'margin-left:1.5rem' : 'margin-left:0'" class="child-content">
             <div class="child-title">
                 <div class="content-title">
@@ -206,7 +206,7 @@ export default {
     methods:{
         clickHandler(index){
             this.managementList[index].nowIndex = !this.managementList[index].nowIndex;
-            console.log(this.managementList[index].nowIndex);
+            // console.log(this.managementList[index].nowIndex);
         }
     }
 };
