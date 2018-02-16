@@ -36,12 +36,12 @@
 
           <!-- 回到首页 -->
           <div class="go-index">
-              <!-- <router-link to='/' class="product-logo">
-                <img src="/static/img/logo.bmp" alt="春雨溯源系统">
-              </router-link> -->
-            <router-link to="/" class="product-name" @click.prevent>
-                <span>春雨溯源系统</span>
-            </router-link>
+                <router-link to='/' class="product-logo">
+                    <img src="/static/img/logo.bmp" alt="春雨溯源系统">
+                </router-link>
+                <router-link to="/" class="product-name" @click.prevent>
+                    <span>春雨溯源系统</span>
+                </router-link>
           </div>
       </div>
   </div>
