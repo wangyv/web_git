@@ -109,9 +109,4 @@ input[type=file]{
 }
 
 
-/* .btn-upload{position: relative; display:inline-block;height:36px; *display:inline;overflow:hidden;vertical-align:middle;cursor:pointer}
-.upload-url{cursor: pointer}
-.input-file{position:absolute; right:0; top:0; cursor: pointer; z-index:1; font-size:30em; *font-size:30px;opacity:0;filter: alpha(opacity=0)}
-.btn-upload .input-text{ width:auto}
-.form-group .upload-btn{ margin-left:-1px} */
 </style>
