@@ -5,7 +5,7 @@
         <hr>
         <div class="product-list-content">
             <div class="add-product-list">
-                <router-link to="/addApprove" class="btn btn-success add"><span class="glyphicon glyphicon-plus"></span> 新增</router-link>
+                <router-link :to="{name:'addApprove',params:{username:'lnfy',show:false}}" class="btn btn-success add"><span class="glyphicon glyphicon-plus"></span> 新增</router-link>
                 <form action="#">
                     <input type="text">
                     <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-search"></span></button>
@@ -35,8 +35,11 @@
                                     <option v-for="(content, contentIndex) in obj.option" :key="contentIndex">{{content}}</option>
                                 </select>
                             </td>
-                            <td>{{obj.desc}}</td>
-                            
+                            <td class="specification">{{obj.specification}}</td>
+                            <td class="desc">{{obj.desc}}</td>
+                            <td class="price">{{obj.price}}</td>
+                            <td class="trace-source">{{obj.traceSource}}</td>
+                            <td class="code"><img :src="obj.code" alt=""></td>
                             <td class="operation">
                                 <button class="btn btn-secondary-outline"><span class="glyphicon glyphicon-pencil"></span> 编辑</button>
                                 <button class="btn btn-danger-outline" @click="delateHandler(index)"><span class="glyphicon glyphicon-trash"></span> 删除</button>
@@ -55,8 +58,22 @@ export default {
       return {
           work:[{
               img:'/static/img/1.jpg',
-              name: '施肥',
-              desc: '根据种植作物可以分析出土壤需要哪种肥料，以此保证土壤肥力。一般来说，土壤肥力与土壤成土母质有关，但同时还与该土地前茬种植作物有关。前茬种植禾本科作物对土壤养分消耗较大，因此需要同时增施氮、磷、钾三种肥料，尤其是氮肥。前茬种植豆科作物则消耗氮肥较少，应当增施磷、钾肥。',
+              name: '盆景生菜',
+              option: [''],
+              specification: '45cm*30cm*17cm',
+              desc: '放在家里养着吃的菜，随时可以吃到新鲜蔬菜，让人体验城市小菜园的乐趣！',
+              price: 30,
+              traceSource: '20171213201249',
+              code: '/static/img/api.png'
+          },{
+              img:'/static/img/3.jpg',
+              name: '洋葱',
+              option: ['洋葱'],
+              specification: '10',
+              desc: '根据其皮色可分为白皮、黄皮和红皮三种：白皮种鳞茎小，外表白色或略带绿色，肉质柔嫩，汁多辣味淡，品质佳，适于生食。',
+              price: 6,
+              traceSource: '20170914092816',
+              code: '/static/img/api.png'
           }]
       }
   },
@@ -112,7 +129,7 @@ export default {
 }
 
 
-.product-list-table table{
+.product-list-table table tr{
     border-bottom: 1px #aaa solid;
 }
 .product-list-table th{
@@ -126,13 +143,35 @@ export default {
 }
 .product-list-table table td{
     border: 0;
-    border-bottom: 1px solid #aaa;
     font-size: 0.08rem;
+}
+.product-list-table table tr{
+    border-top: 1px solid #aaa;
+    
 }
 .product-dsec,.operation{
     width: 0.6rem;
 }
 .operation button{
     margin-bottom: 10px;
+}
+
+.product-select{
+    width: 0.9rem;
+}
+.code{
+    width: 0.5rem;
+}
+.table>tbody>tr>td,{
+    vertical-align: middle;
+}
+.trace-source{
+    width: 1rem;
+}
+.price{
+    width: 0.2rem;
+}
+.trace-source,.specification{
+    width: 0.8rem;
 }
 </style>
