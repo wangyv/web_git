@@ -4,6 +4,8 @@ import Index from '@/components/Index'
 import Login from '@/components/Login'
 import Control from '@/components/Control'
 
+
+import EditInfo from '@/components/controls/EditInfo'
 /* 控制台的子路由 */
 
 // 基础管理
@@ -12,11 +14,13 @@ import CertificateInfo from '@/components/controls/BasicManagement/CertificateIn
 import CertificationInfo from '@/components/controls/BasicManagement/CertificationInfo'
 import DigitalMap from '@/components/controls/BasicManagement/DigitalMap'
 import AddApprove from '@/components/controls/BasicManagement/AddApprove'
+import AddInfo from '@/components/controls/BasicManagement/AddInfo'
 
 // 产品管理
 import WorkLinkList from '@/components/controls/ProductManagement/WorkLinkList'
 import ProductCategoryList from '@/components/controls/ProductManagement/ProductCategoryList'
 import ProductList from '@/components/controls/ProductManagement/ProductList'
+import CheckSession from '@/components/controls/ProductManagement/CheckSession'
 
 //工作场所及人员管理
 import StaffManagement from '@/components/controls/PersonnelManagement/StaffManagement'
@@ -74,6 +78,11 @@ export default new Router({
         from.name === null? next('/') : next();
       },
       children:[
+      {
+        path: '/editInfo',
+        name: 'editInfo',
+        component: EditInfo
+      },
       // 基础管理
       {
         path: '/baseInfo',
@@ -95,6 +104,10 @@ export default new Router({
         path: '/addApprove',
         name: 'addApprove',
         component: AddApprove
+      },{
+        path: '/addInfo',
+        name: 'addInfo',
+        component: AddInfo
       },
       // 产品管理
       {
@@ -109,6 +122,10 @@ export default new Router({
         path: '/productList',
         component: ProductList,
         name: 'productList'
+      },{
+        path: '/checkSession',
+        name: 'checkSession',
+        component: CheckSession
       },
       //工作场所及人员管理
       {
