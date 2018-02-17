@@ -15,9 +15,9 @@ import '@/assets/css/H-ui.admin.css'
 import '@/assets/css/H-ui.login.css'
 import '@/assets/css/H-ui.ie.css'
 import '@/assets/Hui-iconfont/1.0.8/iconfont.css'
-import '@/assets/js/layer'
+// import '@/assets/js/layer'
 // import '@/assets/js/H-ui.min'
-import '@/assets/js/H-ui.admin.page'
+// import '@/assets/js/H-ui.admin.page'
 // import '@/assets/js/index.js'
 
 Vue.config.productionTip = false
