@@ -29,7 +29,7 @@
 
         <div class="song-lrc clearfix" v-show="!isPlaying">
             <img :src="playBackground" alt="" class="song-lrc-background">
-            <div class="lrc" :style="`top:-${Top}rem`">
+            <div class="lrc" :style="`top: -${Top}rem`">
                 <p v-for="(obj,index) in lrc" :key="index" :class="{white: index == nowIndex}">{{obj.lyric}}</p>
             </div>
         </div>
@@ -52,14 +52,23 @@ export default{
             songLrc: '',
             lrc: [],
             isTrue: false,
-            nowIndex: null,
+            nowIndex: 0,
         }
     },
     methods:{
         getMusicInfo(){
-            axios.get(`${API_PROXY}http://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.billboard.billList&type=2&size=10&offset=${this.musicList.length}`)
+            // axios.get(`${API_PROXY}http://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.billboard.billList&type=2&size=30&offset=0`)
+            // .then(res=>{
+            //     this.musicList = this.musicList.concat(res.data.song_list);
+            //     this.playBackground = this.playMusicImg = this.musicList[0].pic_small;
+            //     this.playMusicSinger = this.musicList[0].author;
+            //     this.playMusicName = this.musicList[0].title;
+            //     this.songLrc = `/static/lrc/${this.musicList[0].song_id}.lrc`
+            //     this.getLrc(this.songLrc);
+            // })
+            axios.get('/static/data/music.json')
             .then(res=>{
-                // console.log(res);
+                console.log(res)
                 this.musicList = this.musicList.concat(res.data.song_list);
                 this.playBackground = this.playMusicImg = this.musicList[0].pic_small;
                 this.playMusicSinger = this.musicList[0].author;
@@ -69,7 +78,6 @@ export default{
             })
         },
         changeMusic(obj){
-            // console.log(obj);
             this.playBackground = this.playMusicImg = obj.pic_small;
             this.playMusicSinger = obj.author;
             this.playMusicName = obj.title;
@@ -77,6 +85,8 @@ export default{
             this.songLrc = `/static/lrc/${obj.song_id}.lrc`;
             this.nowIndex = 0;
             this.getLrc(this.songLrc);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
         },
         getLrc(url){
             axios.get(url).then(res => {
@@ -116,7 +126,7 @@ export default{
     
                 // 打印json数组  
                 this.lrc = jsonLyric;
-                console.log(jsonLyric);   
+                // console.log(jsonLyric);   
             });
         },
         getTime(time) {          
@@ -133,11 +143,11 @@ export default{
         playingHandler(){
             let audioPlay = document.querySelector('audio');
             let lastTime = 0;
-            this.lrc.forEach((obj, index, arr) => {
-                if(Number.parseFloat(obj.time) > audioPlay.currentTime && lastTime < audioPlay.currentTime){
-                    this.nowIndex = index > 3 ?index - 3:0;
+            this.lrc.forEach((obj, index, arr) => { 
+                if(lastTime <= audioPlay.currentTime && Number.parseFloat(obj.time) >= audioPlay.currentTime){
+                    // this.nowIndex = index <= 3? 0 : index - 3;
+                    this.nowIndex = index == 0 ? 0 : index - 1;
                     lastTime = obj.time;
-                    // this.Top += 0.01;
                 }
             })
         }  
@@ -145,12 +155,14 @@ export default{
     created(){
         this.getMusicInfo();
     },
-    computed: {
+    computed:{
         Top(){
-            return this.nowIndex*0.6; 
-            // return 0;
+            return this.nowIndex*0.6;
         }
     }
+    // updated(){
+    //     document.documentElement.scrollTop = this.nowIndex * 0.7 + 'rem';        
+    // }
 }
 </script>
 
@@ -160,8 +172,6 @@ export default{
     width: 100%;
     position: relative;
     margin: 1rem 0;
-    /* top:1rem; */
-    /* bottom:1rem; */
 }
 .music-content ul{
     padding: 0 0.1rem;
@@ -229,7 +239,6 @@ export default{
 } 
 audio{
     width: 5rem;
-    /* height: auto; */
     background: transparent;
 }
 ul{
@@ -256,8 +265,8 @@ ul{
 }
 .lrc{
     position: absolute;
-    top:0;
-    left: 0;
+    /* top:0; */
+    /* left: 0; */
     width: 100%;
     margin: 5rem 0;
     transition: all 0.5s linear;
