@@ -28,7 +28,7 @@ export default {
 
 <style scoped>
 ul{
-  margin-top: 1rem;
+  margin: 1rem 0;
 }
 li{
   width: 50%;
