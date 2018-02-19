@@ -25,7 +25,7 @@ export default {
 }
 .btn{
   float: left;
-  margin-left: 0.1rem;
+  margin-left: 0.3rem;
   font-size: 0.3rem;
 }
 .btn a{
