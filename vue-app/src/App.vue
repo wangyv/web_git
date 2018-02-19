@@ -18,13 +18,6 @@ export default {
   name: "App",
   data: () => {
     return {
-      // color: [
-      //   "rgb(33, 150, 243)",
-      //   "rgb(0, 150, 136)",
-      //   "rgb(121, 85, 72)",
-      //   "rgb(63, 81, 181)"
-      // ],
-      // title: ["Movie", "Music", "Book", "Photo"],
       cColor: "rgb(33, 150, 243)",
       cTitle: "Movie"
     };
@@ -51,6 +44,9 @@ export default {
           break;
         case "Photo":
           this.cColor = "rgb(63, 81, 181)";
+          break;
+        case "Cartoon":
+          this.cColor = "#60f";
           break;
         default:
           this.cColor = "rgb(33, 150, 243)";
