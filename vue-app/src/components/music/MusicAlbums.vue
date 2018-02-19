@@ -1,6 +1,6 @@
 <template>
     <div class="music-content clearfix">
-        <div class="music-play clearfix">
+        <div class="music-play clearfix" @click="handler">
             <img :src="playBackground" alt="" class="play-background">
             <div class="play-img">
                 <img :src="playMusicImg" alt="">
@@ -10,10 +10,14 @@
                 <p>{{playMusicSinger}}</p>
                 <audio :src="musicUrl" controls="controls" @playing="isPlaying = false;" @pause="isPlaying = true" @timeupdate="playingHandler"></audio>
             </div>
+            <div class="change">
+                <div class="left" @click.stop="nextMusic(musicIndex - 1)">&lt;&lt;</div>
+                <div class="right" @click.stop="nextMusic(musicIndex + 1)">&gt;&gt;</div>
+            </div>
         </div>
        
         <ul v-show="isPlaying">
-            <li v-for="music in musicList" :key="music.song_id" class="clearfix music-list" @click="changeMusic(music)">
+            <li v-for="(music, index) in musicList" :key="music.song_id" class="clearfix music-list" @click="changeMusic(music, index)">
                 <div class="music-pic">
                     <img :src="music.pic_small" alt="">
                 </div>
@@ -53,6 +57,7 @@ export default{
             lrc: [],
             isTrue: false,
             nowIndex: 0,
+            musicIndex: 0
         }
     },
     methods:{
@@ -68,7 +73,7 @@ export default{
             // })
             axios.get('/static/data/music.json')
             .then(res=>{
-                console.log(res)
+                // console.log(res)
                 this.musicList = this.musicList.concat(res.data.song_list);
                 this.playBackground = this.playMusicImg = this.musicList[0].pic_small;
                 this.playMusicSinger = this.musicList[0].author;
@@ -77,13 +82,14 @@ export default{
                 this.getLrc(this.songLrc);
             })
         },
-        changeMusic(obj){
+        changeMusic(obj, index){
             this.playBackground = this.playMusicImg = obj.pic_small;
             this.playMusicSinger = obj.author;
             this.playMusicName = obj.title;
             this.musicUrl = `/static/music/${obj.song_id}.mp3`;
             this.songLrc = `/static/lrc/${obj.song_id}.lrc`;
             this.nowIndex = 0;
+            this.musicIndex = index;
             this.getLrc(this.songLrc);
             document.documentElement.scrollTop = 0;
             document.body.scrollTop = 0;
@@ -150,14 +156,25 @@ export default{
                     lastTime = obj.time;
                 }
             })
-        }  
+        },
+        nextMusic(index){
+            if(index == this.musicList.length){
+                index = 0;
+            }else if(index == -1){
+                index = this.musicList.length - 1;
+            }
+            this.changeMusic(this.musicList[index], index);
+        },
+        handler(){
+            this.$router.go(-1);
+        }
     },
     created(){
         this.getMusicInfo();
     },
     computed:{
         Top(){
-            return this.nowIndex*0.6;
+            return this.nowIndex*0.69;
         }
     }
     // updated(){
@@ -274,5 +291,19 @@ ul{
 
 .white{
     color:white;
+}
+.change{
+    font-size: 0.5rem;
+    position: absolute;
+    right: 0.7rem;
+    top: 0.3rem;
+}
+.change div{
+    float: left;
+    color:#394bec;
+    font-weight: bold;
+}
+.change .left{
+    margin-right: 0.3rem;
 }
 </style>
