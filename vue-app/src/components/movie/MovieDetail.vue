@@ -1,5 +1,5 @@
 <template>
-    <div class="detail">
+    <div class="detail" @click="handler">
         <div class="detail-info">
             <img :src="movieDetail.img" alt="" class="detail-background">
             <div class="detail-img">
@@ -54,6 +54,11 @@ export default {
         this.CommentResponseModel = res.data.data.CommentResponseModel.hcmts;
         this.isLoading = false;
     })
+  },
+  methods:{
+      handler(){
+          this.$router.go(-1);
+      }
   }
 }
 </script>
