@@ -68,7 +68,7 @@ export default {
             let scrollHeight = document.documentElement.scrollHeight;
             let clientHeight = document.documentElement.clientHeight;
             // console.log(scrollTop , clientHeight , scrollHeight);
-            if( scrollTop + clientHeight  == scrollHeight && !this.isEnd){
+            if( scrollTop + clientHeight  >= scrollHeight && !this.isEnd){
                 this.isLoading = true;
                 this.getInfo();
             }
