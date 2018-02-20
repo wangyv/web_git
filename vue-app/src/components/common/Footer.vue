@@ -13,7 +13,7 @@
           <router-link to="/photo">图片</router-link>
       </li>
       <li @click="$emit('tapped', 'Cartoon')">
-          <router-link to="/cartoon">漫画</router-link>
+          <router-link to="/Type">漫画</router-link>
       </li>
   </ul>
 </template>
