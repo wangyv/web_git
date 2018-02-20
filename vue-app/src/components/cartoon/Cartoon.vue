@@ -1,7 +1,7 @@
 <template>
     <div class="vue-cartoon">
         <ul>
-            <li v-for="cartoon in cartoonList" :key="cartoon.lastUpdate" class="cartoon clearfix" @click="getDetail(cartoon.name)">
+            <li v-for="(cartoon, index) in cartoonList" :key="index" class="cartoon clearfix">
                 <div class="cartoon-img">
                     <img :src="cartoon.coverImg" :alt="cartoon.name">
                 </div>
@@ -33,7 +33,7 @@ export default {
     methods:{
         getInfo(){
             axios
-            .get(`${API_PROXY}http://japi.juhe.cn/comic/book?key=d36a7a9bbbe922fe44c39651f00c4c4b`)
+            .get(`${API_PROXY}http://japi.juhe.cn/comic/book?key=d36a7a9bbbe922fe44c39651f00c4c4b&type=${this.$route.params.type}`)
             .then(res=>{
                 // console.log(res);
                 let list = res.data.result.bookList;
@@ -60,6 +60,7 @@ export default {
 <style scoped>
 .vue-cartoon{
     background-color: #eee;
+    font-family: 'Courier New', Courier, monospace;
 }
 .clearfix::after{
     content: '';
