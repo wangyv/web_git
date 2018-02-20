@@ -9,6 +9,11 @@ import MusicAlbums from '@/components/music/MusicAlbums'
 import MusicList from '@/components/music/MusicList'
 import Mask from '@/components/photo/Mask'
 import Mask1 from '@/components/photo/Mask1'
+import Cartoon from '@/components/cartoon/Cartoon'
+import Chapter from '@/components/cartoon/Chapter'
+import ChapterContent from '@/components/cartoon/ChapterContent'
+import Type from '@/components/cartoon/Type'
+
 Vue.use(Router)
 
 export default new Router({
@@ -54,6 +59,31 @@ export default new Router({
       },{
         path: '/mask/:index',
         component: Mask,
+        beforeEnter(to,from,next){
+          from.name === null? next('/') : next();
+        }
+      },
+      {
+        path: '/type',
+        component: Type,
+        beforeEnter(to,from,next){
+          from.name === null? next('/') : next();
+        }
+      },{
+        path: '/cartoon/:type',
+        component: Cartoon,
+        beforeEnter(to,from,next){
+          from.name === null? next('/') : next();
+        }
+      },{
+        path: '/chapter/:cartoonName',
+        component: Chapter,
+        beforeEnter(to,from,next){
+          from.name === null? next('/') : next();
+        }
+      },{
+        path: '/chapterContent/:cartoonName/:chapterId',
+        component: ChapterContent,
         beforeEnter(to,from,next){
           from.name === null? next('/') : next();
         }
