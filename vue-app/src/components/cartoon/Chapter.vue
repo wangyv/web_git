@@ -1,19 +1,11 @@
 <template>
     <div class="vue-chapter">
-        <!-- <ul>
-            <li v-for="cartoon in cartoonList" :key="cartoon.lastUpdate" class="chapter clearfix" @click="getDetail(index)">
-                <div class="chapter-img">
-                    <img :src="cartoon.coverImg" :alt="cartoon.name">
-                </div>
-                <div class="chapter-info">
-                    <span v-text="`最近更新时间：${cartoon.lastUpdate}`"></span>
-                    <p class="chapter-name">{{cartoon.name}}</p>
-                    <p>类型：{{cartoon.type}}</p>
-                    <p class="chapter-show">{{cartoon.area}}</p>
-                    <p class="chapter-show chapter-end" v-text="cartoon.finish? '已完结':'未完结'"></p>
-                </div>
+        <p @click="handler">{{$route.params.cartoonName}}</p>
+        <ul>
+            <li v-for="chapter in ChapterList" :key="chapter.id" class="chapter clearfix" @click="getDetail($route.params.cartoonName, chapter.id)">
+                <p>{{chapter.name}}</p>
             </li>
-        </ul> -->
+        </ul>
         <div class="loading" v-show="isLoading">
             <img src="../../assets/img/loading.gif" alt="">
         </div>
@@ -32,29 +24,121 @@ export default {
     },
     methods:{
         getInfo(){
-            // axios
-            // .get(`${API_PROXY}http://japi.juhe.cn/comic/chapter?key=d36a7a9bbbe922fe44c39651f00c4c4b`)
-            // .then(res=>{
-            //     console.log(res);
-            //     let list = res.data.result.bookList;
-            //     this.cartoonList = list;
-            //     this.isLoading = false;                
-            // }).catch(()=>{
-            //     alert('获取数据出错！');
-            // })
-            console.log(this.$route.params);
+            let Name = this.EncodeUtf8(this.$route.params.cartoonName);
+            axios
+            .get(`${API_PROXY}https://japi.juhe.cn/comic/chapter?comicName=${Name}&key=d36a7a9bbbe922fe44c39651f00c4c4b`)
+            .then(res=>{
+                console.log(res);
+                let list = res.data.result.chapterList;
+                this.ChapterList = list;
+                this.isLoading = false;                
+            }).catch(()=>{
+                alert('获取数据出错！');
+            })
+            // console.log(Name);
+            // console.log('http://japi.juhe.cn/comic/chapter?comicName=%E7%81%B5%E7%A5%9E%E8%80%83%E8%AF%95&skip=&key=d36a7a9bbbe922fe44c39651f00c4c4b')
         },
-        getDetail(movieId){
-            // this.$router.push(`/moviedetail/${movieId}`)
+        getDetail(name, id){
+            this.$router.push(`/chapterContent/${name}/${id}`);
+        },
+        handler(){
+            this.$router.go(-1);
+        },
+        EncodeUtf8(s1)  
+        {  
+            var s = escape(s1);  
+            var sa = s.split("%");  
+            var retV ="";  
+            if(sa[0] != "")  
+            {  
+                retV = sa[0];  
+            }  
+            for(var i = 1; i < sa.length; i ++)  
+            {  
+                if(sa[i].substring(0,1) == "u")  
+                {  
+                    retV += this.Hex2Utf8(this.Str2Hex(sa[i].substring(1,5)));  
+                        
+                }  
+                else retV += "%" + sa[i];  
+            }  
+                
+            return retV;  
+        },
+        Str2Hex(s)  
+        {  
+            var c = "";  
+            var n;  
+            var ss = "0123456789ABCDEF";  
+            var digS = "";  
+            for(var i = 0; i < s.length; i ++)  
+            {  
+                c = s.charAt(i);  
+                n = ss.indexOf(c);  
+                digS += this.Dec2Dig(eval(n));  
+                    
+            }  
+            //return value;  
+            return digS;  
+        },
+        Dec2Dig(n1)  
+        {  
+            var s = "";  
+            var n2 = 0;  
+            for(var i = 0; i < 4; i++)  
+            {  
+                n2 = Math.pow(2,3 - i);  
+                if(n1 >= n2)  
+                {  
+                    s += '1';  
+                    n1 = n1 - n2;  
+                }  
+                else  
+                s += '0';  
+                    
+            }  
+            return s;  
+                
+        },
+        Dig2Dec(s)  
+        {  
+            var retV = 0;  
+            if(s.length == 4)  
+            {  
+                for(var i = 0; i < 4; i ++)  
+                {  
+                    retV += eval(s.charAt(i)) * Math.pow(2, 3 - i);  
+                }  
+                return retV;  
+            }  
+            return -1;  
+        },
+        Hex2Utf8(s)  
+        {  
+            var retS = "";  
+            var tempS = "";  
+            var ss = "";  
+            if(s.length == 16)  
+            {  
+                tempS = "1110" + s.substring(0, 4);  
+                tempS += "10" +  s.substring(4, 10);   
+                tempS += "10" + s.substring(10,16);   
+                var sss = "0123456789ABCDEF";  
+                for(var i = 0; i < 3; i ++)  
+                {  
+                    retS += "%";  
+                    ss = tempS.substring(i * 8, (eval(i)+1)*8);  
+                    retS += sss.charAt(this.Dig2Dec(ss.substring(0,4)));  
+                    retS += sss.charAt(this.Dig2Dec(ss.substring(4,8)));  
+                }  
+                return retS;  
+            }  
+            return "";  
         }
     },
     created(){
         this.getInfo();
-        
     },
-    mounted(){
-
-    }
 }
 </script>
 
@@ -66,6 +150,10 @@ export default {
     content: '';
     display: block;
     clear: both;
+}
+.vue-chapter>p{
+    font-size: 0.3rem;
+    text-align: center;
 }
 ul{
     margin: 1rem 0;
@@ -83,56 +171,11 @@ p{
     position: relative;    
     
 }
-.chapter-img{
-    /* flex-grow: 1; */
-    /* width: 0; */
-    margin-right: 0.1rem;
-    float: left;
-
-}
-.chapter-img img{
-    height: 1.8rem;
-    width: 1.28rem;
-}
-.chapter-info{
-    /* flex-grow: 2; */
-    /* width: 0; */
-    float: left;
-}
-.chapter-name{
-    font-weight: bolder;
-    color: #000;
-    /* text-align: center; */
-    font-size:0.3rem; 
-    /* float: left; */
-}
-.chapter-star{
-    /* margin-right: 1rem; */
-    overflow: hidden;    
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    width: 5rem;
-}
-.chapter-show{
-    color:#999;
-}
-span{
-    position: absolute;
-    right: 0;
-    bottom: 0.4rem;
-    color: #FFB400;
-    font-size: .25rem;
-    line-height: 1;
-}
 
 .loading{
     position: fixed;
     bottom: 1rem;
     text-align: center;
 }
-.chapter-end{
-    color:#FFB400;
-}
-
 
 </style>
