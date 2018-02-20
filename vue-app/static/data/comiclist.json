@@ -1,0 +1,23 @@
+{
+    "comicList": [{
+        "name": "少年漫画",
+        "id": 19723756,
+        "bg": "static/img/comic/1.jpg"
+      },
+      {
+        "name": "青年漫画",
+        "id": 3779629,
+        "bg": "static/img/comic/2.jpg"
+      },
+      {
+        "name": "少女漫画",
+        "id": 2884035,
+        "bg": "static/img/comic/3.jpg"
+      },
+      {
+        "name": "耽美漫画",
+        "id": 21845217,
+        "bg": "static/img/comic/4.jpg"
+      }
+    ]
+  }
