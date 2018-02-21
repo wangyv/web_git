@@ -1,6 +1,7 @@
 <template>
     <div class="vue-cartoon">
         <ul>
+            <!-- <li v-for="(cartoon, index) in cartoonList" :key="index" class="cartoon clearfix" @click="getDetail(cartoon.name)"> -->
             <li v-for="(cartoon, index) in cartoonList" :key="index" class="cartoon clearfix">
                 <div class="cartoon-img">
                     <img :src="cartoon.coverImg" :alt="cartoon.name">
