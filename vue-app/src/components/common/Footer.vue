@@ -1,7 +1,10 @@
 <template>
   <ul class="footer"  :style="{background:bgColor}">
+      <li @click="$emit('tapped', 'Cartoon')">
+          <router-link to="/">漫画</router-link>
+      </li>
       <li @click="$emit('tapped', 'Movie')">
-          <router-link to="/">电影</router-link>
+          <router-link to="/movie">电影</router-link>
       </li>
       <li @click="$emit('tapped', 'Music')">
           <router-link to="/music">音乐</router-link>
@@ -12,9 +15,7 @@
       <li @click="$emit('tapped', 'Photo')">
           <router-link to="/photo">图片</router-link>
       </li>
-      <li @click="$emit('tapped', 'Cartoon')">
-          <router-link to="/Type">漫画</router-link>
-      </li>
+      
   </ul>
 </template>
 
