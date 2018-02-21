@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <common-header :bgColor="cColor" @tapped="changed('Movie')" class="header">
+    <common-header :bgColor="cColor" @tapped="changed('Cartoon')" class="header">
         <span slot="title" v-text="cTitle"></span>
     </common-header>
     <router-view/>
@@ -18,8 +18,8 @@ export default {
   name: "App",
   data: () => {
     return {
-      cColor: "rgb(33, 150, 243)",
-      cTitle: "Movie"
+      cColor: "#60f",
+      cTitle: "Cartoon"
     };
   },
   components: {
@@ -49,7 +49,7 @@ export default {
           this.cColor = "#60f";
           break;
         default:
-          this.cColor = "rgb(33, 150, 243)";
+          this.cColor = "#60f";
       }
     }
   },
