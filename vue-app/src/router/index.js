@@ -19,9 +19,12 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   routes: [{
-        path: '/',
+        path: '/movie',
         name: 'movie',
         component: Movie,
+        beforeEnter(to,from,next){
+          from.name === null? next('/') : next();
+        }
       },{
         path: '/music',
         name: 'music',
@@ -64,11 +67,8 @@ export default new Router({
         }
       },
       {
-        path: '/type',
+        path: '/',
         component: Type,
-        beforeEnter(to,from,next){
-          from.name === null? next('/') : next();
-        }
       },{
         path: '/cartoon/:type',
         component: Cartoon,
