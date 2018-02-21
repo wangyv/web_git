@@ -26,7 +26,7 @@ export default {
         getInfo(){
             let Name = this.EncodeUtf8(this.$route.params.cartoonName);
             axios
-            .get(`${API_PROXY}https://japi.juhe.cn/comic/chapter?comicName=${Name}&key=d36a7a9bbbe922fe44c39651f00c4c4b`)
+            .get(`${API_PROXY}https://japi.juhe.cn/comic/chapter?comicName=${this.$route.params.cartoonName}&key=d36a7a9bbbe922fe44c39651f00c4c4b`)
             .then(res=>{
                 console.log(res);
                 let list = res.data.result.chapterList;
@@ -144,7 +144,7 @@ export default {
 
 <style scoped>
 .vue-chapter{
-    background-color: #eee;
+    margin: 1rem 0;
 }
 .clearfix::after{
     content: '';
@@ -152,11 +152,12 @@ export default {
     clear: both;
 }
 .vue-chapter>p{
-    font-size: 0.3rem;
+    font-size: 0.4rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace; 
     text-align: center;
 }
 ul{
-    margin: 1rem 0;
     padding: 0 0.1rem;
 }
 p{
