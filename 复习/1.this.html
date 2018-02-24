@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 1. 
+        function aa(){
+            console.log("1", this);//window
+        }
+        aa();
+
+        // 2.
+        var bb = function(){
+            console.log("2",this);//window
+        }
+        bb();
+
+        // 3.
+        obj = {
+            say: function(){
+                console.log("3",this);//obj
+            }
+        }
+        obj.say();
+
+        // 4
+        var timer = setTimeout(function(){
+            console.log("4",this);//window
+        },500);
+
+        //5.
+        var cc = () => {
+            console.log("5", this);//window
+        }
+        cc();
+        //6.
+        var timer1 = setTimeout(() => {
+            console.log("6",this);//window
+        },500);
+
+        //7. 
+        var dd = () => {
+            setTimeout(() => {
+                console.log("7", this);//window
+            },500);
+        }
+        dd();
+    </script>
+</body>
+</html>
