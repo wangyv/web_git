@@ -1,0 +1,14 @@
+{
+    "bgImg":[
+        {
+            "index": 0,
+            "url": "/static/image/bigBG1.jpg"
+        },{
+            "index": 1,
+            "url": "/static/image/bigBG2.jpg"
+        },{
+            "index": 2,
+            "url": "/static/image/bigBG3.jpg"
+        }
+    ]
+}
