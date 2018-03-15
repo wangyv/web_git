@@ -6,6 +6,10 @@ h3{
     text-align: center;
     margin: 18px 0;
 }
+p{
+    position: absolute;
+    left:100px;
+}
 .g2048{
     border: 4px solid #bbad9e;
     width: 500px;
