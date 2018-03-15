@@ -7,10 +7,25 @@ $(function(){
            filter: 'alpha(opacity:50)',
            zIndex:11
        });
+       var $top = document.body.scrollTop || document.documentElement.scrollTop;
        $('#nav-sub-menu').css({
-               width:270+'px'
+            top:$top,
+            width:270+'px'
        });
-   });
+    });
+    window.onscroll = function(){
+        var $scroll = document.body.scrollTop || document.documentElement.scrollTop;
+        if($scroll >0 ){
+            $('.dialog-mask').css({
+                zIndex:-999,
+                opacity:0,
+                filter: 'alpha(opacity:0)'
+            });
+            $('#nav-sub-menu').css({
+                width:0
+            });
+        }
+    }
     $('.dialog-mask').on('click',function () {
        $('.dialog-mask').css({
            zIndex:-999,
