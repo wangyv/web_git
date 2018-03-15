@@ -128,18 +128,18 @@ li{
 .dialog-mask{
     background-color: #000;
     opacity: 0;
-    filter: alpha(opacity:0);
+    filter: alpha(opacity=0);
     position: fixed;
     z-index: -999;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -ms-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
 }
 #nav-sub-menu{
     width: 0;
