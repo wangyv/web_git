@@ -1,15 +1,23 @@
 #div1 {
-  color: #fff; }
+  color: #fff;
+}
 
 #div2 {
   color: rgba(0, 0, 0, 0.4);
-  width: 200px; }
+  width: 200px;
+}
 
 #div3 .aa-abb {
   width: 200px;
-  height: 200px; }
+  height: 200px;
+}
 
 #div4 {
-  border-bottom: 1px solid #fff; }
+  border-bottom: 1px solid #fff;
+}
+
+#div5 {
+  border-bottom: 1px solid #fff;
+}
 
 /*# sourceMappingURL=test.css.map */
