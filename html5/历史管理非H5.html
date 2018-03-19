@@ -18,11 +18,11 @@
         oBtn.onclick=function () {
             var arr1 = [];
             for(var i=0;i<5;i++){
-                arr.push(Math.ceil(Math.random()*10)+' ');
+                arr1.push(Math.ceil(Math.random()*10)+' ');
             }
             h1.innerHTML = arr1;
             location.hash = Math.random();
-            obj[location.hash] = arr;
+            obj[location.hash] = arr1;
         };
         window.onhashchange = function () {
             h1.innerHTML=(obj[location.hash]);
