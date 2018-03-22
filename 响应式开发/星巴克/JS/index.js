@@ -37,7 +37,7 @@ $(function(){
        });
     });
    $('#nav-sub-menu .nav-sub-menu-second li').on('click',function () {
-      $(this).find('ul').slideToggle();
+        $(this).find('ul').slideToggle();
    }).on('selectstart',function () {
        return false;
    });
@@ -48,7 +48,9 @@ $(function(){
 
    //脚部
     $('#footer .item').on('click',function () {
-        $(this).find('.item-content').slideToggle();
+        if(document.documentElement.clientWidth <= 768){
+            $(this).find('.item-content').slideToggle();
+        }
         return false;
     });
 
