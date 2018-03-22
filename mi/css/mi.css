@@ -30,13 +30,13 @@ body{
     top:0;
     left: 0;
     opacity: 0;
-    filter:alpha(opacity:0);
+    filter:alpha(opacity=0);
     transition: all ease 1s;
 }
 #lunbotu-container #lunbotu .selected{
     z-index: 1;
     opacity: 1;
-    filter:alpha(opacity:100);
+    filter:alpha(opacity=100);
 }
 #lunbotu-tab{
     position: absolute;
@@ -888,7 +888,7 @@ small{
 .content3 .first:hover span,.content3 .second:hover span, .content3 .third:hover span,
 .content3 .forth:hover span{
     opacity: 1;
-    filter: alpha(opacity:100);
+    filter: alpha(opacity=100);
 }
 .content-switch span{
     z-index: 1;
@@ -901,7 +901,7 @@ small{
     background-color:rgba(66, 66, 66, 0.2);
     line-height: 20px;
     opacity: 0;
-    filter:alpha(opacity:0);
+    filter:alpha(opacity=0);
     text-align: center;
     transition: all 0.5s ease-out;
 }
