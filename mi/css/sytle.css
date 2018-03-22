@@ -128,7 +128,7 @@ img {
     background-color: #fff;
     position: absolute;
     left: 0;
-    z-index: 1;
+    z-index: 10;
     overflow: hidden;
     transition: all ,1s,ease,0.5s;
     box-shadow:0 2px 2px rgba(0,0,0,0.3);
@@ -254,7 +254,7 @@ img {
     background: white;
     border: #ff6700 1px solid;
     position: absolute;
-    z-index: 1;
+    z-index: 10;
     top:72px;
     display: none;
 }
