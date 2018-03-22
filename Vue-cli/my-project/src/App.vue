@@ -8,7 +8,7 @@
     <div>
         <router-link to="/">首页</router-link>
         <router-link to="/test">test</router-link>
-        <router-link to="/test2/5/lisi">test2</router-link>
+        <router-link to="/test/test2/5/lisi">test2</router-link>
         <router-link :to="{name:'/test/test1',params:{username:'zhangsan',age:18}}">test1</router-link>
         <router-link to="/home/5/lisan">重定向</router-link>
         <router-link to="/acbc">alias</router-link>
