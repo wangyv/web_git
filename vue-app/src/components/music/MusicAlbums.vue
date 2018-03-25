@@ -151,7 +151,6 @@ export default{
             let lastTime = 0;
             this.lrc.forEach((obj, index, arr) => { 
                 if(lastTime <= audioPlay.currentTime && Number.parseFloat(obj.time) >= audioPlay.currentTime){
-                    // this.nowIndex = index <= 3? 0 : index - 3;
                     this.nowIndex = index == 0 ? 0 : index - 1;
                     lastTime = obj.time;
                 }
