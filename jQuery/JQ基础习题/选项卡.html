@@ -48,7 +48,7 @@
 <body>
     <div id="container">
     <ul id="option">
-        <li class="selected">html</li>
+        <li class="selected aa bb">html</li>
         <li>css</li>
         <li>js</li>
     </ul>
@@ -65,8 +65,66 @@
             $('#option li').on('click',function () {
                 $(this).addClass('selected').siblings().removeClass('selected');
                 $('#content div').eq($(this).index()).addClass('selected').siblings().removeClass('selected');
+            });
+            $('#option li').on('click',function(e){
+                console.log(getElement1(e.target));
             })
         });
+        function getElement(){
+            var arr = [];
+            function getName(elem){
+                if(arguments[0].id == ''){
+                    if(arguments[0].className == ''){
+                        arr.push(elem.tagName.toLowerCase());
+                    }else{
+                        var sClassname = elem.className.split(" ").join(" .");
+                        arr.push("." + sClassname);
+                    }
+                }else{
+                    arr.push("#" + elem.id);
+                }
+                var parent = elem.parentNode;
+                if(parent.tagName == "BODY"){
+                    arr.push("body","html");
+                }else{
+                    getName(parent);
+                }
+            }
+
+            getName(arguments[0]);
+            return arr.reverse().join(" ");
+            
+        }
+
+        function getElement1(){
+            var arr = [];
+            function getName(){
+                var elem = arguments[0];
+                if(elem.id != ''){
+                    arr.push('#'+elem.id);
+                }else{
+                    if(elem.className != ''){
+                        var classnames = elem.className.split(' ').join(' .');
+                        arr.push('.'+classnames);
+                    }else{
+                        arr.push(elem.tagName.toLowerCase());
+                    }
+                }
+                
+                var parent = elem.parentNode;
+                if(parent.tagName == 'BODY'){
+                    arr.push('body','html');
+                }else{
+                    getName(parent);
+                }
+            }
+
+            getName(arguments[0]);
+            return arr.reverse().join(' ');
+        }
+
+
+        
     </script>
 </body>
 </html>
