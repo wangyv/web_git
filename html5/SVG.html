@@ -14,16 +14,9 @@
             stroke-dashoffset: 0;
             stroke-dasharray: 628;
             transition: all 1s linear;
-            -webkit-transform: rotate(-90deg);
-            -moz-transform: rotate(-90deg);
-            -ms-transform: rotate(-90deg);
-            -o-transform: rotate(-90deg);
             transform: rotate(-90deg);
-            -webkit-transform-origin:50% 50%;
-            -moz-transform-origin:50% 50%;
-            -ms-transform-origin:50% 50%;
-            -o-transform-origin:50% 50%;
-            transform-origin:50% 50%;
+            transform-origin:120px 120px;
+            
         }
         #time{
             width: 80px;
@@ -53,7 +46,6 @@
             if(t < 0){
                 clearInterval(timer);
             }else{
-                console.log(sec.strokeDashoffset);
                 sec.style.strokeDashoffset = (628/10) * t - 628;
             }
         },1000);
