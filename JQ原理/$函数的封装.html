@@ -75,11 +75,11 @@
             }
         }
         function addEvent(elem,type,handler) {
-            if(elem.addEventListener){
-                elem.addEventListener(type,handler,false);
-            }else if(elem.attachEvent){
-                elem[type+handler]=function () {
-                    handler.call(elem);
+            if(elem.addEventListener){// 标准
+                elem.addEventListener(type,handler,false);// false 冒泡
+            }else if(elem.attachEvent){// IE
+                elem[type+handler] = function () {
+                    handler.call(elem);// this指向window
                 };
                 elem.attachEvent('on'+type,elem[type+handler]);
             }else{
