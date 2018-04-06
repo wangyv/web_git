@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 1.
+
+        // var aa = 2;
+        // console.log(window.aa);//2
+        // (function () {
+        //   aa = 3;
+        // })();
+        // console.log(window.aa);//3
+
+
+        // 2.
+
+        // function test() {
+        //     console.log(this);
+        //     }
+        // test();//window
+
+
+        //3
+
+        // var obj = {
+        //     say: function () {
+        //         setTimeout(function () {
+        //             console.log(this);//window
+        //         });
+        //     }
+        // }
+        // obj.say();
+
+
+        //4.
+
+        // var obj = {
+        //     func: function() {},
+        //     say: function () {
+        //         var that = this;   //此时的this就是obj对象
+        //         setTimeout(function () {
+        //             console.log(that);//obj
+        //             that.func();
+        //         });
+        //     }
+        // }
+        // obj.say();
+
+
+        //5.
+
+        // var obj = {  
+        //     func: function() {},  
+        //     say: function () {  
+        //     // 此时的this就是obj对象  
+        //         setTimeout(function () {  
+        //             console.log(this)  
+        //             this.func()  
+        //         }.bind(this));  
+        //     }  
+        // }  
+        // obj.say(); // obj  
+
+
+        //6.
+        // <1> 12行代码调用
+        // val变量在没有指定对象前缀,默认从函数中找,找不到则从window中找全局变量
+        // 即 val *=2 就是 window.val *= 2
+        // this.val默认指的是 obj.val ;因为 dbl()第一次被obj直接调用
+        // <2>14行代码调用
+        // func() 没有任何前缀,类似于全局函数,即  window.func调用,所以
+        // 第二次调用的时候, this指的是window, val指的是window.val
+        // 第二次的结果受第一次的影响
+
+        // window.val = 1;
+        // var obj = {
+        //     val: 2,
+        //     dbl: function () {
+        //         this.val *= 2;
+        //         val *= 2;
+        //         console.log(val);
+        //         console.log(this.val);
+        //     }
+        // };
+        // // 说出下面的输出结果
+        // obj.dbl();//2 4
+        // var func = obj.dbl;
+        // func();// 8 8
+
+
+        // 7.
+        // function test() {
+        //     'use strict';
+        //     console.log(this);
+        // }
+        // test();//undefined
+
+        //8.
+
+        // var obj = {
+        //     say: function () {
+        //         setTimeout(() => {
+        //             console.log(this)
+        //         });
+        //     }
+        // }
+        // obj.say(); // obj
+
+        //9.
+        // var obj = {
+        //     say: function () {
+        //         var f1 = () => {
+        //             console.log(this); // obj
+        //             setTimeout(() => {
+        //                 console.log(this); // obj
+        //             })
+        //         }
+        //         f1();
+        //     }
+        // }
+        // obj.say()
+
+        //10.
+        // var obj = {
+        //     say: function () {
+        //         var f1 = function () {
+        //             console.log(this); // window, f1调用时,没有宿主对象,默认是window
+        //             setTimeout(() => {
+        //                 console.log(this); // window
+        //             })
+        //         };
+        //         f1();
+        //     }
+        // }
+        // obj.say();
+        // var obj = {
+        //     say: function () {
+        //         var f1 = function () {
+        //             console.log(this); // window, f1调用时,没有宿主对象,默认是window
+        //             setTimeout(() => {
+        //                 console.log(this); // window
+        //             })
+        //         };
+        //         return f1;
+        //     }
+        // }
+        // obj.say()();
+
+    </script>
+</body>
+
+</html>
