@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="./jquery-3.2.1.js"></script>
+    <script>
+        // let p1 = new Promise(function (resolve, reject) {
+        //     $.get('a.json', {}, (res) => {
+        //         console.log(res);
+        //         resolve();
+        //     });
+        // });
+        // let p2 = new Promise(function (resolve, reject) {
+        //     $.get('b.json', {}, (res) => {
+        //         console.log(res);
+        //         if (res.a) {
+        //             resolve();
+        //         } else {
+        //             reject();
+        //         }
+        //     });
+        // });
+        // let p3 = new Promise(function (resolve, reject) {
+        //     $.get('c.json', {}, (res) => {
+        //         console.log(res);
+        //         resolve();
+        //     });
+        // });
+
+        // //  1.
+        // Promise.all([p1, p2, p3]).then(() => {
+        //     console.log('over');
+        // }).catch(() => {
+        //     console.log('fail');
+        // });
+
+
+
+
+        const p1 = new Promise((resolve, reject) => {
+                resolve('hello');
+            })
+            .then(result => result)
+            .catch(e => e);
+
+        const p2 = new Promise((resolve, reject) => {
+                throw new Error('报错了');
+            })
+            .then(result => result)
+            .catch(e => e);
+
+        Promise.all([p1, p2])
+            .then(result => console.log(result))
+            .catch(e => console.log(e));
+        // ["hello", Error: 报错了]
+    </script>
+</body>
+
+</html>
