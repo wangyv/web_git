@@ -9,6 +9,7 @@
 <body>
     <div id="app">
         <div v-weichuang="red" @click="click1">11111</div>
+        <button @click="handler">change</button>
     </div>
 
     <script src="vue.js"></script>
@@ -21,11 +22,13 @@
             inserted(){
                 console.log('2-inserted');
             },
-            update(){
+            update(el,binding,vnode){
                 console.log('3-update');
+                el.style = 'background: ' + binding.value;
             },
-            componentUpdated(){
+            componentUpdated(el,binding,vnode){
                 console.log('4-componentUpdated');
+                el.style = 'background: ' + binding.value;
             },
             unbind(){
                 console.log('5-unbind');
@@ -40,6 +43,9 @@
             methods:{
                 click1(){
                     this.$destroy();
+                },
+                handler(){
+                    Vue.set(this.$data,'red','#ff0');
                 }
             }
 
