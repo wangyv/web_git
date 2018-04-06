@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,html{
+            margin:0;
+            width: 100%;
+            height: 100%;
+        }
+        #div1{
+            background-color: #f00;
+            width: calc(100vw - 20px);
+            height: calc(50vw - 10px);
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    
+
+
+    <div id="div1"></div>
+    <script>
+        oDiv = document.getElementById('div1');
+        console.log(getComputedStyle(oDiv,null).width);
+        console.log(getComputedStyle(oDiv,null).height);
+    
+    </script>
+</body>
+</html>
