@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p{
+            width: 100%;
+            height: 100px;
+            /* overflow-wrap: normal; */
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" size=16 autofocus='autofocus'>
+    <p class="inputText"></p>
+
+    <script src="./jquery-3.2.1.js"></script>
+    <script>
+        function throttle(callback, delay, wait) {
+            var count = null
+            var start = null
+            return function () {
+                var now = +new Date()
+                // var context = this
+                var args = arguments
+                if (!start) {
+                    start = now
+                }
+                if (now - start > wait) {
+                    count && clearTimeout(count)
+                    start = now
+                    callback.apply(this, args)
+                } else {
+                    count && clearTimeout(count)
+                    count = setTimeout(function () {
+                        callback.apply(this, args)
+                    }, delay)
+                }
+            }
+        }
+        $("input").on("input", function (e) {
+            throttle(function (e) {
+                $(".inputText").html($(e.target).val())
+            }, 1000, 2000)(e);
+        })
+
+    </script>
+</body>
+
+</html>
