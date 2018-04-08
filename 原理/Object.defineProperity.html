@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var o = {}; // 创建一个新对象
+
+        // 在对象中添加一个属性与数据描述符的示例
+        Object.defineProperty(o, "a", {
+            value: 37,
+            writable: true,
+            enumerable: true,
+            configurable: true
+        });
+
+        // 对象o拥有了属性a，值为37
+
+        // 在对象中添加一个属性与存取描述符的示例
+        var bValue;
+        Object.defineProperty(o, "b", {
+            get: function () {
+                return bValue;
+            },
+            set: function (newValue) {
+                bValue = newValue;
+            },
+            enumerable: true,
+            configurable: true
+        });
+
+        o.a = 40;
+        o.b = 38;
+        bValue = 39;
+
+        // console.log(o.a);
+
+
+
+        var pattern = {
+            get: function () {
+                return 'I alway return this string,whatever you have assigned';
+            },
+            set: function () {
+                this.myname = 'this is my name string';
+            }
+        };
+
+
+        function TestDefineSetAndGet() {
+            Object.defineProperty(this, 'myproperty', pattern);
+        }
+
+
+        var instance = new TestDefineSetAndGet();
+        instance.myproperty = 'test';
+
+        // 'I alway return this string,whatever you have assigned'
+        console.log(instance.myproperty);
+        // 'this is my name string'
+        console.log(instance.myname);
+    </script>
+</body>
+
+</html>
