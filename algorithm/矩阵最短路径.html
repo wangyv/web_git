@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        var arr = [];
+        arr[0] = [1,3,5,9];
+        arr[1] = [8,1,3,4];
+        arr[2] = [5,0,6,1];
+        arr[3] = [8,8,4,0];
+
+
+        function shortestPath(arr){
+            if(arr.length == 0||arr == null ||arr[0] == null||arr[0].length == 0){
+                return 0;
+            }
+            var minPath = [];
+            var less = Math.min(arr.length,arr[0].length);
+            var more = Math.max(arr.length,arr[0].length);
+            var rowmore = more == arr.length;
+            minPath[0] = arr[0][0];
+            for(var i=1;i<less;i++){
+                minPath[i] = (rowmore?arr[0][i]:arr[i][0]) + minPath[i-1];
+            }
+            for(var i=1;i<more;i++){
+                minPath[0] = minPath[0] + (rowmore?arr[i][0]:arr[0][i]);
+                for(var j=1;j<less;j++){
+                    minPath[j] = Math.min(minPath[j],minPath[j-1]) + (rowmore?arr[i][j]:arr[j][i]);
+                }
+            }
+            return minPath[less-1];
+        }    
+        console.log(shortestPath(arr));
+    </script>
+</body>
+</html>
