@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        var arr = [1,7,3,5,9,4,8];
+        var maxLength = []; 
+        for(var i=0;i<arr.length;i++){
+            maxLength.push(1);
+        }
+        // console.log(maxLength);
+        for(var i=1;i<arr.length;i++){
+            for(var j=0;j<i;j++){
+                if(arr[i]>arr[j]){
+                    maxLength[i] = Math.max(maxLength[i],maxLength[j]+1);
+                }
+            }
+        }
+        console.log(Math.max.apply(Math,maxLength));        
+
+    
+    
+    </script>
+</body>
+</html>
