@@ -1,3 +1,9 @@
+requirejs.config({
+    paths:{
+        jquery:'jquery.1'
+    }
+})
+
 require(['jquery','carousel'],function ($,Carousel) {
     var c1 = new Carousel();
     var settings ={

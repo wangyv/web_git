@@ -1,3 +1,10 @@
+requirejs.config({
+    paths:{
+        jquery:'jquery.1'
+    }
+})
+
+
 define(['jquery'],function ($) {
    function Carousel() {
        this.$container = $('<div class="carousel-container"></div>');
