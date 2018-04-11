@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
 
+    <script src="./jquery-3.2.1.js"></script>
     <script>
-
         // 1. Generator 函数的调用方法与普通函数一样，也是在函数名后面加上一对圆括号。不同的是，调用 Generator
         // function* HelloWorld(){
         //     yield 'hello';
@@ -25,20 +26,35 @@
 
 
         // 2. next 方法的参数 yield表达式本身没有返回值，或者说总是返回undefined。next方法可以带一个参数，该参数就会被当作上一个yield表达式的返回值
-        function* foo(x){
-            let y = 2 * (yield(x + 1));
-            let z = yield(y / 3);
-            return (x + y + z);
+        // function* foo(x){
+        //     let y = 2 * (yield(x + 1));
+        //     let z = yield(y / 3);
+        //     return (x + y + z);
+        // }
+        // let foo1 = foo(5);
+
+        // // console.log(foo1.next());
+        // // console.log(foo1.next());
+        // // console.log(foo1.next());
+
+        // console.log(foo1.next());
+        // console.log(foo1.next(6));
+        // console.log(foo1.next(4));
+
+        function request(url) {
+            $.get(url, {}, function (res) {
+                ma.next(res);
+            }, 'json')
         }
-        let foo1 = foo(5);
 
-        // console.log(foo1.next());
-        // console.log(foo1.next());
-        // console.log(foo1.next());
-
-        console.log(foo1.next());
-        console.log(foo1.next(6));
-        console.log(foo1.next(4));
+        function* myAjax() {
+            console.log(yield request('a.json'));
+            console.log(yield request('b.json'));
+            console.log(yield request('c.json'));
+        }
+        let ma = myAjax();
+        ma.next();
     </script>
 </body>
+
 </html>
