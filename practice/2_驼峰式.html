@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // 题：用代码把on-interview-day变为驼峰式
+
+        function hump(str){
+            var arr = str.split('-');
+            var humpStr = '';
+            for(var i=0;i<arr.length;i++){
+                humpStr += arr[i].charAt(0).toUpperCase() + arr[i].substr(1);
+            }
+            humpStr = humpStr.charAt(0).toLowerCase() + humpStr.substr(1);
+            return humpStr;
+        }
+        let str = 'on-interview-day';
+        // console.log(hump(str));
+
+        var reg = /-(\w)/g;
+        let result = str.replace(reg, function(arg1,arg2,arg3,arg4){
+            console.log(arg1,arg2,arg3,arg4);
+            // return arg2.toUpperCase();
+        });
+        console.log(result);
+    
+    </script>
+</body>
+</html>
