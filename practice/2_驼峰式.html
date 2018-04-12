@@ -13,23 +13,35 @@
         // 题：用代码把on-interview-day变为驼峰式
 
         function hump(str){
-            var arr = str.split('-');
-            var humpStr = '';
-            for(var i=0;i<arr.length;i++){
-                humpStr += arr[i].charAt(0).toUpperCase() + arr[i].substr(1);
+            let arr = str.split('-');
+            console.log(arr);
+            let humpStr = '';
+            for(let i=1;i<arr.length;i++){
+                // humpStr += arr[i].charAt(0).toUpperCase() + arr[i].substr(1);
+                arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].substr(1);
             }
-            humpStr = humpStr.charAt(0).toLowerCase() + humpStr.substr(1);
+            // humpStr.charAt(0).toLowerCase();
+            humpStr = arr.join('');
             return humpStr;
         }
         let str = 'on-interview-day';
-        // console.log(hump(str));
+        console.log(hump(str));
 
-        var reg = /-(\w)/g;
-        let result = str.replace(reg, function(arg1,arg2,arg3,arg4){
-            console.log(arg1,arg2,arg3,arg4);
-            // return arg2.toUpperCase();
-        });
-        console.log(result);
+        // var reg = /-(\w)/g;
+        // let result = str.replace(reg, function(arg1,arg2,arg3,arg4){
+        //     console.log(arg1,arg2,arg3,arg4);
+        //     // return arg2.toUpperCase();
+        // });
+        // console.log(result);
+
+        // let str = 'on-interview-day';
+        // let arr = str.split('-');
+        // let result = '';
+        // for(let i=0; i<arr.length; i++){
+        //     result += arr[i].charAt(0).toUpperCase() + arr[i].substr(1);
+        // }
+        // result.charAt(0).toLowerCase();
+        // console.log(result);
     
     </script>
 </body>
