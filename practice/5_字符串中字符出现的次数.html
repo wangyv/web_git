@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        function xx(str) {
+            return str.split('').reduce((o, k) => (o[k] = o[k] + 1 || 1, o), {});
+        }
+        console.log(xx('a1b2ac 0 3'));
+    </script>
+</body>
+
+</html>
