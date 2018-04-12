@@ -58,7 +58,7 @@
             .catch(e => e);
 
         Promise.all([p1, p2])
-            .then(result => console.log(result))
+            .then(result => console.log(result,'success'))
             .catch(e => console.log(e));
         // ["hello", Error: 报错了]
     </script>
