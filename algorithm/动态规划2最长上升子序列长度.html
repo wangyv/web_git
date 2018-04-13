@@ -16,14 +16,14 @@
             maxLength.push(1);
         }
         // console.log(maxLength);
-        for(var i=1;i<arr.length;i++){
-            for(var j=0;j<i;j++){
+        for(var i=1;i<arr.length;i++){//后面的
+            for(var j=0;j<i;j++){//前面的
                 if(arr[i]>arr[j]){
                     maxLength[i] = Math.max(maxLength[i],maxLength[j]+1);
                 }
             }
         }
-        console.log(Math.max.apply(Math,maxLength));        
+        console.log(Math.max(...maxLength));        
 
     
     
