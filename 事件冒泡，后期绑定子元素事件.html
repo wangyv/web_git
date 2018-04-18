@@ -20,11 +20,11 @@
         var oUl=document.getElementById('ul1');
         var aLi=oUl.getElementsByTagName('li');
         var oBtn=document.getElementById('btn');
-        for(var i=0;i<aLi.length;i++){
-            aLi[i].onclick=function () {
-                console.log(this.innerHTML);
-            };
-        }
+        // for(var i=0;i<aLi.length;i++){
+        //     aLi[i].onclick=function () {
+        //         console.log(this.innerHTML);
+        //     };
+        // }
 
         //事件代理或事件委托，子元素把时间委托给父元素绑定
         oUl.onclick=function (e) {
@@ -34,7 +34,8 @@
             }else{
                 target=window.event.srcElement;
             }
-            console.log(target);//去到当前事件源
+            console.log(target.innerHTML);//去到当前事件源
+            
         };
         oBtn.onclick=function () {
             var oLi=document.createElement('li');
