@@ -32,7 +32,8 @@
             for(var i=1;i<more;i++){
                 minPath[0] = minPath[0] + (rowmore?arr[i][0]:arr[0][i]);
                 for(var j=1;j<less;j++){
-                    minPath[j] = Math.min(minPath[j],minPath[j-1]) + (rowmore?arr[i][j]:arr[j][i]);
+                    minPath[j] = Math.min(minPath[j],minPath[j-1]) + 
+                        (rowmore?arr[i][j]:arr[j][i]);
                 }
             }
             return minPath[less-1];
