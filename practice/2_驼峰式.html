@@ -25,14 +25,14 @@
             return humpStr;
         }
         let str = 'on-interview-day';
-        console.log(hump(str));
+        // console.log(hump(str));
 
-        // var reg = /-(\w)/g;
-        // let result = str.replace(reg, function(arg1,arg2,arg3,arg4){
-        //     console.log(arg1,arg2,arg3,arg4);
-        //     // return arg2.toUpperCase();
-        // });
-        // console.log(result);
+        var reg = /-(\w)/g;
+        let result = str.replace(reg, function(arg1,arg2,arg3,arg4){
+            console.log(arg1,arg2,arg3,arg4);
+            return arg2.toUpperCase();
+        });
+        console.log(result);
 
         // let str = 'on-interview-day';
         // let arr = str.split('-');
