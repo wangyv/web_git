@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table id="tableSort">
+        <thead>
+        <tr>
+            <th width="30%" data-sorttype="number" data-sort="asc">会员ID</th>
+            <th width="30%" data-sorttype="string" data-sort="asc">会员名</th>
+            <th data-sorttype="string" data-sort="asc">注册时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>16</td>
+            <td>webw3c</td>
+            <td>2011-04-13</td>
+        </tr>
+        <tr>
+            <td>45</td>
+            <td>test001</td>
+            <td>2011-03-27</td>
+        </tr>
+        <tr>
+            <td>116</td>
+            <td>wuliao</td>
+            <td>2011-04-01</td>
+        </tr>
+        <tr>
+            <td>29</td>
+            <td>tired</td>
+            <td>2011-04-06</td>
+        </tr>
+        <tr>
+            <td>155</td>
+            <td>tiredso</td>
+            <td>2011-04-06</td>
+        </tr>
+        <tr>
+            <td>31</td>
+            <td>javascript</td>
+            <td>2011-04-08</td>
+        </tr>
+        <tr>
+            <td>132</td>
+            <td>jquery</td>
+            <td>2011-04-12</td>
+        </tr>
+        </tbody>
+        </table>
+
+
+    <script>
+    
+        function sort(type,order){
+            var arr = [];
+            var oBody = document.getElementsByTagName('tbody')[0];
+            var aTr = oBody.getElementsByTagName('tr'); 
+            for(a of aTr){
+                arr.push(a);
+            }
+            var num;
+            switch(type){
+                case 'id':
+                    num = 0;
+                    break;
+                case 'price':
+                    num = 1;
+                    break;
+                case 'sales':
+                    num = 2;
+                    break;
+            }
+            arr.sort(function(a,b){
+                var aHtml=a.children[num].innerHTML;
+                var bHtml=b.children[num].innerHTML;
+                console.log(aHtml, bHtml);
+                return order=="asc"?aHtml-bHtml:bHtml-aHtml;
+            });
+            oBody.innerHTML = '';
+            for(var i=0;i<arr.length;i++){
+                oBody.appendChild(arr[i]);
+            }
+        }
+
+        sort('id','desc');
+    
+    </script>
+</body>
+</html>
