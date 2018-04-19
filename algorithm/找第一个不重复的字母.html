@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+    <script>
+        function firstNonRepeatChar(str) {
+            var count = {};
+            for (var i = 0; i < str.length; i++) {
+                if (count[str[i]]) {
+                    count[str[i]]++;
+                } else {
+                    count[str[i]] = 1;
+                }
+            }
+
+            for (var prop in count) {
+                if (count[prop] === 1) {
+                    return prop;
+                }
+            }
+
+        }
+
+
+        console.log(firstNonRepeatChar('ababacdefghd'));
+
+        console.log([1,2,3,4,5].slice(0));
+    </script>
+</body>
+
+</html>
