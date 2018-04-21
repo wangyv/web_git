@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        function sum(arr1, arr2) {
+            var temp = [];            
+            function swap(arr, i, j) {
+                var temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+            //递归实现数组全排列
+            function permutation(arr, len, index) {
+                if (index == len) { //全排列结果
+                    var tempArr = [...arr]; 
+                    temp.push(tempArr);
+                } else
+                    for (var i = index; i < len; i++) {
+                        //将第i个元素交换至当前index下标处
+                        swap(arr, index, i);
+                        //以递归的方式对剩下元素进行全排列
+                        permutation(arr, len, index + 1);
+                        //将第i个元素交换回原处
+                        swap(arr, index, i);
+                    }
+            }
+            var n = arr1.length;
+            var result = Infinity;
+            permutation(arr2,n,0);
+            console.log(temp);
+            for(var i = 0;i<temp.length;i++){
+                var temp1 = 0;
+                for(var j = 0;j<n;j++){
+                    temp1 += arr1[j]*temp[i][j];
+                }
+                result = temp1 >= result ? result : temp1;
+            }
+            
+
+            return result;
+        }
+
+        console.log(sum([1,2,3],[1,2,3]));
+    </script>
+</body>
+
+</html>
