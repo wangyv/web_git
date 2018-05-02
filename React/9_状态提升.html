@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="./react_16.3.2/react.development.js"></script>
+    <script src="./react_16.3.2/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.js"></script>
+
+
+
+    <script type="text/babel">
+
+        function BoilingVerdict(props) {
+            if (props.celsius >= 100) {
+                return <p>水会烧开</p>;
+            }
+            return <p>水不会烧开</p>;
+        }
+        //输入框部分
+        const scaleNames = {
+            c: 'Celsius',
+            f: 'Fahrenheit'
+        };
+
+        //转换函数
+
+        function toCelsius(fahrenheit) {
+            return (fahrenheit - 32) * 5 / 9;
+        }
+
+        function toFahrenheit(celsius) {
+            return (celsius * 9 / 5) + 32;
+        }
+        function tryConvert(temperature, convert) {
+            const input = parseFloat(temperature);
+            if (Number.isNaN(input)) {
+                return '';
+            }
+            const output = convert(input);
+            const rounded = Math.round(output * 1000) / 1000;
+            return rounded.toString();
+        }
+
+        // 状态提升 修改第一步
+
+
+        class TemperatureInput extends React.Component {
+            constructor(props) {
+                super(props);
+                this.handleChange = this.handleChange.bind(this);
+                this.state = {temperature: ''};
+            }
+
+            handleChange(e) {
+                //this.setState({temperature: e.target.value});
+                this.props.onTemperatureChange(e.target.value);
+            }
+
+            render() {
+                //const temperature = this.state.temperature;
+                const temperature = this.props.temperature;
+                const scale = this.props.scale;
+                return (
+                <fieldset>
+                    <legend>在{scaleNames[scale]}:中输入温度数值</legend>
+                    <input value={temperature}
+                        onChange={this.handleChange} />
+                </fieldset>
+                );
+            }
+        }
+
+        // 父组件部分
+        class Calculator extends React.Component {
+            constructor(props) {
+                super(props);
+                this.handleCelsiusChange = this.handleCelsiusChange.bind(this);
+                this.handleFahrenheitChange = this.handleFahrenheitChange.bind(this);
+                this.state = {temperature: '', scale: 'c'};
+            }
+
+            handleCelsiusChange(temperature) {
+                this.setState({scale: 'c', temperature});
+            }
+
+            handleFahrenheitChange(temperature) {
+                this.setState({scale: 'f', temperature});
+            }
+
+            render() {
+                const scale = this.state.scale;
+                const temperature = this.state.temperature;
+                const celsius = scale === 'f' ? tryConvert(temperature, toCelsius) : temperature;
+                const fahrenheit = scale === 'c' ? tryConvert(temperature, toFahrenheit) : temperature;
+
+                return (
+                <div>
+                    <TemperatureInput
+                    scale="c"
+                    temperature={celsius}
+                    onTemperatureChange={this.handleCelsiusChange} />
+
+                    <TemperatureInput
+                    scale="f"
+                    temperature={fahrenheit}
+                    onTemperatureChange={this.handleFahrenheitChange} />
+
+                    <BoilingVerdict
+                    celsius={parseFloat(celsius)} />
+
+                </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <Calculator />,
+            document.getElementById('root')            
+        )
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
