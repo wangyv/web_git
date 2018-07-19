@@ -23,4 +23,5 @@ function sort(table,thidx,sortTypes) {//传入一个JQ对象，下标，排序�
             $('tbody').append(arr[i]);
         }
     });
+    console.log(111);
 }
